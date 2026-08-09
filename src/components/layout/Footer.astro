@@ -1,29 +1,34 @@
 ---
-// 页脚。链接分组文案 Step 4 国际化时替换（任务书授权本步硬编码中文）。
+import { getTranslation, getLangFromPath, getLocalizedPath } from '@/i18n/utils';
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = getTranslation(Astro.url.pathname);
+
+// 页脚链接分组：标题与链接文案走 i18n，链接按当前语言加前缀
 const linkGroups = [
   {
-    title: '文档',
+    title: t.footer.docsTitle,
     links: [
-      { label: '协议', href: '/protocol' },
-      { label: '架构', href: '/architecture' },
-      { label: '安全', href: '/security' },
+      { label: t.nav.protocol, href: getLocalizedPath('/protocol', lang) },
+      { label: t.nav.architecture, href: getLocalizedPath('/architecture', lang) },
+      { label: t.nav.security, href: getLocalizedPath('/security', lang) },
     ],
   },
   {
-    title: '社区',
+    title: t.footer.communityTitle,
     links: [
-      { label: '开发者', href: '/developer' },
-      { label: '下载', href: '/downloads' },
+      { label: t.nav.developer, href: getLocalizedPath('/developer', lang) },
+      { label: t.nav.downloads, href: getLocalizedPath('/downloads', lang) },
     ],
   },
-] as const;
+];
 ---
 
 <footer class="border-t border-[var(--border-color)]">
   <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 md:flex-row md:items-start md:justify-between">
     <!-- 左：版权 -->
     <div>
-      <p class="text-sm text-[var(--text-secondary)]">© 2026 AEP Protocol</p>
+      <p class="text-sm text-[var(--text-secondary)]">{t.footer.copyright}</p>
     </div>
 
     <!-- 中：链接分组（两列） -->

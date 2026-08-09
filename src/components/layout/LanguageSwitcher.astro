@@ -1,25 +1,23 @@
 ---
-// 语言切换占位组件（Step 4 实现真实跳转逻辑）。
-// 当前语言用 data-active 属性标记，高亮样式已预留。
-// 本步仅做壳：两个按钮并排，点击暂不跳转。
----
-<div class="flex items-center gap-1 rounded-full border border-[var(--border-color)] p-0.5 text-sm">
-  <button
-    type="button"
-    class="cursor-pointer rounded-full px-2.5 py-1 text-[var(--text-secondary)] transition-colors hover:text-aep-primary"
-    data-active
-  >中文</button>
-  <button
-    type="button"
-    class="cursor-pointer rounded-full px-2.5 py-1 text-[var(--text-secondary)] transition-colors hover:text-aep-primary"
-  >EN</button>
-</div>
+import { getLangFromPath, getAlternatePath } from '@/i18n/utils';
+import { localeLabels, locales } from '@/i18n/config';
 
-<style>
-  /* 当前语言高亮（预留，Step 4 切换 data-active） */
-  [data-active] {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    font-weight: 600;
-  }
-</style>
+const currentLang = getLangFromPath(Astro.url.pathname);
+---
+
+<div class="flex items-center gap-1 rounded-full border border-[var(--border-color)] p-0.5 text-sm">
+  {locales.map((locale) => (
+    <a
+      href={getAlternatePath(Astro.url.pathname, locale)}
+      aria-label={localeLabels[locale]}
+      class:list={[
+        'cursor-pointer rounded-full px-2.5 py-1 transition-colors hover:text-aep-primary',
+        locale === currentLang
+          ? 'bg-[var(--bg-secondary)] font-semibold text-[var(--text-primary)]'
+          : 'text-[var(--text-secondary)]',
+      ]}
+    >
+      {localeLabels[locale]}
+    </a>
+  ))}
+</div>

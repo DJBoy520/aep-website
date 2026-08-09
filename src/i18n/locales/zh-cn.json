@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "首页",
+    "protocol": "协议",
+    "architecture": "架构",
+    "security": "安全",
+    "developer": "开发者",
+    "downloads": "下载"
+  },
+  "hero": {
+    "title": "AEP",
+    "subtitle": "AI Evidence Protocol",
+    "slogan": "为每一份 AI 生成内容提供可信的数字证明",
+    "description": "通过密码学、时间证明和可验证数据结构，建立 AI 内容从生成到验证的完整可信链路。"
+  },
+  "common": {
+    "getStarted": "开始使用",
+    "viewProtocol": "查看协议",
+    "downloadTools": "下载工具",
+    "learnMore": "了解更多",
+    "available": "可用",
+    "comingSoon": "即将推出"
+  },
+  "footer": {
+    "copyright": "© 2026 AEP Protocol. All rights reserved.",
+    "docsTitle": "文档",
+    "communityTitle": "社区"
+  },
+  "home": {
+    "placeholderTitle": "AEP - AI Evidence Protocol",
+    "placeholderDesc": "为 AI 生成内容提供可信的存证与验证协议。"
+  }
+}

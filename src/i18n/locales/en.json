@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Home",
+    "protocol": "Protocol",
+    "architecture": "Architecture",
+    "security": "Security",
+    "developer": "Developer",
+    "downloads": "Downloads"
+  },
+  "hero": {
+    "title": "AEP",
+    "subtitle": "AI Evidence Protocol",
+    "slogan": "Trusted digital proof for every piece of AI-generated content",
+    "description": "Establish a complete trusted chain from generation to verification for AI content through cryptography, time proof and verifiable data structures."
+  },
+  "common": {
+    "getStarted": "Get Started",
+    "viewProtocol": "View Protocol",
+    "downloadTools": "Download Tools",
+    "learnMore": "Learn More",
+    "available": "Available",
+    "comingSoon": "Coming Soon"
+  },
+  "footer": {
+    "copyright": "© 2026 AEP Protocol. All rights reserved.",
+    "docsTitle": "Docs",
+    "communityTitle": "Community"
+  },
+  "home": {
+    "placeholderTitle": "AEP - AI Evidence Protocol",
+    "placeholderDesc": "A trusted evidence and verification protocol for AI-generated content."
+  }
+}

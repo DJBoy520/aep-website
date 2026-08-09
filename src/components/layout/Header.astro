@@ -1,22 +1,26 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getTranslation, getLangFromPath, getLocalizedPath } from '@/i18n/utils';
 
-// 导航项。Step 4 国际化时替换为 i18n 文案（任务书授权本步硬编码中文）。
+const lang = getLangFromPath(Astro.url.pathname);
+const t = getTranslation(Astro.url.pathname);
+
+// 导航项：文案走 i18n，链接按当前语言加前缀
 const navItems = [
-  { label: '首页', href: '/' },
-  { label: '协议', href: '/protocol' },
-  { label: '架构', href: '/architecture' },
-  { label: '安全', href: '/security' },
-  { label: '开发者', href: '/developer' },
-  { label: '下载', href: '/downloads' },
-] as const;
+  { label: t.nav.home, href: getLocalizedPath('/', lang) },
+  { label: t.nav.protocol, href: getLocalizedPath('/protocol', lang) },
+  { label: t.nav.architecture, href: getLocalizedPath('/architecture', lang) },
+  { label: t.nav.security, href: getLocalizedPath('/security', lang) },
+  { label: t.nav.developer, href: getLocalizedPath('/developer', lang) },
+  { label: t.nav.downloads, href: getLocalizedPath('/downloads', lang) },
+];
 ---
 
 <header class="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/80 backdrop-blur-md">
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
     <!-- 左：Logo（文字 + 小图标占位） -->
-    <a href="/" class="flex shrink-0 items-center gap-2 text-[var(--text-primary)]">
+    <a href={getLocalizedPath('/', lang)} class="flex shrink-0 items-center gap-2 text-[var(--text-primary)]">
       <svg class="h-5 w-5 text-aep-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 2 22 12 12 22 2 12Z" />
         <rect x="9" y="9" width="6" height="6" fill="var(--bg-primary)" />
