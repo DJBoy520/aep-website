@@ -1,0 +1,47 @@
+/* Google Fonts: Inter (sans) + JetBrains Mono (mono) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* Light theme (default) */
+:root,
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --card-bg: #f8fafc;
+  --code-bg: #1e293b;
+  --code-text: #f9fafb;
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  --bg-primary: #0b132b;
+  --bg-secondary: #1e293b;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --border-color: #334155;
+  --card-bg: #1e293b;
+  --code-bg: #0f172a;
+  --code-text: #e2e8f0;
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
