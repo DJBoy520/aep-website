@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# 离线镜像包（二进制大文件，不入库；用 docker save 重新生成）
+*.tar.gz
