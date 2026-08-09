@@ -1,0 +1,76 @@
+---
+// 明暗主题切换按钮。
+// 点击切换 <html> 的 data-theme 属性（light ↔ dark），
+// 并将选择持久化到 localStorage（key: 'theme'）。
+// 图标：light 主题显示太阳，dark 主题显示月亮（CSS 控制显隐）。
+---
+<button
+  type="button"
+  class="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-secondary)] hover:text-aep-primary"
+  aria-label="切换主题"
+  title="切换主题"
+  data-theme-toggle
+>
+  <!-- 太阳图标：light 主题时显示 -->
+  <svg
+    class="icon-sun h-4 w-4"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+  </svg>
+  <!-- 月亮图标：dark 主题时显示 -->
+  <svg
+    class="icon-moon h-4 w-4"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+</button>
+
+<script is:inline>
+  (() => {
+    const button = document.querySelector('[data-theme-toggle]');
+    if (!button) return;
+
+    const root = document.documentElement;
+
+    button.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+        // localStorage 不可用（如隐私模式）时静默忽略
+      }
+    });
+  })();
+</script>
+
+<style>
+  /* 根据当前主题显示对应图标 */
+  :global(html[data-theme='light']) .icon-sun {
+    display: block;
+  }
+  :global(html[data-theme='light']) .icon-moon {
+    display: none;
+  }
+  :global(html[data-theme='dark']) .icon-sun {
+    display: none;
+  }
+  :global(html[data-theme='dark']) .icon-moon {
+    display: block;
+  }
+</style>

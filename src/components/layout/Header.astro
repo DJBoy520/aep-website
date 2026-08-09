@@ -1,0 +1,59 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+// 导航项。Step 4 国际化时替换为 i18n 文案（任务书授权本步硬编码中文）。
+const navItems = [
+  { label: '首页', href: '/' },
+  { label: '协议', href: '/protocol' },
+  { label: '架构', href: '/architecture' },
+  { label: '安全', href: '/security' },
+  { label: '开发者', href: '/developer' },
+  { label: '下载', href: '/downloads' },
+] as const;
+---
+
+<header class="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/80 backdrop-blur-md">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <!-- 左：Logo（文字 + 小图标占位） -->
+    <a href="/" class="flex shrink-0 items-center gap-2 text-[var(--text-primary)]">
+      <svg class="h-5 w-5 text-aep-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2 22 12 12 22 2 12Z" />
+        <rect x="9" y="9" width="6" height="6" fill="var(--bg-primary)" />
+      </svg>
+      <span class="text-lg font-bold tracking-tight">AEP</span>
+    </a>
+
+    <!-- 中：桌面端导航（≥768px 显示） -->
+    <nav class="hidden md:block" aria-label="主导航">
+      <ul class="flex items-center gap-1">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="rounded-md px-3 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-aep-primary"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- 右：主题切换 + 语言切换 + 移动端汉堡按钮 -->
+    <div class="flex shrink-0 items-center gap-2">
+      <ThemeToggle />
+      <LanguageSwitcher />
+      <!-- 汉堡按钮（<768px 显示；展开功能后续步骤实现） -->
+      <button
+        type="button"
+        class="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border-color)] text-[var(--text-secondary)] md:hidden"
+        aria-label="打开菜单"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
