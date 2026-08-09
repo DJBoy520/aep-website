@@ -9,7 +9,7 @@
   },
   "hero": {
     "title": "AEP",
-    "subtitle": "AI Evidence Protocol",
+    "subtitle": "Attestation & Evidence Exchange Protocol",
     "slogan": "为每一份 AI 生成内容提供可信的数字证明",
     "description": "通过密码学、时间证明和可验证数据结构，建立 AI 内容从生成到验证的完整可信链路。"
   },
@@ -27,7 +27,7 @@
     "communityTitle": "社区"
   },
   "home": {
-    "placeholderTitle": "AEP - AI Evidence Protocol",
+    "placeholderTitle": "AEP - Attestation & Evidence Exchange Protocol",
     "placeholderDesc": "为 AI 生成内容提供可信的存证与验证协议。"
   },
   "evidenceFlow": {
@@ -114,7 +114,7 @@
     "subtitle": "开放、可验证、可扩展的 AI 证据协议",
     "overviewTitle": "协议概述",
     "overview": [
-      "AEP（AI Evidence Protocol）是一个为 AI 生成内容提供可信数字证明的开放协议。",
+      "AEP（Attestation & Evidence Exchange Protocol）是一个为 AI 生成内容提供可信数字证明的开放协议。",
       "它解决的核心问题是：AI 内容泛滥时代，如何证明一份内容由谁生成、何时生成、内容是否完整未被篡改。",
       "AEP 通过密码学、时间证明和可验证数据结构，建立 AI 内容从生成到验证的完整可信链路，任何人都可以独立验证。"
     ],

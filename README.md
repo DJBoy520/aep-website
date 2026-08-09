@@ -1,6 +1,6 @@
 # AEP 官方网站
 
-AEP（AI Evidence Protocol）官方门户，承载协议展示、开发者入口与生态起点。v0.1 为纯静态站，共 6 个页面 × 中英双语 = 12 条路由，支持明暗主题切换。
+AEP（Attestation & Evidence Exchange Protocol）官方门户，承载协议展示、开发者入口与生态起点。v0.1 为纯静态站，共 6 个页面 × 中英双语 = 12 条路由，支持明暗主题切换。
 
 ## 技术栈
 

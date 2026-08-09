@@ -9,7 +9,7 @@
   },
   "hero": {
     "title": "AEP",
-    "subtitle": "AI Evidence Protocol",
+    "subtitle": "Attestation & Evidence Exchange Protocol",
     "slogan": "Trusted digital proof for every piece of AI-generated content",
     "description": "Establish a complete trusted chain from generation to verification for AI content through cryptography, time proof and verifiable data structures."
   },
@@ -27,7 +27,7 @@
     "communityTitle": "Community"
   },
   "home": {
-    "placeholderTitle": "AEP - AI Evidence Protocol",
+    "placeholderTitle": "AEP - Attestation & Evidence Exchange Protocol",
     "placeholderDesc": "A trusted evidence and verification protocol for AI-generated content."
   },
   "evidenceFlow": {
@@ -114,7 +114,7 @@
     "subtitle": "An open, verifiable and extensible AI evidence protocol",
     "overviewTitle": "Overview",
     "overview": [
-      "AEP (AI Evidence Protocol) is an open protocol that provides trusted digital proof for AI-generated content.",
+      "AEP (Attestation & Evidence Exchange Protocol) is an open protocol that provides trusted digital proof for AI-generated content.",
       "The core problem it solves: in an era of mass AI-generated content, how to prove who generated a piece of content, when it was generated, and whether it remains complete and unaltered.",
       "Through cryptography, time proof and verifiable data structures, AEP builds a complete trusted chain from generation to verification for AI content, independently verifiable by anyone."
     ],
