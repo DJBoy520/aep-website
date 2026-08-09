@@ -1,0 +1,108 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import Card from '../components/common/Card.astro';
+import Button from '../components/common/Button.astro';
+import CodeBlock from '../components/common/CodeBlock.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const d = t.downloads;
+
+// 下载链接占位（v0.1 无真实发布文件，统一指向 GitHub Releases）
+const releasesUrl = 'https://github.com/aep-protocol/aep-cli/releases';
+const installCmd =
+  'curl -fsSL https://github.com/aep-protocol/aep-cli/releases/download/v0.1.0/install.sh | sh';
+const mcpInstallCmd = `# via npm
+npm install -g aep-mcp
+# via pip
+pip install aep-mcp`;
+---
+
+<MainLayout title={d.title} description={d.subtitle}>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+    <div class="space-y-16">
+      <!-- 页面标题区 -->
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+          {d.title}
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-[var(--text-secondary)]">{d.subtitle}</p>
+      </div>
+
+      <!-- AEP CLI 区块 -->
+      <section>
+        <Card>
+          <div class="flex flex-wrap items-center gap-3">
+            <h2 class="text-xl font-bold text-[var(--text-primary)]">{d.cliTitle}</h2>
+            <span
+              class="rounded-full bg-aep-primary/10 px-3 py-0.5 text-sm text-aep-primary"
+            >
+              {d.cliVersion}
+            </span>
+          </div>
+          <p class="mt-3 text-[var(--text-secondary)]">{d.cliDesc}</p>
+          <p class="mt-2 text-sm text-[var(--text-secondary)]">{d.cliUpdated}</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            {d.cliPlatforms.map((platform) => (
+              <Button href={releasesUrl} variant="outline">
+                {platform}
+              </Button>
+            ))}
+          </div>
+          <h3 class="mt-8 text-sm font-semibold text-[var(--text-primary)]">
+            {d.cliInstallTitle}
+          </h3>
+          <div class="mt-3">
+            <CodeBlock code={installCmd} language="bash" />
+          </div>
+        </Card>
+      </section>
+
+      <!-- AEP MCP Server 区块 -->
+      <section>
+        <Card>
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">{d.mcpTitle}</h2>
+          <p class="mt-3 text-[var(--text-secondary)]">{d.mcpDesc}</p>
+          <h3 class="mt-8 text-sm font-semibold text-[var(--text-primary)]">
+            {d.mcpInstallTitle}
+          </h3>
+          <div class="mt-3">
+            <CodeBlock code={mcpInstallCmd} language="bash" />
+          </div>
+        </Card>
+      </section>
+
+      <!-- AEP Skill 区块 -->
+      <section>
+        <Card>
+          <div class="flex flex-wrap items-center gap-3">
+            <h2 class="text-xl font-bold text-[var(--text-primary)]">{d.skillTitle}</h2>
+            <span
+              class="rounded-full bg-aep-amber/10 px-3 py-0.5 text-sm text-aep-amber"
+            >
+              {d.skillNote}
+            </span>
+          </div>
+          <p class="mt-3 text-[var(--text-secondary)]">{d.skillDesc}</p>
+          <div class="mt-6">
+            <Button href="#" variant="secondary">
+              {d.download}
+            </Button>
+          </div>
+        </Card>
+      </section>
+
+      <!-- 历史版本 -->
+      <section>
+        <SectionTitle title={d.historyTitle} />
+        <p class="mt-4 text-[var(--text-secondary)]">{d.historyDesc}</p>
+        <div class="mt-6">
+          <Button href={releasesUrl} variant="secondary">
+            {d.releasesLink}
+          </Button>
+        </div>
+      </section>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,119 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionTitle from '../../components/common/SectionTitle.astro';
+import Button from '../../components/common/Button.astro';
+import CodeBlock from '../../components/common/CodeBlock.astro';
+import ToolCard from '../../components/common/ToolCard.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const d = t.developer;
+
+// Tool matrix data: narrow the string status from i18n into a union type
+interface Tool {
+  name: string;
+  status: 'available' | 'comingSoon';
+  desc: string;
+}
+
+const tools: Tool[] = d.tools.map((tool) => ({
+  name: tool.name,
+  status: tool.status === 'available' ? 'available' : 'comingSoon',
+  desc: tool.desc,
+}));
+
+// Command examples for the three quick-start steps (code content, hardcoded by design)
+const stepCommands: string[] = [
+  'curl -fsSL https://github.com/aep-protocol/aep-cli/releases/download/v0.1.0/install.sh | sh',
+  'aep init my-project',
+  'aep notarize artifact.md --project my-project',
+];
+
+// CLI notarization example (multi-line)
+const cliExample = `# init project
+aep init my-project
+# notarize a file
+aep notarize report.md --project my-project
+# validate the evidence package
+aep validate evidence.aep`;
+
+// MCP invocation example (JSON config snippet)
+const mcpExample = `{
+  "mcpServers": {
+    "aep": {
+      "command": "aep-mcp",
+      "args": ["--project", "my-project"]
+    }
+  }
+}`;
+---
+
+<MainLayout title={d.title} description={d.subtitle}>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+    <div class="space-y-16">
+      <!-- Page title -->
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+          {d.title}
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-[var(--text-secondary)]">{d.subtitle}</p>
+      </div>
+
+      <!-- Quick start -->
+      <section>
+        <SectionTitle title={d.quickStartTitle} />
+        <div class="mt-10 space-y-8">
+          {d.quickStartSteps.map((step, i) => (
+            <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+              <div class="flex items-start gap-4 sm:w-72 sm:shrink-0 sm:pt-1">
+                <span
+                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-aep-primary to-aep-purple text-sm font-semibold text-white"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 class="font-semibold text-[var(--text-primary)]">{step.title}</h3>
+                  <p class="mt-1 text-sm text-[var(--text-secondary)]">{step.desc}</p>
+                </div>
+              </div>
+              <div class="min-w-0 flex-1">
+                <CodeBlock code={stepCommands[i]} language="bash" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Tool matrix -->
+      <section>
+        <SectionTitle title={d.toolsTitle} />
+        <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {tools.map((tool) => (
+            <ToolCard name={tool.name} status={tool.status} desc={tool.desc} />
+          ))}
+        </div>
+      </section>
+
+      <!-- Code examples -->
+      <section>
+        <SectionTitle title={d.examplesTitle} />
+        <div class="mt-10 space-y-6">
+          <CodeBlock code={cliExample} language="bash" />
+          <CodeBlock code={mcpExample} language="json" />
+        </div>
+      </section>
+
+      <!-- Documentation -->
+      <section>
+        <SectionTitle title={d.docsTitle} />
+        <p class="mt-6 max-w-2xl text-[var(--text-secondary)]">{d.docsDesc}</p>
+        <div class="mt-8">
+          <Button href="https://github.com/" variant="primary">
+            {d.docsLink}
+          </Button>
+        </div>
+      </section>
+    </div>
+  </section>
+</MainLayout>

@@ -218,5 +218,47 @@
       "Private key management is the user's responsibility; key compromise weakens the credibility of source authentication.",
       "AEP does not guarantee the truthfulness of content, nor unconditional security; it makes tampering and forgery cryptographically detectable."
     ]
+  },
+  "developer": {
+    "title": "Developer Center",
+    "subtitle": "Quickly integrate AEP into your application",
+    "quickStartTitle": "Quick Start",
+    "quickStartSteps": [
+      { "title": "Install CLI Tool", "desc": "Install the AEP command-line tool with one command" },
+      { "title": "Initialize Evidence Package", "desc": "Initialize the evidence package structure in your project" },
+      { "title": "Generate Evidence", "desc": "Generate signed evidence for files or content" }
+    ],
+    "toolsTitle": "Tool Matrix",
+    "tools": [
+      { "name": "MCP Server", "status": "available", "desc": "17 MCP tools with native AI agent support" },
+      { "name": "CLI Tool", "status": "available", "desc": "Command-line tool for batch notarization, verification and export" },
+      { "name": "Python SDK", "status": "comingSoon", "desc": "Python developer toolkit" },
+      { "name": "Rust SDK", "status": "comingSoon", "desc": "High-performance Rust implementation" },
+      { "name": "Go SDK", "status": "comingSoon", "desc": "Go language integration library" }
+    ],
+    "examplesTitle": "Code Examples",
+    "docsTitle": "Documentation",
+    "docsDesc": "The full protocol specification, API reference and integration guide are under construction and will launch with the documentation system in v0.2.",
+    "docsLink": "View on GitHub"
+  },
+  "downloads": {
+    "title": "Download Center",
+    "subtitle": "Get AEP tools and SDKs",
+    "cliTitle": "AEP CLI",
+    "cliDesc": "Command-line tool: one-click notarization, verification and evidence package export",
+    "cliVersion": "v0.1.0",
+    "cliUpdated": "Updated: 2026-08-09",
+    "cliPlatforms": ["Linux", "macOS", "Windows"],
+    "cliInstallTitle": "Installation",
+    "mcpTitle": "AEP MCP Server",
+    "mcpDesc": "Native AI agent support: 17 MCP tools for notarization and verification in one",
+    "mcpInstallTitle": "Installation",
+    "skillTitle": "AEP Skill",
+    "skillDesc": "Agent skill pack: one-click integration with mainstream AI assistants",
+    "skillNote": "Coming Soon",
+    "historyTitle": "Version History",
+    "historyDesc": "Download entries for all historical versions",
+    "download": "Download",
+    "releasesLink": "GitHub Releases"
   }
 }
