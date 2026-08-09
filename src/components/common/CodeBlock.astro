@@ -1,0 +1,21 @@
+---
+interface Props {
+  code: string;
+  language?: string; // 显示在右上角的语言标签
+}
+
+const { code, language } = Astro.props;
+---
+
+<!-- 通用代码块：深色底 + 等宽字体 + 可选语言标签（调用方用模板字符串传 code，避免 Astro 解析花括号） -->
+<div class="relative overflow-x-auto rounded-lg bg-[var(--code-bg)] text-[var(--code-text)]">
+  {language && (
+    <span
+      class="pointer-events-none absolute right-3 top-2 z-10 select-none text-xs opacity-70"
+      aria-hidden="true"
+    >
+      {language}
+    </span>
+  )}
+  <pre class="p-4 text-sm font-mono"><code>{code}</code></pre>
+</div>

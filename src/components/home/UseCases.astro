@@ -1,0 +1,23 @@
+---
+import SectionTitle from '../common/SectionTitle.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const items = t.useCases.items;
+---
+
+<!-- 应用场景：6 卡片网格（大 emoji + 标签，悬停上浮） -->
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+  <SectionTitle title={t.useCases.title} subtitle={t.useCases.subtitle} align="center" />
+
+  <div class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+    {items.map((item) => (
+      <div class="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 text-center transition hover:-translate-y-1 hover:shadow-lg">
+        <div class="text-3xl" aria-hidden="true">
+          {item.icon}
+        </div>
+        <p class="mt-3 text-sm font-medium text-[var(--text-primary)]">{item.label}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -53,5 +53,60 @@
       { "title": "Merkle Tree", "desc": "Efficient verification of large-scale data, set integrity", "icon": "🌳" },
       { "title": "Evidence Graph", "desc": "Graph of events and artifacts, complete record of generation", "icon": "🕸️" }
     ]
+  },
+  "packagePreview": {
+    "title": "Unified Evidence Package Format",
+    "subtitle": ".aep format, ready to use out of the box"
+  },
+  "verification": {
+    "title": "Seven-Stage Verification Process",
+    "subtitle": "Each step is independently verifiable",
+    "steps": [
+      "Container Check",
+      "Schema Validation",
+      "Graph Validation",
+      "Merkle Verification",
+      "SM2 Signature Verification",
+      "Identity Check",
+      "Level Calculation"
+    ],
+    "resultTitle": "Verification Passed",
+    "resultLevel": "Evidence Level",
+    "levelValue": "L3"
+  },
+  "developerEntry": {
+    "title": "Developer Friendly",
+    "subtitle": "Multiple integration options for fast adoption",
+    "mcpTitle": "MCP Integration",
+    "mcpDesc": "17 MCP tools with native AI agent support",
+    "cliTitle": "CLI Tool",
+    "cliDesc": "Command-line tool for batch notarization, verification and export",
+    "skillsTitle": "Agent Skills",
+    "skillsDesc": "Agent skills for one-click integration"
+  },
+  "useCases": {
+    "title": "Broad Use Cases",
+    "subtitle": "Covering every domain of AI generation",
+    "items": [
+      { "label": "AI Writing", "icon": "✍️" },
+      { "label": "Code Generation", "icon": "💻" },
+      { "label": "Image Generation", "icon": "🎨" },
+      { "label": "Video Generation", "icon": "🎬" },
+      { "label": "Agent Execution", "icon": "🤖" },
+      { "label": "Enterprise Audit", "icon": "🏢" }
+    ]
+  },
+  "comingSoon": {
+    "title": "Continuously Evolving",
+    "subtitle": "More features and tools coming soon",
+    "items": [
+      "Python SDK",
+      "Rust SDK",
+      "Go SDK",
+      "Java SDK",
+      "Online Verification Service",
+      "Enterprise Platform",
+      "More Integrations"
+    ]
   }
 }

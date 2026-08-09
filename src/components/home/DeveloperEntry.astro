@@ -1,0 +1,60 @@
+---
+import Card from '../common/Card.astro';
+import SectionTitle from '../common/SectionTitle.astro';
+import { getLangFromPath, getLocalizedPath, getTranslation } from '@/i18n/utils';
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = getTranslation(Astro.url.pathname);
+
+interface Entry {
+  title: string;
+  desc: string;
+  status: 'available' | 'comingSoon';
+}
+
+const entries: Entry[] = [
+  { title: t.developerEntry.mcpTitle, desc: t.developerEntry.mcpDesc, status: 'available' },
+  { title: t.developerEntry.cliTitle, desc: t.developerEntry.cliDesc, status: 'available' },
+  { title: t.developerEntry.skillsTitle, desc: t.developerEntry.skillsDesc, status: 'comingSoon' },
+];
+
+// 状态标签样式：Available 绿色 + 圆点；Coming Soon 琥珀色
+function statusClasses(status: Entry['status']): string {
+  return status === 'available'
+    ? 'bg-aep-green/10 text-aep-green'
+    : 'bg-aep-amber/10 text-aep-amber';
+}
+---
+
+<!-- 开发者入口：3 卡片（MCP 可用 / CLI 可用 / Agent Skills 即将推出） -->
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+  <SectionTitle title={t.developerEntry.title} subtitle={t.developerEntry.subtitle} align="center" />
+
+  <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+    {entries.map((entry) => (
+      <Card hover class="flex flex-col">
+        <div class="flex items-center justify-between gap-3">
+          <h3 class="text-lg font-semibold text-[var(--text-primary)]">{entry.title}</h3>
+          <span
+            class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${statusClasses(
+              entry.status,
+            )}`}
+          >
+            {entry.status === 'available' && (
+              <span class="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true"></span>
+            )}
+            {entry.status === 'available' ? t.common.available : t.common.comingSoon}
+          </span>
+        </div>
+        <p class="mt-3 flex-1 text-sm text-[var(--text-secondary)]">{entry.desc}</p>
+        <a
+          href={getLocalizedPath('/developer', lang)}
+          class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-aep-primary hover:underline"
+        >
+          {t.common.learnMore}
+          <span aria-hidden="true">→</span>
+        </a>
+      </Card>
+    ))}
+  </div>
+</section>

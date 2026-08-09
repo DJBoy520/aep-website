@@ -3,6 +3,11 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import Hero from '@/components/home/Hero.astro';
 import EvidenceFlow from '@/components/home/EvidenceFlow.astro';
 import CryptoOverview from '@/components/home/CryptoOverview.astro';
+import PackagePreview from '@/components/home/PackagePreview.astro';
+import VerificationProcess from '@/components/home/VerificationProcess.astro';
+import DeveloperEntry from '@/components/home/DeveloperEntry.astro';
+import UseCases from '@/components/home/UseCases.astro';
+import ComingSoon from '@/components/home/ComingSoon.astro';
 import { getTranslation } from '@/i18n/utils';
 
 const t = getTranslation(Astro.url.pathname);
@@ -13,4 +18,9 @@ const t = getTranslation(Astro.url.pathname);
   <Hero />
   <EvidenceFlow />
   <CryptoOverview />
+  <PackagePreview />
+  <VerificationProcess />
+  <DeveloperEntry />
+  <UseCases />
+  <ComingSoon />
 </MainLayout>

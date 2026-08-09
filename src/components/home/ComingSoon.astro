@@ -1,0 +1,21 @@
+---
+import SectionTitle from '../common/SectionTitle.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const items = t.comingSoon.items;
+---
+
+<!-- 即将推出：标签云（每个标签右侧带 Coming Soon 小徽章） -->
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+  <SectionTitle title={t.comingSoon.title} subtitle={t.comingSoon.subtitle} align="center" />
+
+  <div class="mt-14 flex flex-wrap justify-center gap-3">
+    {items.map((item) => (
+      <span class="inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] px-4 py-2 text-sm text-[var(--text-primary)]">
+        {item}
+        <span class="text-xs text-aep-amber">{t.common.comingSoon}</span>
+      </span>
+    ))}
+  </div>
+</section>

@@ -53,5 +53,60 @@
       { "title": "Merkle 树", "desc": "大规模数据高效验证，集合完整性", "icon": "🌳" },
       { "title": "证据图谱", "desc": "事件与制品关系图，完整记录生成过程", "icon": "🕸️" }
     ]
+  },
+  "packagePreview": {
+    "title": "统一的证据包格式",
+    "subtitle": ".aep 格式，开箱即用"
+  },
+  "verification": {
+    "title": "七阶段验证流程",
+    "subtitle": "每一步都可独立验证",
+    "steps": [
+      "容器安全检查",
+      "结构校验",
+      "图谱完整性",
+      "Merkle 验证",
+      "SM2 签名验证",
+      "身份验证",
+      "等级计算"
+    ],
+    "resultTitle": "验证通过",
+    "resultLevel": "证据等级",
+    "levelValue": "L3"
+  },
+  "developerEntry": {
+    "title": "开发者友好",
+    "subtitle": "多种接入方式，快速集成",
+    "mcpTitle": "MCP 集成",
+    "mcpDesc": "17 个 MCP 工具，AI Agent 原生支持",
+    "cliTitle": "CLI 工具",
+    "cliDesc": "命令行工具，批量存证验证导出",
+    "skillsTitle": "Agent Skills",
+    "skillsDesc": "智能体技能，一键接入"
+  },
+  "useCases": {
+    "title": "广泛的应用场景",
+    "subtitle": "覆盖 AI 生成的各个领域",
+    "items": [
+      { "label": "AI 写作", "icon": "✍️" },
+      { "label": "代码生成", "icon": "💻" },
+      { "label": "图像生成", "icon": "🎨" },
+      { "label": "视频生成", "icon": "🎬" },
+      { "label": "智能体执行", "icon": "🤖" },
+      { "label": "企业审计", "icon": "🏢" }
+    ]
+  },
+  "comingSoon": {
+    "title": "持续迭代中",
+    "subtitle": "更多功能和工具即将推出",
+    "items": [
+      "Python SDK",
+      "Rust SDK",
+      "Go SDK",
+      "Java SDK",
+      "在线验证服务",
+      "企业平台",
+      "更多集成"
+    ]
   }
 }
