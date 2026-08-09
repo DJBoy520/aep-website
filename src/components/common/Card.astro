@@ -1,0 +1,20 @@
+---
+interface Props {
+  hover?: boolean; // 悬停上浮 + 阴影
+  class?: string; // 追加自定义类
+}
+
+const { hover = false, class: className } = Astro.props;
+
+const classes = [
+  'rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6',
+  hover ? 'transition hover:-translate-y-1 hover:shadow-lg' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<div class={classes}>
+  <slot />
+</div>

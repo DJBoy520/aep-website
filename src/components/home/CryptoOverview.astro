@@ -1,0 +1,34 @@
+---
+import Card from '../common/Card.astro';
+import SectionTitle from '../common/SectionTitle.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const items = t.crypto.items;
+
+// 卡片顶部主题色横条：蓝 / 绿 / 紫 / 青（按顺序循环）
+const accentClasses = ['bg-aep-blue', 'bg-aep-green', 'bg-aep-purple', 'bg-aep-primary'] as const;
+---
+
+<!-- 密码学概览：4 卡片网格 -->
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+  <SectionTitle title={t.crypto.title} subtitle={t.crypto.subtitle} align="center" />
+
+  <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {items.map((item, i) => (
+      <Card hover>
+        <span
+          class={`mb-5 block h-1 w-10 rounded-full ${
+            accentClasses[i % accentClasses.length] ?? 'bg-aep-primary'
+          }`}
+          aria-hidden="true"
+        ></span>
+        <div class="text-3xl" aria-hidden="true">
+          {item.icon}
+        </div>
+        <h3 class="mt-4 text-lg font-semibold text-[var(--text-primary)]">{item.title}</h3>
+        <p class="mt-2 text-sm text-[var(--text-secondary)]">{item.desc}</p>
+      </Card>
+    ))}
+  </div>
+</section>

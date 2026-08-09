@@ -1,0 +1,36 @@
+---
+import SectionTitle from '../common/SectionTitle.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const steps = t.evidenceFlow.steps;
+---
+
+<!-- 证据链路：8 节点垂直时间线（顺序严格按 i18n steps 数组） -->
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+  <SectionTitle title={t.evidenceFlow.title} subtitle={t.evidenceFlow.subtitle} align="center" />
+
+  <ol class="mx-auto mt-14 max-w-3xl">
+    {steps.map((step, i) => (
+      <li class="flex gap-6 pb-10 last:pb-0">
+        <!-- 左列：序号圆点 + 连接竖线 -->
+        <div class="flex flex-col items-center">
+          <span
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-aep-primary to-aep-purple text-sm font-semibold text-white"
+            aria-hidden="true"
+          >
+            {i + 1}
+          </span>
+          {i < steps.length - 1 && (
+            <span class="mt-2 w-0.5 flex-1 bg-[var(--border-color)]" aria-hidden="true"></span>
+          )}
+        </div>
+        <!-- 右列：标题 + 描述 -->
+        <div class="pb-2 pt-1">
+          <h3 class="font-semibold text-[var(--text-primary)]">{step.title}</h3>
+          <p class="mt-1 text-sm text-[var(--text-secondary)]">{step.desc}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

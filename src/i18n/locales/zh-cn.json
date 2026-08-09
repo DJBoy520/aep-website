@@ -29,5 +29,29 @@
   "home": {
     "placeholderTitle": "AEP - AI Evidence Protocol",
     "placeholderDesc": "为 AI 生成内容提供可信的存证与验证协议。"
+  },
+  "evidenceFlow": {
+    "title": "完整的证据链路",
+    "subtitle": "从生成到验证，每一步都有密码学证据",
+    "steps": [
+      { "title": "AI Content", "desc": "AI 生成的内容" },
+      { "title": "Artifact", "desc": "制品提取与标准化" },
+      { "title": "SM3 Hash", "desc": "内容哈希，完整性保证" },
+      { "title": "SM2 Sign", "desc": "数字签名，来源认证" },
+      { "title": "Merkle Tree", "desc": "默克尔树，集合完整性" },
+      { "title": "Timestamp", "desc": "时间戳，时间证明" },
+      { "title": ".aep Package", "desc": "证据包封装" },
+      { "title": "Independent Verification", "desc": "独立验证，任何人可验证" }
+    ]
+  },
+  "crypto": {
+    "title": "基于成熟密码学构建",
+    "subtitle": "采用国密算法和标准数据结构，安全可信",
+    "items": [
+      { "title": "SM3 哈希算法", "desc": "内容完整性保证，256 位摘要", "icon": "🔐" },
+      { "title": "SM2 数字签名", "desc": "来源真实性和不可否认性", "icon": "✍️" },
+      { "title": "Merkle 树", "desc": "大规模数据高效验证，集合完整性", "icon": "🌳" },
+      { "title": "证据图谱", "desc": "事件与制品关系图，完整记录生成过程", "icon": "🕸️" }
+    ]
   }
 }

@@ -1,0 +1,47 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string; // 有 href 渲染 <a>，无则渲染 <button>
+  class?: string; // 追加自定义类
+}
+
+const { variant = 'primary', size = 'md', href, class: className } = Astro.props;
+
+const baseClasses =
+  'inline-flex items-center justify-center rounded-lg font-medium transition-colors';
+
+const variantClasses: Record<'primary' | 'secondary' | 'outline', string> = {
+  primary: 'bg-aep-primary text-white hover:bg-aep-primary-dark',
+  secondary:
+    'bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border-color)] hover:bg-[var(--border-color)]',
+  outline: 'border border-aep-primary text-aep-primary hover:bg-aep-primary/10',
+};
+
+const sizeClasses: Record<'sm' | 'md' | 'lg', string> = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-sm',
+  lg: 'px-6 py-3 text-base',
+};
+
+const classes = [baseClasses, variantClasses[variant], sizeClasses[size], className]
+  .filter(Boolean)
+  .join(' ');
+
+// 外链自动加安全属性
+const isExternal = typeof href === 'string' && href.startsWith('http');
+---
+
+{href ? (
+  <a
+    href={href}
+    class={classes}
+    {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+  >
+    <slot />
+  </a>
+) : (
+  <button type="button" class={classes}>
+    <slot />
+  </button>
+)}

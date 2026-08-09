@@ -29,5 +29,29 @@
   "home": {
     "placeholderTitle": "AEP - AI Evidence Protocol",
     "placeholderDesc": "A trusted evidence and verification protocol for AI-generated content."
+  },
+  "evidenceFlow": {
+    "title": "Complete Evidence Chain",
+    "subtitle": "From generation to verification, cryptographic evidence at every step",
+    "steps": [
+      { "title": "AI Content", "desc": "AI-generated content" },
+      { "title": "Artifact", "desc": "Artifact extraction and normalization" },
+      { "title": "SM3 Hash", "desc": "Content hashing for integrity" },
+      { "title": "SM2 Sign", "desc": "Digital signature for source authentication" },
+      { "title": "Merkle Tree", "desc": "Merkle tree for set integrity" },
+      { "title": "Timestamp", "desc": "Timestamp for time proof" },
+      { "title": ".aep Package", "desc": "Evidence package assembly" },
+      { "title": "Independent Verification", "desc": "Independently verifiable by anyone" }
+    ]
+  },
+  "crypto": {
+    "title": "Built on Proven Cryptography",
+    "subtitle": "National-standard algorithms and standard data structures, secure and trustworthy",
+    "items": [
+      { "title": "SM3 Hash Algorithm", "desc": "Content integrity with 256-bit digest", "icon": "🔐" },
+      { "title": "SM2 Digital Signature", "desc": "Source authenticity and non-repudiation", "icon": "✍️" },
+      { "title": "Merkle Tree", "desc": "Efficient verification of large-scale data, set integrity", "icon": "🌳" },
+      { "title": "Evidence Graph", "desc": "Graph of events and artifacts, complete record of generation", "icon": "🕸️" }
+    ]
   }
 }

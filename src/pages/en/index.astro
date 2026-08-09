@@ -1,18 +1,16 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
+import Hero from '@/components/home/Hero.astro';
+import EvidenceFlow from '@/components/home/EvidenceFlow.astro';
+import CryptoOverview from '@/components/home/CryptoOverview.astro';
 import { getTranslation } from '@/i18n/utils';
 
 const t = getTranslation(Astro.url.pathname);
 ---
 
-<MainLayout title={t.home.placeholderTitle} description={t.home.placeholderDesc}>
-  <!-- 英文首页占位内容，与中文首页同结构（i18n 文案自动按 /en 前缀切换） -->
-  <section class="mx-auto max-w-6xl px-4 py-24 text-center sm:px-6">
-    <h1 class="text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl">
-      {t.home.placeholderTitle}
-    </h1>
-    <p class="mx-auto mt-4 max-w-2xl text-lg text-[var(--text-secondary)]">
-      {t.home.placeholderDesc}
-    </p>
-  </section>
+<MainLayout title={t.home.placeholderTitle} description={t.hero.description}>
+  <!-- 英文首页与中文首页同结构：同一批组件，组件内部按 /en 前缀自动切语言 -->
+  <Hero />
+  <EvidenceFlow />
+  <CryptoOverview />
 </MainLayout>
