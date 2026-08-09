@@ -1,0 +1,13 @@
+# AEP Website - one-command production deployment
+# 用法：docker compose -f docker/docker-compose.yml up -d
+version: '3.8'
+
+services:
+  aep-web:
+    build:
+      context: ..        # compose 文件位于 docker/ 下，构建上下文指向项目根目录
+      dockerfile: docker/Dockerfile
+    container_name: aep-website
+    restart: unless-stopped
+    ports:
+      - "8080:80"        # 宿主机 8080 -> 容器 Nginx 80
