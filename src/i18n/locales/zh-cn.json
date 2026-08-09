@@ -108,5 +108,75 @@
       "企业平台",
       "更多集成"
     ]
+  },
+  "protocol": {
+    "title": "协议规范",
+    "subtitle": "开放、可验证、可扩展的 AI 证据协议",
+    "overviewTitle": "协议概述",
+    "overview": [
+      "AEP（AI Evidence Protocol）是一个为 AI 生成内容提供可信数字证明的开放协议。",
+      "它解决的核心问题是：AI 内容泛滥时代，如何证明一份内容由谁生成、何时生成、内容是否完整未被篡改。",
+      "AEP 通过密码学、时间证明和可验证数据结构，建立 AI 内容从生成到验证的完整可信链路，任何人都可以独立验证。"
+    ],
+    "principlesTitle": "设计原则",
+    "principles": [
+      { "title": "开放性", "desc": "开放协议，任何人都可以实现自己的实现" },
+      { "title": "安全性", "desc": "基于成熟密码学，所有声明可验证" },
+      { "title": "可扩展性", "desc": "模块化设计，支持算法与数据结构的扩展" },
+      { "title": "互操作性", "desc": "与现有标准和生态兼容" }
+    ],
+    "conceptsTitle": "核心概念",
+    "concepts": [
+      { "title": "Evidence", "desc": "可验证的声明，是协议的基本单元" },
+      { "title": "Artifact", "desc": "AI 生成的内容制品" },
+      { "title": "Event", "desc": "生成过程中的操作记录" },
+      { "title": "Identity", "desc": "生成者的身份标识" },
+      { "title": "Evidence Graph", "desc": "事件与制品的关系图谱，完整记录生成过程" }
+    ],
+    "levelsTitle": "证据等级",
+    "levelsSubtitle": "从 L0 到 L7，证据强度逐级递增",
+    "levels": [
+      { "level": "L0", "desc": "无证据" },
+      { "level": "L1", "desc": "声明：仅有内容本身" },
+      { "level": "L2", "desc": "哈希存证：内容指纹上链存证" },
+      { "level": "L3", "desc": "签名存证：签名 + 哈希，来源可追溯" },
+      { "level": "L4", "desc": "时间戳：增加时间证明，防重放" },
+      { "level": "L5", "desc": "事件链：连续事件记录，过程可审计" },
+      { "level": "L6", "desc": "图谱完整：证据图谱闭环" },
+      { "level": "L7", "desc": "司法级：面向司法场景的完整证据链" }
+    ],
+    "standardsTitle": "与其他标准的关系",
+    "standards": [
+      { "title": "C2PA", "desc": "C2PA 关注内容来源（Content Credentials），AEP 关注生成过程的可验证证据，两者互补。" },
+      { "title": "W3C PROV", "desc": "PROV 是通用的溯源标准，AEP 的证据图谱与其模型兼容，聚焦 AI 生成场景。" },
+      { "title": "MCP", "desc": "MCP 是 AI 与工具交互的协议，AEP 提供 MCP 集成，让 AI Agent 原生支持存证。" }
+    ]
+  },
+  "architecture": {
+    "title": "技术架构",
+    "subtitle": "分层设计，模块化构建",
+    "layersTitle": "五层架构",
+    "layers": [
+      { "name": "AI Application Layer", "desc": "应用层：AI 应用、工具与平台" },
+      { "name": "Evidence Capture Layer", "desc": "证据采集层：采集器、插件与 SDK" },
+      { "name": "Evidence Model Layer", "desc": "证据模型层：证据、事件与身份模型" },
+      { "name": "Cryptographic Layer", "desc": "密码学层：SM2、SM3、Merkle Tree、时间戳" },
+      { "name": "Verification Layer", "desc": "验证层：验证器、验证 API 与验证报告" }
+    ],
+    "graphTitle": "证据图谱结构",
+    "graphDesc": "证据图谱用有向图记录生成过程：Event 通过 generatedBy/used 关系关联 Artifact 与 Identity，precededBy 记录事件先后顺序。",
+    "dataflowTitle": "数据流",
+    "dataflowSubtitle": "从生成到验证的完整流程",
+    "dataflowSteps": [
+      "AI 应用生成内容",
+      "采集器提取 Artifact 与 Event",
+      "SM3 计算内容哈希",
+      "SM2 签名绑定身份",
+      "构建 Merkle 树与图谱",
+      "封装为 .aep 证据包",
+      "任何一方独立验证"
+    ],
+    "packageTitle": "包格式",
+    "packageDesc": ".aep 证据包是 AEP 的标准化容器，内含清单、元数据、制品、事件、图谱、Merkle 证明与签名。"
   }
 }

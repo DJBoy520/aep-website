@@ -1,0 +1,87 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionTitle from '../../components/common/SectionTitle.astro';
+import Card from '../../components/common/Card.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const p = t.protocol;
+---
+
+<MainLayout title={p.title} description={p.subtitle}>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+    <div class="space-y-16">
+      <!-- 页面标题区 -->
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+          {p.title}
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-[var(--text-secondary)]">{p.subtitle}</p>
+      </div>
+
+      <!-- 协议概述 -->
+      <section>
+        <SectionTitle title={p.overviewTitle} />
+        <div class="mt-8 space-y-4">
+          {p.overview.map((para) => (
+            <p class="leading-relaxed text-[var(--text-secondary)]">{para}</p>
+          ))}
+        </div>
+      </section>
+
+      <!-- 设计原则 -->
+      <section>
+        <SectionTitle title={p.principlesTitle} />
+        <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {p.principles.map((item) => (
+            <Card hover>
+              <h3 class="font-semibold text-aep-primary">{item.title}</h3>
+              <p class="mt-2 text-sm text-[var(--text-secondary)]">{item.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <!-- 核心概念 -->
+      <section>
+        <SectionTitle title={p.conceptsTitle} />
+        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {p.concepts.map((item) => (
+            <div class="rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] p-5">
+              <h3 class="font-semibold text-[var(--text-primary)]">{item.title}</h3>
+              <p class="mt-1 text-sm text-[var(--text-secondary)]">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- 证据等级 -->
+      <section>
+        <SectionTitle title={p.levelsTitle} subtitle={p.levelsSubtitle} />
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {p.levels.map((item) => (
+            <div class="flex items-start gap-3 rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] p-4">
+              <span class="shrink-0 rounded-md bg-aep-primary px-2 py-0.5 text-sm font-bold text-white">
+                {item.level}
+              </span>
+              <p class="text-sm leading-relaxed text-[var(--text-secondary)]">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- 与其他标准的关系 -->
+      <section>
+        <SectionTitle title={p.standardsTitle} />
+        <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {p.standards.map((item) => (
+            <Card hover>
+              <h3 class="font-semibold text-aep-primary">{item.title}</h3>
+              <p class="mt-2 text-sm text-[var(--text-secondary)]">{item.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+    </div>
+  </section>
+</MainLayout>

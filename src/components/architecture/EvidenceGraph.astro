@@ -1,0 +1,111 @@
+---
+// 证据图谱：有向图，4 节点（Event 1 / Artifact / Event 2 / Identity）+ 3 类关系
+// 关系名 generatedBy / used / precededBy 为协议术语（中英文一致），按 AI_RULES 技术术语例外直接使用
+// 颜色用 CSS 变量适配明暗主题，箭头用 currentColor（外层 text-aep-primary）
+---
+
+<div class="text-aep-primary">
+  <svg class="h-auto w-full" viewBox="0 0 600 300" role="img" aria-label="Evidence graph">
+    <defs>
+      <marker
+        id="eg-arrow"
+        viewBox="0 0 10 10"
+        refX="9"
+        refY="5"
+        markerWidth="7"
+        markerHeight="7"
+        orient="auto-start-reverse"
+      >
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+      </marker>
+    </defs>
+
+    <!-- 边：Event 1 → Artifact（generatedBy） -->
+    <line
+      x1="230"
+      y1="63"
+      x2="358"
+      y2="63"
+      stroke="currentColor"
+      stroke-width="1.5"
+      marker-end="url(#eg-arrow)"
+    />
+    <text x="294" y="55" text-anchor="middle" font-size="10" fill="var(--text-secondary)">
+      generatedBy
+    </text>
+
+    <!-- 边：Event 2 → Event 1（precededBy） -->
+    <line
+      x1="145"
+      y1="214"
+      x2="145"
+      y2="96"
+      stroke="currentColor"
+      stroke-width="1.5"
+      marker-end="url(#eg-arrow)"
+    />
+    <text x="152" y="158" font-size="10" fill="var(--text-secondary)">
+      precededBy
+    </text>
+
+    <!-- 边：Event 2 → Artifact（used） -->
+    <line
+      x1="230"
+      y1="237"
+      x2="358"
+      y2="75"
+      stroke="currentColor"
+      stroke-width="1.5"
+      marker-end="url(#eg-arrow)"
+    />
+    <text x="294" y="150" text-anchor="middle" font-size="10" fill="var(--text-secondary)">
+      used
+    </text>
+
+    <!-- 边：Event 2 → Identity（used） -->
+    <line
+      x1="455"
+      y1="214"
+      x2="455"
+      y2="96"
+      stroke="currentColor"
+      stroke-width="1.5"
+      marker-end="url(#eg-arrow)"
+    />
+    <text x="462" y="158" font-size="10" fill="var(--text-secondary)">
+      used
+    </text>
+
+    <!-- 节点：Event 1（左上） -->
+    <g>
+      <rect x="60" y="40" width="170" height="46" rx="10" fill="var(--card-bg)" stroke="var(--border-color)" />
+      <text x="145" y="68" text-anchor="middle" font-size="14" font-weight="600" fill="var(--text-primary)">
+        Event 1
+      </text>
+    </g>
+
+    <!-- 节点：Artifact（右上） -->
+    <g>
+      <rect x="370" y="40" width="170" height="46" rx="10" fill="var(--card-bg)" stroke="var(--border-color)" />
+      <text x="455" y="68" text-anchor="middle" font-size="14" font-weight="600" fill="var(--text-primary)">
+        Artifact
+      </text>
+    </g>
+
+    <!-- 节点：Event 2（左下） -->
+    <g>
+      <rect x="60" y="214" width="170" height="46" rx="10" fill="var(--card-bg)" stroke="var(--border-color)" />
+      <text x="145" y="242" text-anchor="middle" font-size="14" font-weight="600" fill="var(--text-primary)">
+        Event 2
+      </text>
+    </g>
+
+    <!-- 节点：Identity（右下） -->
+    <g>
+      <rect x="370" y="214" width="170" height="46" rx="10" fill="var(--card-bg)" stroke="var(--border-color)" />
+      <text x="455" y="242" text-anchor="middle" font-size="14" font-weight="600" fill="var(--text-primary)">
+        Identity
+      </text>
+    </g>
+  </svg>
+</div>

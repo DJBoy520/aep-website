@@ -108,5 +108,75 @@
       "Enterprise Platform",
       "More Integrations"
     ]
+  },
+  "protocol": {
+    "title": "Protocol Specification",
+    "subtitle": "An open, verifiable and extensible AI evidence protocol",
+    "overviewTitle": "Overview",
+    "overview": [
+      "AEP (AI Evidence Protocol) is an open protocol that provides trusted digital proof for AI-generated content.",
+      "The core problem it solves: in an era of mass AI-generated content, how to prove who generated a piece of content, when it was generated, and whether it remains complete and unaltered.",
+      "Through cryptography, time proof and verifiable data structures, AEP builds a complete trusted chain from generation to verification for AI content, independently verifiable by anyone."
+    ],
+    "principlesTitle": "Design Principles",
+    "principles": [
+      { "title": "Openness", "desc": "An open protocol; anyone can build their own implementation" },
+      { "title": "Security", "desc": "Built on proven cryptography; every claim is verifiable" },
+      { "title": "Extensibility", "desc": "Modular design supporting algorithm and data structure extensions" },
+      { "title": "Interoperability", "desc": "Compatible with existing standards and ecosystems" }
+    ],
+    "conceptsTitle": "Core Concepts",
+    "concepts": [
+      { "title": "Evidence", "desc": "A verifiable claim, the basic unit of the protocol" },
+      { "title": "Artifact", "desc": "The AI-generated content artifact" },
+      { "title": "Event", "desc": "A record of an operation during generation" },
+      { "title": "Identity", "desc": "The identifier of the generator" },
+      { "title": "Evidence Graph", "desc": "A graph of events and artifacts fully recording the generation process" }
+    ],
+    "levelsTitle": "Evidence Levels",
+    "levelsSubtitle": "From L0 to L7, evidence strength increases progressively",
+    "levels": [
+      { "level": "L0", "desc": "No evidence" },
+      { "level": "L1", "desc": "Claim: content only" },
+      { "level": "L2", "desc": "Hash record: content fingerprint notarized" },
+      { "level": "L3", "desc": "Signed record: signature + hash, traceable source" },
+      { "level": "L4", "desc": "Timestamp: adds time proof, replay protection" },
+      { "level": "L5", "desc": "Event chain: continuous event records, auditable process" },
+      { "level": "L6", "desc": "Complete graph: closed evidence graph" },
+      { "level": "L7", "desc": "Judicial grade: full evidence chain for legal scenarios" }
+    ],
+    "standardsTitle": "Relationship with Other Standards",
+    "standards": [
+      { "title": "C2PA", "desc": "C2PA focuses on content provenance (Content Credentials); AEP focuses on verifiable evidence of the generation process. They complement each other." },
+      { "title": "W3C PROV", "desc": "PROV is a general provenance standard; AEP's evidence graph is compatible with its model, focusing on AI generation scenarios." },
+      { "title": "MCP", "desc": "MCP is a protocol for AI-tool interaction; AEP provides MCP integration for native AI agent support." }
+    ]
+  },
+  "architecture": {
+    "title": "Technical Architecture",
+    "subtitle": "Layered design, modular construction",
+    "layersTitle": "Five-Layer Architecture",
+    "layers": [
+      { "name": "AI Application Layer", "desc": "Application layer: AI apps, tools and platforms" },
+      { "name": "Evidence Capture Layer", "desc": "Capture layer: collectors, plugins and SDKs" },
+      { "name": "Evidence Model Layer", "desc": "Model layer: evidence, event and identity models" },
+      { "name": "Cryptographic Layer", "desc": "Cryptographic layer: SM2, SM3, Merkle tree, timestamps" },
+      { "name": "Verification Layer", "desc": "Verification layer: verifiers, verification API and reports" }
+    ],
+    "graphTitle": "Evidence Graph Structure",
+    "graphDesc": "The evidence graph is a directed graph recording the generation process: Events link Artifacts and Identities via generatedBy/used relations, and precededBy records event ordering.",
+    "dataflowTitle": "Data Flow",
+    "dataflowSubtitle": "From generation to verification",
+    "dataflowSteps": [
+      "AI application generates content",
+      "Collectors extract Artifact and Event",
+      "SM3 computes the content hash",
+      "SM2 signature binds identity",
+      "Build Merkle tree and graph",
+      "Package as .aep evidence package",
+      "Anyone can verify independently"
+    ],
+    "packageTitle": "Package Format",
+    "packageDesc": "The .aep evidence package is AEP's standardized container, containing manifest, metadata, artifacts, events, graph, Merkle proof and signature."
   }
 }

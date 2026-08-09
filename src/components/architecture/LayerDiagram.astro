@@ -1,0 +1,87 @@
+---
+interface Layer {
+  name: string;
+  desc: string;
+}
+
+interface Props {
+  layers: Layer[];
+}
+
+const { layers } = Astro.props;
+
+// 五层架构图布局参数：viewBox 600x420
+// 每层高 56、层间距 24（每层周期 80），顶部留白 20，左右留白 80
+const LAYER_H = 56;
+const GAP = 24;
+const STEP = LAYER_H + GAP; // 80
+const TOP = 20;
+const X = 80;
+const W = 440;
+const CX = 300; // 层间箭头 x 中心
+---
+
+<!-- 五层架构图：内联 SVG，颜色用 CSS 变量适配明暗主题，箭头用 currentColor（外层 text-aep-primary） -->
+<div class="text-aep-primary">
+  <svg class="h-auto w-full" viewBox="0 0 600 420" role="img" aria-label="Five-layer architecture">
+    <defs>
+      <marker
+        id="layer-arrow"
+        viewBox="0 0 10 10"
+        refX="9"
+        refY="5"
+        markerWidth="7"
+        markerHeight="7"
+        orient="auto-start-reverse"
+      >
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+      </marker>
+    </defs>
+    {layers.map((layer, i) => {
+      const y = TOP + i * STEP;
+      return (
+        <g>
+          <rect
+            x={X}
+            y={y}
+            width={W}
+            height={LAYER_H}
+            rx="10"
+            fill="var(--card-bg)"
+            stroke="var(--border-color)"
+          />
+          <text
+            x={CX}
+            y={y + 26}
+            text-anchor="middle"
+            font-size="15"
+            font-weight="600"
+            fill="var(--text-primary)"
+          >
+            {layer.name}
+          </text>
+          <text
+            x={CX}
+            y={y + 43}
+            text-anchor="middle"
+            font-size="11"
+            fill="var(--text-secondary)"
+          >
+            {layer.desc}
+          </text>
+          {i < layers.length - 1 && (
+            <line
+              x1={CX}
+              y1={y + LAYER_H}
+              x2={CX}
+              y2={y + LAYER_H + GAP - 2}
+              stroke="currentColor"
+              stroke-width="2"
+              marker-end="url(#layer-arrow)"
+            />
+          )}
+        </g>
+      );
+    })}
+  </svg>
+</div>
