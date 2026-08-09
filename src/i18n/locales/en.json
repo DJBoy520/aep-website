@@ -178,5 +178,45 @@
     ],
     "packageTitle": "Package Format",
     "packageDesc": "The .aep evidence package is AEP's standardized container, containing manifest, metadata, artifacts, events, graph, Merkle proof and signature."
+  },
+  "security": {
+    "title": "Security Model",
+    "subtitle": "Verifiable security based on cryptography",
+    "modelTitle": "Security Model Overview",
+    "modelText": [
+      "AEP's security design centers on one idea: providing cryptographic evidence capabilities, not asserting that content is true. The protocol does not claim content is true; it provides verifiable evidence so anyone can independently verify a content's source, time and integrity.",
+      "All security properties are built on proven national-standard cryptographic algorithms (SM2, SM3) and standard data structures (Merkle tree, timestamps)."
+    ],
+    "cryptoTitle": "Cryptographic Foundation",
+    "crypto": [
+      { "title": "SM2 Digital Signature", "desc": "National-standard asymmetric algorithm for source authentication and non-repudiation" },
+      { "title": "SM3 Hash Algorithm", "desc": "National-standard hash with 256-bit digest for content integrity" },
+      { "title": "Merkle Tree Proofs", "desc": "Efficient set-integrity verification supporting large-scale independent checks" },
+      { "title": "Timestamp Mechanism", "desc": "Provides time proof, reducing replay attack risk" }
+    ],
+    "threatTitle": "Threat Model",
+    "threats": [
+      { "threat": "Content Tampering", "desc": "Attacker modifies notarized AI content", "mitigation": "SM3 hash + Merkle tree: any byte change causes digest mismatch and verification failure" },
+      { "threat": "Identity Forgery", "desc": "Attacker impersonates others to generate evidence", "mitigation": "SM2 digital signature: only the private key holder can produce valid signatures; verifiers check with the public key" },
+      { "threat": "Replay Attack", "desc": "Attacker re-submits old evidence as new", "mitigation": "Timestamps + event sequence numbers: verifiers can check time and ordering" }
+    ],
+    "flowTitle": "Verification Flow",
+    "flowSteps": [
+      { "stage": "Container Check", "desc": "Check evidence package structure and internal files for compliance" },
+      { "stage": "Schema Validation", "desc": "Validate fields and formats of all objects against the protocol specification" },
+      { "stage": "Graph Validation", "desc": "Verify the relation graph of events and artifacts is closed" },
+      { "stage": "Merkle Verification", "desc": "Recompute the Merkle tree to confirm all content is consistent" },
+      { "stage": "SM2 Signature Verification", "desc": "Verify the signature with the public key to confirm the source" },
+      { "stage": "Identity Check", "desc": "Verify the signer's identity information" },
+      { "stage": "Level Calculation", "desc": "Compute the evidence level based on evidence strength" }
+    ],
+    "statementTitle": "Security Statement",
+    "mitigationLabel": "Mitigation",
+    "statements": [
+      "AEP provides cryptographic evidence capabilities: evidence is independently verifiable, auditable and traceable.",
+      "Security relies on the computational security assumptions of SM2/SM3; forging signatures or hash collisions is infeasible with current computing power.",
+      "Private key management is the user's responsibility; key compromise weakens the credibility of source authentication.",
+      "AEP does not guarantee the truthfulness of content, nor unconditional security; it makes tampering and forgery cryptographically detectable."
+    ]
   }
 }
