@@ -38,30 +38,74 @@
     "valueTitle": "The Value",
     "valueDesc": "AEP records the generation process of AI content into structured evidence packages using national-standard cryptography (SM2/SM3), time proof and verifiable data structures. Anyone holding an evidence package can independently verify its origin, time and integrity — without relying on any centralized platform.",
     "visionTitle": "The Architecture",
-    "visionDesc": "AEP is building a complete evidence infrastructure for AI: an open protocol with a reference implementation, CLI and MCP tools, a web client, a national-standard PKI certificate service, an online verification service and multi-language SDKs — covering the full chain from generation and notarization to verification and audit."
+    "visionDesc": "AEP is building a complete evidence infrastructure for AI: an open protocol with a reference implementation, CLI and MCP tools, a web client, a national-standard PKI certificate service, an online verification service and multi-language SDKs — with evidence fingerprints that can be anchored on-chain via blockchain for publicly verifiable notarization, covering the full chain from generation and notarization to verification and audit."
   },
   "evidenceFlow": {
     "title": "Complete Evidence Chain",
     "subtitle": "From generation to verification, cryptographic evidence at every step",
     "steps": [
-      { "title": "AI Content", "desc": "AI-generated content" },
-      { "title": "Artifact", "desc": "Artifact extraction and normalization" },
-      { "title": "SM3 Hash", "desc": "Content hashing for integrity" },
-      { "title": "SM2 Sign", "desc": "Digital signature for source authentication" },
-      { "title": "Merkle Tree", "desc": "Merkle tree for set integrity" },
-      { "title": "Timestamp", "desc": "Timestamp for time proof" },
-      { "title": ".aep Package", "desc": "Evidence package assembly" },
-      { "title": "Independent Verification", "desc": "Independently verifiable by anyone" }
+      {
+        "title": "AI Content",
+        "desc": "AI-generated content"
+      },
+      {
+        "title": "Artifact",
+        "desc": "Artifact extraction and normalization"
+      },
+      {
+        "title": "SM3 Hash",
+        "desc": "Content hashing for integrity"
+      },
+      {
+        "title": "SM2 Sign",
+        "desc": "Digital signature for source authentication"
+      },
+      {
+        "title": "Merkle Tree",
+        "desc": "Merkle tree for set integrity"
+      },
+      {
+        "title": "Timestamp",
+        "desc": "Timestamp for time proof"
+      },
+      {
+        "title": "Blockchain Anchor",
+        "desc": "On-chain anchoring for publicly verifiable notarization"
+      },
+      {
+        "title": ".aep Package",
+        "desc": "Evidence package assembly"
+      },
+      {
+        "title": "Independent Verification",
+        "desc": "Independently verifiable by anyone"
+      }
     ]
   },
   "crypto": {
     "title": "Built on Proven Cryptography",
     "subtitle": "National-standard algorithms and standard data structures, secure and trustworthy",
     "items": [
-      { "title": "SM3 Hash Algorithm", "desc": "Content integrity with 256-bit digest", "icon": "🔐" },
-      { "title": "SM2 Digital Signature", "desc": "Source authenticity and non-repudiation", "icon": "✍️" },
-      { "title": "Merkle Tree", "desc": "Efficient verification of large-scale data, set integrity", "icon": "🌳" },
-      { "title": "Evidence Graph", "desc": "Graph of events and artifacts, complete record of generation", "icon": "🕸️" }
+      {
+        "title": "SM3 Hash Algorithm",
+        "desc": "Content integrity with 256-bit digest",
+        "icon": "🔐"
+      },
+      {
+        "title": "SM2 Digital Signature",
+        "desc": "Source authenticity and non-repudiation",
+        "icon": "✍️"
+      },
+      {
+        "title": "Merkle Tree",
+        "desc": "Efficient verification of large-scale data, set integrity",
+        "icon": "🌳"
+      },
+      {
+        "title": "Evidence Graph",
+        "desc": "Graph of events and artifacts, complete record of generation",
+        "icon": "🕸️"
+      }
     ]
   },
   "packagePreview": {
@@ -99,12 +143,30 @@
     "title": "Broad Use Cases",
     "subtitle": "Covering every domain of AI generation",
     "items": [
-      { "label": "AI Writing", "icon": "✍️" },
-      { "label": "Code Generation", "icon": "💻" },
-      { "label": "Image Generation", "icon": "🎨" },
-      { "label": "Video Generation", "icon": "🎬" },
-      { "label": "Agent Execution", "icon": "🤖" },
-      { "label": "Enterprise Audit", "icon": "🏢" }
+      {
+        "label": "AI Writing",
+        "icon": "✍️"
+      },
+      {
+        "label": "Code Generation",
+        "icon": "💻"
+      },
+      {
+        "label": "Image Generation",
+        "icon": "🎨"
+      },
+      {
+        "label": "Video Generation",
+        "icon": "🎬"
+      },
+      {
+        "label": "Agent Execution",
+        "icon": "🤖"
+      },
+      {
+        "label": "Enterprise Audit",
+        "icon": "🏢"
+      }
     ]
   },
   "comingSoon": {
@@ -131,37 +193,101 @@
     ],
     "principlesTitle": "Design Principles",
     "principles": [
-      { "title": "Openness", "desc": "An open protocol; anyone can build their own implementation" },
-      { "title": "Security", "desc": "Built on proven cryptography; every claim is verifiable" },
-      { "title": "Extensibility", "desc": "Modular design supporting algorithm and data structure extensions" },
-      { "title": "Interoperability", "desc": "Compatible with existing standards and ecosystems" }
+      {
+        "title": "Openness",
+        "desc": "An open protocol; anyone can build their own implementation"
+      },
+      {
+        "title": "Security",
+        "desc": "Built on proven cryptography; every claim is verifiable"
+      },
+      {
+        "title": "Extensibility",
+        "desc": "Modular design supporting algorithm and data structure extensions"
+      },
+      {
+        "title": "Interoperability",
+        "desc": "Compatible with existing standards and ecosystems"
+      }
     ],
     "conceptsTitle": "Core Concepts",
     "concepts": [
-      { "title": "Evidence", "desc": "A verifiable claim, the basic unit of the protocol" },
-      { "title": "Artifact", "desc": "The AI-generated content artifact" },
-      { "title": "Event", "desc": "A record of an operation during generation" },
-      { "title": "Identity", "desc": "The identifier of the generator" },
-      { "title": "Evidence Graph", "desc": "A graph of events and artifacts fully recording the generation process" }
+      {
+        "title": "Evidence",
+        "desc": "A verifiable claim, the basic unit of the protocol"
+      },
+      {
+        "title": "Artifact",
+        "desc": "The AI-generated content artifact"
+      },
+      {
+        "title": "Event",
+        "desc": "A record of an operation during generation"
+      },
+      {
+        "title": "Identity",
+        "desc": "The identifier of the generator"
+      },
+      {
+        "title": "Evidence Graph",
+        "desc": "A graph of events and artifacts fully recording the generation process"
+      },
+      {
+        "title": "Blockchain Anchor",
+        "desc": "Evidence fingerprints anchored to public ledgers such as blockchain, providing publicly verifiable notarization"
+      }
     ],
     "levelsTitle": "Evidence Levels",
     "levelsSubtitle": "From L0 to L7, evidence strength increases progressively (cumulative)",
     "levels": [
-      { "level": "L0", "desc": "PlainHash: any valid package (unsigned)" },
-      { "level": "L1", "desc": "Signed: at least one valid signature" },
-      { "level": "L2", "desc": "Identity-verified: identity verified by CA/IdP" },
-      { "level": "L3", "desc": "Timestamped: trusted timestamp (RFC 3161)" },
-      { "level": "L4", "desc": "Anchored: blockchain / distributed anchoring" },
-      { "level": "L5", "desc": "Notarized: endorsement by a notary authority" },
-      { "level": "L6", "desc": "Continuously-witnessed: continuous recording with multi-party witnessing" },
-      { "level": "L7", "desc": "Hardware-rooted: TEE / secure chip hardware trust root" }
+      {
+        "level": "L0",
+        "desc": "PlainHash: any valid package (unsigned)"
+      },
+      {
+        "level": "L1",
+        "desc": "Signed: at least one valid signature"
+      },
+      {
+        "level": "L2",
+        "desc": "Identity-verified: identity verified by CA/IdP"
+      },
+      {
+        "level": "L3",
+        "desc": "Timestamped: trusted timestamp (RFC 3161)"
+      },
+      {
+        "level": "L4",
+        "desc": "Anchored: blockchain / distributed anchoring"
+      },
+      {
+        "level": "L5",
+        "desc": "Notarized: endorsement by a notary authority"
+      },
+      {
+        "level": "L6",
+        "desc": "Continuously-witnessed: continuous recording with multi-party witnessing"
+      },
+      {
+        "level": "L7",
+        "desc": "Hardware-rooted: TEE / secure chip hardware trust root"
+      }
     ],
     "levelsStatus": "Implementation status: L0–L1 (PlainHash + Signed) shipped; L2–L7 are reserved protocol levels.",
     "standardsTitle": "Relationship with Other Standards",
     "standards": [
-      { "title": "C2PA", "desc": "C2PA focuses on content provenance (Content Credentials); AEP focuses on verifiable evidence of the generation process. They complement each other." },
-      { "title": "W3C PROV", "desc": "PROV is a general provenance standard; AEP's evidence graph is compatible with its model, focusing on AI generation scenarios." },
-      { "title": "MCP", "desc": "MCP is a protocol for AI-tool interaction; AEP provides MCP integration for native AI agent support." }
+      {
+        "title": "C2PA",
+        "desc": "C2PA focuses on content provenance (Content Credentials); AEP focuses on verifiable evidence of the generation process. They complement each other."
+      },
+      {
+        "title": "W3C PROV",
+        "desc": "PROV is a general provenance standard; AEP's evidence graph is compatible with its model, focusing on AI generation scenarios."
+      },
+      {
+        "title": "MCP",
+        "desc": "MCP is a protocol for AI-tool interaction; AEP provides MCP integration for native AI agent support."
+      }
     ]
   },
   "architecture": {
@@ -169,11 +295,26 @@
     "subtitle": "Layered design, modular construction",
     "layersTitle": "Five-Layer Architecture",
     "layers": [
-      { "name": "AI Application Layer", "desc": "Application layer: AI apps, tools and platforms" },
-      { "name": "Evidence Capture Layer", "desc": "Capture layer: collectors, plugins and SDKs" },
-      { "name": "Evidence Model Layer", "desc": "Model layer: evidence, event and identity models" },
-      { "name": "Cryptographic Layer", "desc": "Cryptographic layer: SM2, SM3, Merkle tree, timestamps" },
-      { "name": "Verification Layer", "desc": "Verification layer: verifiers, verification API and reports" }
+      {
+        "name": "AI Application Layer",
+        "desc": "Application layer: AI apps, tools and platforms"
+      },
+      {
+        "name": "Evidence Capture Layer",
+        "desc": "Capture layer: collectors, plugins and SDKs"
+      },
+      {
+        "name": "Evidence Model Layer",
+        "desc": "Model layer: evidence, event and identity models"
+      },
+      {
+        "name": "Cryptographic Layer",
+        "desc": "Cryptographic layer: SM2, SM3, Merkle tree, timestamps"
+      },
+      {
+        "name": "Verification Layer",
+        "desc": "Verification layer: verifiers, verification API and reports"
+      }
     ],
     "graphTitle": "Evidence Graph Structure",
     "graphDesc": "The evidence graph is a directed graph recording the generation process: Events link Artifacts and Identities via generatedBy/used relations, and precededBy records event ordering.",
@@ -201,26 +342,71 @@
     ],
     "cryptoTitle": "Cryptographic Foundation",
     "crypto": [
-      { "title": "SM2 Digital Signature", "desc": "National-standard asymmetric algorithm for source authentication and non-repudiation" },
-      { "title": "SM3 Hash Algorithm", "desc": "National-standard hash with 256-bit digest for content integrity" },
-      { "title": "Merkle Tree Proofs", "desc": "Efficient set-integrity verification supporting large-scale independent checks" },
-      { "title": "Trusted Timestamp", "desc": "RFC 3161 time proof, reduces replay risk (planned)" }
+      {
+        "title": "SM2 Digital Signature",
+        "desc": "National-standard asymmetric algorithm for source authentication and non-repudiation"
+      },
+      {
+        "title": "SM3 Hash Algorithm",
+        "desc": "National-standard hash with 256-bit digest for content integrity"
+      },
+      {
+        "title": "Merkle Tree Proofs",
+        "desc": "Efficient set-integrity verification supporting large-scale independent checks"
+      },
+      {
+        "title": "Trusted Timestamp",
+        "desc": "RFC 3161 time proof, reduces replay risk (planned)"
+      }
     ],
     "threatTitle": "Threat Model",
     "threats": [
-      { "threat": "Content Tampering", "desc": "Attacker modifies notarized AI content", "mitigation": "SM3 hash + Merkle tree: any byte change causes digest mismatch and verification failure" },
-      { "threat": "Identity Forgery", "desc": "Attacker impersonates others to generate evidence", "mitigation": "SM2 digital signature: only the private key holder can produce valid signatures; verifiers check with the public key" },
-      { "threat": "Replay Attack", "desc": "Attacker re-submits old evidence as new", "mitigation": "Event sequence numbers and time proof: verifiers can check time and ordering" }
+      {
+        "threat": "Content Tampering",
+        "desc": "Attacker modifies notarized AI content",
+        "mitigation": "SM3 hash + Merkle tree: any byte change causes digest mismatch and verification failure"
+      },
+      {
+        "threat": "Identity Forgery",
+        "desc": "Attacker impersonates others to generate evidence",
+        "mitigation": "SM2 digital signature: only the private key holder can produce valid signatures; verifiers check with the public key"
+      },
+      {
+        "threat": "Replay Attack",
+        "desc": "Attacker re-submits old evidence as new",
+        "mitigation": "Event sequence numbers and time proof: verifiers can check time and ordering"
+      }
     ],
     "flowTitle": "Verification Flow",
     "flowSteps": [
-      { "stage": "Container Parsing", "desc": "Parse the .aep package structure; check internal files and path safety" },
-      { "stage": "Graph Building", "desc": "Build the evidence graph from package objects; confirm relations resolve" },
-      { "stage": "Object Validation", "desc": "Validate fields and formats of all objects against the protocol specification" },
-      { "stage": "Merkle Verification", "desc": "Recompute the Merkle tree to confirm all content is consistent" },
-      { "stage": "Signature & Identity Verification", "desc": "Verify SM2 signatures and identity claims (including certificate chains)" },
-      { "stage": "Level Calculation", "desc": "Compute the evidence level from evidence strength; detect level overclaim" },
-      { "stage": "Report Generation", "desc": "Output verification reports (text / JSON / SARIF / HTML)" }
+      {
+        "stage": "Container Parsing",
+        "desc": "Parse the .aep package structure; check internal files and path safety"
+      },
+      {
+        "stage": "Graph Building",
+        "desc": "Build the evidence graph from package objects; confirm relations resolve"
+      },
+      {
+        "stage": "Object Validation",
+        "desc": "Validate fields and formats of all objects against the protocol specification"
+      },
+      {
+        "stage": "Merkle Verification",
+        "desc": "Recompute the Merkle tree to confirm all content is consistent"
+      },
+      {
+        "stage": "Signature & Identity Verification",
+        "desc": "Verify SM2 signatures and identity claims (including certificate chains)"
+      },
+      {
+        "stage": "Level Calculation",
+        "desc": "Compute the evidence level from evidence strength; detect level overclaim"
+      },
+      {
+        "stage": "Report Generation",
+        "desc": "Output verification reports (text / JSON / SARIF / HTML)"
+      }
     ],
     "statementTitle": "Security Statement",
     "mitigationLabel": "Mitigation",
@@ -236,17 +422,46 @@
     "subtitle": "Quickly integrate AEP into your application",
     "quickStartTitle": "Quick Start",
     "quickStartSteps": [
-      { "title": "Get AEP CLI", "desc": "Download the pre-built executable — no compilation needed" },
-      { "title": "Initialize Identity & Project", "desc": "Create an SM2 identity and a project" },
-      { "title": "Notarize & Verify", "desc": "Generate a signed evidence package for files or directories and verify it" }
+      {
+        "title": "Get AEP CLI",
+        "desc": "Download the pre-built executable — no compilation needed"
+      },
+      {
+        "title": "Initialize Identity & Project",
+        "desc": "Create an SM2 identity and a project"
+      },
+      {
+        "title": "Notarize & Verify",
+        "desc": "Generate a signed evidence package for files or directories and verify it"
+      }
     ],
     "toolsTitle": "Tool Matrix",
     "tools": [
-      { "name": "MCP Server", "status": "available", "desc": "18 MCP tools with native AI agent support" },
-      { "name": "CLI Tool", "status": "available", "desc": "Command-line tool for batch notarization, verification and export" },
-      { "name": "Python SDK", "status": "comingSoon", "desc": "Python developer toolkit" },
-      { "name": "Rust SDK", "status": "comingSoon", "desc": "High-performance Rust implementation" },
-      { "name": "Go SDK", "status": "comingSoon", "desc": "Go language integration library" }
+      {
+        "name": "MCP Server",
+        "status": "available",
+        "desc": "18 MCP tools with native AI agent support"
+      },
+      {
+        "name": "CLI Tool",
+        "status": "available",
+        "desc": "Command-line tool for batch notarization, verification and export"
+      },
+      {
+        "name": "Python SDK",
+        "status": "comingSoon",
+        "desc": "Python developer toolkit"
+      },
+      {
+        "name": "Rust SDK",
+        "status": "comingSoon",
+        "desc": "High-performance Rust implementation"
+      },
+      {
+        "name": "Go SDK",
+        "status": "comingSoon",
+        "desc": "Go language integration library"
+      }
     ],
     "examplesTitle": "Code Examples",
     "docsTitle": "Documentation",
@@ -260,7 +475,11 @@
     "cliDesc": "Command-line tool: one-click notarization, verification and evidence package export (pre-built executables provided)",
     "cliVersion": "v0.1.0",
     "cliUpdated": "Updated: 2026-08-20",
-    "cliPlatforms": ["Linux", "macOS", "Windows"],
+    "cliPlatforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
     "cliInstallTitle": "Installation",
     "binNote": "Pre-built binaries are being prepared; once released they will be downloadable directly from GitHub Releases — no compilation needed.",
     "mcpTitle": "AEP MCP Server",

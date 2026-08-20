@@ -38,30 +38,74 @@
     "valueTitle": "核心价值",
     "valueDesc": "AEP 用国密密码学（SM2/SM3）、时间证明与可验证数据结构，把 AI 内容的生成过程记录成结构化证据包。任何人拿到证据包，都能独立验证内容的来源、时间与完整性，不依赖中心化平台。",
     "visionTitle": "整体架构",
-    "visionDesc": "AEP 正在构建完整的 AI 证据基础设施：开放协议与参考实现、命令行与 MCP 工具、Web 客户端、国密 PKI 证书服务、在线验证服务与多语言 SDK，覆盖从生成、存证到验证、审计的全链路。"
+    "visionDesc": "AEP 正在构建完整的 AI 证据基础设施：开放协议与参考实现、命令行与 MCP 工具、Web 客户端、国密 PKI 证书服务、在线验证服务与多语言 SDK；证据指纹支持区块链锚定上链，提供公开可核验的存证，覆盖从生成、存证到验证、审计的全链路。"
   },
   "evidenceFlow": {
     "title": "完整的证据链路",
     "subtitle": "从生成到验证，每一步都有密码学证据",
     "steps": [
-      { "title": "AI Content", "desc": "AI 生成的内容" },
-      { "title": "Artifact", "desc": "制品提取与标准化" },
-      { "title": "SM3 Hash", "desc": "内容哈希，完整性保证" },
-      { "title": "SM2 Sign", "desc": "数字签名，来源认证" },
-      { "title": "Merkle Tree", "desc": "默克尔树，集合完整性" },
-      { "title": "Timestamp", "desc": "时间戳，时间证明" },
-      { "title": ".aep Package", "desc": "证据包封装" },
-      { "title": "Independent Verification", "desc": "独立验证，任何人可验证" }
+      {
+        "title": "AI Content",
+        "desc": "AI 生成的内容"
+      },
+      {
+        "title": "Artifact",
+        "desc": "制品提取与标准化"
+      },
+      {
+        "title": "SM3 Hash",
+        "desc": "内容哈希，完整性保证"
+      },
+      {
+        "title": "SM2 Sign",
+        "desc": "数字签名，来源认证"
+      },
+      {
+        "title": "Merkle Tree",
+        "desc": "默克尔树，集合完整性"
+      },
+      {
+        "title": "Timestamp",
+        "desc": "时间戳，时间证明"
+      },
+      {
+        "title": "Blockchain Anchor",
+        "desc": "上链锚定，公开可核验的存证"
+      },
+      {
+        "title": ".aep Package",
+        "desc": "证据包封装"
+      },
+      {
+        "title": "Independent Verification",
+        "desc": "独立验证，任何人可验证"
+      }
     ]
   },
   "crypto": {
     "title": "基于成熟密码学构建",
     "subtitle": "采用国密算法和标准数据结构，安全可信",
     "items": [
-      { "title": "SM3 哈希算法", "desc": "内容完整性保证，256 位摘要", "icon": "🔐" },
-      { "title": "SM2 数字签名", "desc": "来源真实性和不可否认性", "icon": "✍️" },
-      { "title": "Merkle 树", "desc": "大规模数据高效验证，集合完整性", "icon": "🌳" },
-      { "title": "证据图谱", "desc": "事件与制品关系图，完整记录生成过程", "icon": "🕸️" }
+      {
+        "title": "SM3 哈希算法",
+        "desc": "内容完整性保证，256 位摘要",
+        "icon": "🔐"
+      },
+      {
+        "title": "SM2 数字签名",
+        "desc": "来源真实性和不可否认性",
+        "icon": "✍️"
+      },
+      {
+        "title": "Merkle 树",
+        "desc": "大规模数据高效验证，集合完整性",
+        "icon": "🌳"
+      },
+      {
+        "title": "证据图谱",
+        "desc": "事件与制品关系图，完整记录生成过程",
+        "icon": "🕸️"
+      }
     ]
   },
   "packagePreview": {
@@ -99,12 +143,30 @@
     "title": "广泛的应用场景",
     "subtitle": "覆盖 AI 生成的各个领域",
     "items": [
-      { "label": "AI 写作", "icon": "✍️" },
-      { "label": "代码生成", "icon": "💻" },
-      { "label": "图像生成", "icon": "🎨" },
-      { "label": "视频生成", "icon": "🎬" },
-      { "label": "智能体执行", "icon": "🤖" },
-      { "label": "企业审计", "icon": "🏢" }
+      {
+        "label": "AI 写作",
+        "icon": "✍️"
+      },
+      {
+        "label": "代码生成",
+        "icon": "💻"
+      },
+      {
+        "label": "图像生成",
+        "icon": "🎨"
+      },
+      {
+        "label": "视频生成",
+        "icon": "🎬"
+      },
+      {
+        "label": "智能体执行",
+        "icon": "🤖"
+      },
+      {
+        "label": "企业审计",
+        "icon": "🏢"
+      }
     ]
   },
   "comingSoon": {
@@ -131,37 +193,101 @@
     ],
     "principlesTitle": "设计原则",
     "principles": [
-      { "title": "开放性", "desc": "开放协议，任何人都可以实现自己的实现" },
-      { "title": "安全性", "desc": "基于成熟密码学，所有声明可验证" },
-      { "title": "可扩展性", "desc": "模块化设计，支持算法与数据结构的扩展" },
-      { "title": "互操作性", "desc": "与现有标准和生态兼容" }
+      {
+        "title": "开放性",
+        "desc": "开放协议，任何人都可以实现自己的实现"
+      },
+      {
+        "title": "安全性",
+        "desc": "基于成熟密码学，所有声明可验证"
+      },
+      {
+        "title": "可扩展性",
+        "desc": "模块化设计，支持算法与数据结构的扩展"
+      },
+      {
+        "title": "互操作性",
+        "desc": "与现有标准和生态兼容"
+      }
     ],
     "conceptsTitle": "核心概念",
     "concepts": [
-      { "title": "Evidence", "desc": "可验证的声明，是协议的基本单元" },
-      { "title": "Artifact", "desc": "AI 生成的内容制品" },
-      { "title": "Event", "desc": "生成过程中的操作记录" },
-      { "title": "Identity", "desc": "生成者的身份标识" },
-      { "title": "Evidence Graph", "desc": "事件与制品的关系图谱，完整记录生成过程" }
+      {
+        "title": "Evidence",
+        "desc": "可验证的声明，是协议的基本单元"
+      },
+      {
+        "title": "Artifact",
+        "desc": "AI 生成的内容制品"
+      },
+      {
+        "title": "Event",
+        "desc": "生成过程中的操作记录"
+      },
+      {
+        "title": "Identity",
+        "desc": "生成者的身份标识"
+      },
+      {
+        "title": "Evidence Graph",
+        "desc": "事件与制品的关系图谱，完整记录生成过程"
+      },
+      {
+        "title": "Blockchain Anchor",
+        "desc": "证据指纹锚定到区块链等公开账本，提供公开可核验的存证"
+      }
     ],
     "levelsTitle": "证据等级",
     "levelsSubtitle": "从 L0 到 L7，证据强度逐级递增（累计制）",
     "levels": [
-      { "level": "L0", "desc": "PlainHash：任意有效证据包（无签名）" },
-      { "level": "L1", "desc": "Signed：至少一个有效签名" },
-      { "level": "L2", "desc": "Identity-verified：身份经 CA/IdP 验证" },
-      { "level": "L3", "desc": "Timestamped：可信时间戳（RFC 3161）" },
-      { "level": "L4", "desc": "Anchored：区块链 / 分布式锚点" },
-      { "level": "L5", "desc": "Notarized：公证机构背书" },
-      { "level": "L6", "desc": "Continuously-witnessed：连续全流程记录与多方见证" },
-      { "level": "L7", "desc": "Hardware-rooted：TEE / 安全芯片硬件信任根" }
+      {
+        "level": "L0",
+        "desc": "PlainHash：任意有效证据包（无签名）"
+      },
+      {
+        "level": "L1",
+        "desc": "Signed：至少一个有效签名"
+      },
+      {
+        "level": "L2",
+        "desc": "Identity-verified：身份经 CA/IdP 验证"
+      },
+      {
+        "level": "L3",
+        "desc": "Timestamped：可信时间戳（RFC 3161）"
+      },
+      {
+        "level": "L4",
+        "desc": "Anchored：区块链 / 分布式锚点"
+      },
+      {
+        "level": "L5",
+        "desc": "Notarized：公证机构背书"
+      },
+      {
+        "level": "L6",
+        "desc": "Continuously-witnessed：连续全流程记录与多方见证"
+      },
+      {
+        "level": "L7",
+        "desc": "Hardware-rooted：TEE / 安全芯片硬件信任根"
+      }
     ],
     "levelsStatus": "当前实现进度：L0–L1（PlainHash + Signed）已实现，L2–L7 为协议预留等级。",
     "standardsTitle": "与其他标准的关系",
     "standards": [
-      { "title": "C2PA", "desc": "C2PA 关注内容来源（Content Credentials），AEP 关注生成过程的可验证证据，两者互补。" },
-      { "title": "W3C PROV", "desc": "PROV 是通用的溯源标准，AEP 的证据图谱与其模型兼容，聚焦 AI 生成场景。" },
-      { "title": "MCP", "desc": "MCP 是 AI 与工具交互的协议，AEP 提供 MCP 集成，让 AI Agent 原生支持存证。" }
+      {
+        "title": "C2PA",
+        "desc": "C2PA 关注内容来源（Content Credentials），AEP 关注生成过程的可验证证据，两者互补。"
+      },
+      {
+        "title": "W3C PROV",
+        "desc": "PROV 是通用的溯源标准，AEP 的证据图谱与其模型兼容，聚焦 AI 生成场景。"
+      },
+      {
+        "title": "MCP",
+        "desc": "MCP 是 AI 与工具交互的协议，AEP 提供 MCP 集成，让 AI Agent 原生支持存证。"
+      }
     ]
   },
   "architecture": {
@@ -169,11 +295,26 @@
     "subtitle": "分层设计，模块化构建",
     "layersTitle": "五层架构",
     "layers": [
-      { "name": "AI Application Layer", "desc": "应用层：AI 应用、工具与平台" },
-      { "name": "Evidence Capture Layer", "desc": "证据采集层：采集器、插件与 SDK" },
-      { "name": "Evidence Model Layer", "desc": "证据模型层：证据、事件与身份模型" },
-      { "name": "Cryptographic Layer", "desc": "密码学层：SM2、SM3、Merkle Tree、时间戳" },
-      { "name": "Verification Layer", "desc": "验证层：验证器、验证 API 与验证报告" }
+      {
+        "name": "AI Application Layer",
+        "desc": "应用层：AI 应用、工具与平台"
+      },
+      {
+        "name": "Evidence Capture Layer",
+        "desc": "证据采集层：采集器、插件与 SDK"
+      },
+      {
+        "name": "Evidence Model Layer",
+        "desc": "证据模型层：证据、事件与身份模型"
+      },
+      {
+        "name": "Cryptographic Layer",
+        "desc": "密码学层：SM2、SM3、Merkle Tree、时间戳"
+      },
+      {
+        "name": "Verification Layer",
+        "desc": "验证层：验证器、验证 API 与验证报告"
+      }
     ],
     "graphTitle": "证据图谱结构",
     "graphDesc": "证据图谱用有向图记录生成过程：Event 通过 generatedBy/used 关系关联 Artifact 与 Identity，precededBy 记录事件先后顺序。",
@@ -201,26 +342,71 @@
     ],
     "cryptoTitle": "密码学基础",
     "crypto": [
-      { "title": "SM2 数字签名", "desc": "国密标准非对称算法，用于来源认证与不可否认性" },
-      { "title": "SM3 哈希算法", "desc": "国密标准哈希，256 位摘要，用于内容完整性验证" },
-      { "title": "Merkle 树证明", "desc": "高效集合完整性验证，支持海量数据的独立校验" },
-      { "title": "可信时间戳", "desc": "RFC 3161 时间证明，降低重放风险（规划中）" }
+      {
+        "title": "SM2 数字签名",
+        "desc": "国密标准非对称算法，用于来源认证与不可否认性"
+      },
+      {
+        "title": "SM3 哈希算法",
+        "desc": "国密标准哈希，256 位摘要，用于内容完整性验证"
+      },
+      {
+        "title": "Merkle 树证明",
+        "desc": "高效集合完整性验证，支持海量数据的独立校验"
+      },
+      {
+        "title": "可信时间戳",
+        "desc": "RFC 3161 时间证明，降低重放风险（规划中）"
+      }
     ],
     "threatTitle": "威胁模型",
     "threats": [
-      { "threat": "内容篡改", "desc": "攻击者修改已存证的 AI 内容", "mitigation": "SM3 哈希 + Merkle 树：任何字节修改都会导致摘要不匹配，验证失败" },
-      { "threat": "身份伪造", "desc": "攻击者冒充他人生成证据", "mitigation": "SM2 数字签名：只有私钥持有者能生成有效签名，验证方可用公钥核验" },
-      { "threat": "重放攻击", "desc": "攻击者重复提交旧证据冒充新证据", "mitigation": "事件序列号与时间证明：验证方可核对时间与顺序" }
+      {
+        "threat": "内容篡改",
+        "desc": "攻击者修改已存证的 AI 内容",
+        "mitigation": "SM3 哈希 + Merkle 树：任何字节修改都会导致摘要不匹配，验证失败"
+      },
+      {
+        "threat": "身份伪造",
+        "desc": "攻击者冒充他人生成证据",
+        "mitigation": "SM2 数字签名：只有私钥持有者能生成有效签名，验证方可用公钥核验"
+      },
+      {
+        "threat": "重放攻击",
+        "desc": "攻击者重复提交旧证据冒充新证据",
+        "mitigation": "事件序列号与时间证明：验证方可核对时间与顺序"
+      }
     ],
     "flowTitle": "验证流程详解",
     "flowSteps": [
-      { "stage": "容器解析", "desc": "解析 .aep 包结构，检查内部文件与路径安全" },
-      { "stage": "图谱构建", "desc": "从包内对象构建证据图谱，确认关系可解析" },
-      { "stage": "对象校验", "desc": "按协议规范校验所有对象的字段与格式" },
-      { "stage": "Merkle 验证", "desc": "重算 Merkle 树，确认所有内容一致" },
-      { "stage": "签名与身份验证", "desc": "验证 SM2 签名与身份声明（含证书链）" },
-      { "stage": "等级计算", "desc": "根据证据强度计算等级，并检测等级虚高" },
-      { "stage": "报告生成", "desc": "输出验证报告（text / JSON / SARIF / HTML）" }
+      {
+        "stage": "容器解析",
+        "desc": "解析 .aep 包结构，检查内部文件与路径安全"
+      },
+      {
+        "stage": "图谱构建",
+        "desc": "从包内对象构建证据图谱，确认关系可解析"
+      },
+      {
+        "stage": "对象校验",
+        "desc": "按协议规范校验所有对象的字段与格式"
+      },
+      {
+        "stage": "Merkle 验证",
+        "desc": "重算 Merkle 树，确认所有内容一致"
+      },
+      {
+        "stage": "签名与身份验证",
+        "desc": "验证 SM2 签名与身份声明（含证书链）"
+      },
+      {
+        "stage": "等级计算",
+        "desc": "根据证据强度计算等级，并检测等级虚高"
+      },
+      {
+        "stage": "报告生成",
+        "desc": "输出验证报告（text / JSON / SARIF / HTML）"
+      }
     ],
     "statementTitle": "安全声明",
     "mitigationLabel": "防护",
@@ -236,17 +422,46 @@
     "subtitle": "快速集成 AEP 到你的应用",
     "quickStartTitle": "快速开始",
     "quickStartSteps": [
-      { "title": "获取 AEP CLI", "desc": "下载预编译可执行文件，无需自行编译" },
-      { "title": "初始化身份与项目", "desc": "生成 SM2 身份并创建项目" },
-      { "title": "存证并验证", "desc": "为文件或目录生成带签名的证据包并验证" }
+      {
+        "title": "获取 AEP CLI",
+        "desc": "下载预编译可执行文件，无需自行编译"
+      },
+      {
+        "title": "初始化身份与项目",
+        "desc": "生成 SM2 身份并创建项目"
+      },
+      {
+        "title": "存证并验证",
+        "desc": "为文件或目录生成带签名的证据包并验证"
+      }
     ],
     "toolsTitle": "工具矩阵",
     "tools": [
-      { "name": "MCP Server", "status": "available", "desc": "18 个 MCP 工具，AI Agent 原生支持" },
-      { "name": "CLI Tool", "status": "available", "desc": "命令行工具，批量存证验证导出" },
-      { "name": "Python SDK", "status": "comingSoon", "desc": "Python 开发者工具包" },
-      { "name": "Rust SDK", "status": "comingSoon", "desc": "高性能 Rust 实现" },
-      { "name": "Go SDK", "status": "comingSoon", "desc": "Go 语言集成库" }
+      {
+        "name": "MCP Server",
+        "status": "available",
+        "desc": "18 个 MCP 工具，AI Agent 原生支持"
+      },
+      {
+        "name": "CLI Tool",
+        "status": "available",
+        "desc": "命令行工具，批量存证验证导出"
+      },
+      {
+        "name": "Python SDK",
+        "status": "comingSoon",
+        "desc": "Python 开发者工具包"
+      },
+      {
+        "name": "Rust SDK",
+        "status": "comingSoon",
+        "desc": "高性能 Rust 实现"
+      },
+      {
+        "name": "Go SDK",
+        "status": "comingSoon",
+        "desc": "Go 语言集成库"
+      }
     ],
     "examplesTitle": "示例代码",
     "docsTitle": "文档入口",
@@ -260,7 +475,11 @@
     "cliDesc": "命令行工具：一键存证、验证、导出证据包（提供预编译可执行文件）",
     "cliVersion": "v0.1.0",
     "cliUpdated": "更新日期：2026-08-20",
-    "cliPlatforms": ["Linux", "macOS", "Windows"],
+    "cliPlatforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
     "cliInstallTitle": "安装方式",
     "binNote": "预编译二进制正在准备中，发布后可通过 GitHub Releases 直接下载，无需自行编译。",
     "mcpTitle": "AEP MCP Server",
