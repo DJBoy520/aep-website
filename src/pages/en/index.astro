@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import Hero from '@/components/home/Hero.astro';
+import About from '@/components/home/About.astro';
 import EvidenceFlow from '@/components/home/EvidenceFlow.astro';
 import CryptoOverview from '@/components/home/CryptoOverview.astro';
 import PackagePreview from '@/components/home/PackagePreview.astro';
@@ -14,8 +15,9 @@ const t = getTranslation(Astro.url.pathname);
 ---
 
 <MainLayout title={t.home.placeholderTitle} description={t.hero.description}>
-  <!-- 英文首页与中文首页同结构：同一批组件，组件内部按 /en 前缀自动切语言 -->
+  <!-- English homepage mirrors the Chinese one: same components, auto-switching language by /en prefix -->
   <Hero />
+  <About />
   <EvidenceFlow />
   <CryptoOverview />
   <PackagePreview />

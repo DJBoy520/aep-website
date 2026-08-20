@@ -30,6 +30,16 @@
     "placeholderTitle": "AEP - Attestation & Evidence Exchange Protocol",
     "placeholderDesc": "为 AI 生成内容提供可信的存证与验证协议。"
   },
+  "about": {
+    "title": "项目介绍",
+    "subtitle": "让每一份 AI 内容都有可信的数字证明",
+    "problemTitle": "要解决的问题",
+    "problemDesc": "AI 生成内容爆发式增长，来源、时间与完整性难以证明。深度伪造、内容滥用与版权纠纷层出不穷——一份内容是谁生成的、何时生成、是否被篡改，往往无从查证。",
+    "valueTitle": "核心价值",
+    "valueDesc": "AEP 用国密密码学（SM2/SM3）、时间证明与可验证数据结构，把 AI 内容的生成过程记录成结构化证据包。任何人拿到证据包，都能独立验证内容的来源、时间与完整性，不依赖中心化平台。",
+    "visionTitle": "整体架构",
+    "visionDesc": "AEP 正在构建完整的 AI 证据基础设施：开放协议与参考实现、命令行与 MCP 工具、Web 客户端、国密 PKI 证书服务、在线验证服务与多语言 SDK，覆盖从生成、存证到验证、审计的全链路。"
+  },
   "evidenceFlow": {
     "title": "完整的证据链路",
     "subtitle": "从生成到验证，每一步都有密码学证据",
@@ -62,23 +72,24 @@
     "title": "七阶段验证流程",
     "subtitle": "每一步都可独立验证",
     "steps": [
-      "容器安全检查",
-      "结构校验",
-      "图谱完整性",
+      "容器解析",
+      "图谱构建",
+      "对象校验",
       "Merkle 验证",
-      "SM2 签名验证",
-      "身份验证",
-      "等级计算"
+      "签名与身份验证",
+      "等级计算",
+      "报告生成"
     ],
     "resultTitle": "验证通过",
     "resultLevel": "证据等级",
-    "levelValue": "L3"
+    "levelValue": "L1",
+    "resultNote": "示例：含单个签名的证据包"
   },
   "developerEntry": {
     "title": "开发者友好",
     "subtitle": "多种接入方式，快速集成",
     "mcpTitle": "MCP 集成",
-    "mcpDesc": "17 个 MCP 工具，AI Agent 原生支持",
+    "mcpDesc": "18 个 MCP 工具，AI Agent 原生支持",
     "cliTitle": "CLI 工具",
     "cliDesc": "命令行工具，批量存证验证导出",
     "skillsTitle": "Agent Skills",
@@ -111,7 +122,7 @@
   },
   "protocol": {
     "title": "协议规范",
-    "subtitle": "开放、可验证、可扩展的 AI 证据协议",
+    "subtitle": "开放、可验证、可扩展的数字证据交换协议",
     "overviewTitle": "协议概述",
     "overview": [
       "AEP（Attestation & Evidence Exchange Protocol）是一个为 AI 生成内容提供可信数字证明的开放协议。",
@@ -134,17 +145,18 @@
       { "title": "Evidence Graph", "desc": "事件与制品的关系图谱，完整记录生成过程" }
     ],
     "levelsTitle": "证据等级",
-    "levelsSubtitle": "从 L0 到 L7，证据强度逐级递增",
+    "levelsSubtitle": "从 L0 到 L7，证据强度逐级递增（累计制）",
     "levels": [
-      { "level": "L0", "desc": "无证据" },
-      { "level": "L1", "desc": "声明：仅有内容本身" },
-      { "level": "L2", "desc": "哈希存证：内容指纹上链存证" },
-      { "level": "L3", "desc": "签名存证：签名 + 哈希，来源可追溯" },
-      { "level": "L4", "desc": "时间戳：增加时间证明，防重放" },
-      { "level": "L5", "desc": "事件链：连续事件记录，过程可审计" },
-      { "level": "L6", "desc": "图谱完整：证据图谱闭环" },
-      { "level": "L7", "desc": "司法级：面向司法场景的完整证据链" }
+      { "level": "L0", "desc": "PlainHash：任意有效证据包（无签名）" },
+      { "level": "L1", "desc": "Signed：至少一个有效签名" },
+      { "level": "L2", "desc": "Identity-verified：身份经 CA/IdP 验证" },
+      { "level": "L3", "desc": "Timestamped：可信时间戳（RFC 3161）" },
+      { "level": "L4", "desc": "Anchored：区块链 / 分布式锚点" },
+      { "level": "L5", "desc": "Notarized：公证机构背书" },
+      { "level": "L6", "desc": "Continuously-witnessed：连续全流程记录与多方见证" },
+      { "level": "L7", "desc": "Hardware-rooted：TEE / 安全芯片硬件信任根" }
     ],
+    "levelsStatus": "当前实现进度：L0–L1（PlainHash + Signed）已实现，L2–L7 为协议预留等级。",
     "standardsTitle": "与其他标准的关系",
     "standards": [
       { "title": "C2PA", "desc": "C2PA 关注内容来源（Content Credentials），AEP 关注生成过程的可验证证据，两者互补。" },
@@ -185,30 +197,30 @@
     "modelTitle": "安全模型概述",
     "modelText": [
       "AEP 的安全设计围绕一个核心理念：提供密码学证据能力，而非断言内容真实。协议不声称内容本身是真实的，而是提供可验证的证据，让任何人都能独立核验内容的来源、时间与完整性。",
-      "所有安全属性都建立在成熟的国密密码学算法（SM2、SM3）和标准数据结构（Merkle 树、时间戳）之上。"
+      "所有安全属性都建立在成熟的国密密码学算法（SM2、SM3）和标准数据结构（Merkle 树、证据图谱）之上。"
     ],
     "cryptoTitle": "密码学基础",
     "crypto": [
       { "title": "SM2 数字签名", "desc": "国密标准非对称算法，用于来源认证与不可否认性" },
       { "title": "SM3 哈希算法", "desc": "国密标准哈希，256 位摘要，用于内容完整性验证" },
       { "title": "Merkle 树证明", "desc": "高效集合完整性验证，支持海量数据的独立校验" },
-      { "title": "时间戳机制", "desc": "提供时间证明，降低重放攻击风险" }
+      { "title": "可信时间戳", "desc": "RFC 3161 时间证明，降低重放风险（规划中）" }
     ],
     "threatTitle": "威胁模型",
     "threats": [
       { "threat": "内容篡改", "desc": "攻击者修改已存证的 AI 内容", "mitigation": "SM3 哈希 + Merkle 树：任何字节修改都会导致摘要不匹配，验证失败" },
       { "threat": "身份伪造", "desc": "攻击者冒充他人生成证据", "mitigation": "SM2 数字签名：只有私钥持有者能生成有效签名，验证方可用公钥核验" },
-      { "threat": "重放攻击", "desc": "攻击者重复提交旧证据冒充新证据", "mitigation": "时间戳 + 事件序列号：验证方可核对时间与顺序" }
+      { "threat": "重放攻击", "desc": "攻击者重复提交旧证据冒充新证据", "mitigation": "事件序列号与时间证明：验证方可核对时间与顺序" }
     ],
     "flowTitle": "验证流程详解",
     "flowSteps": [
-      { "stage": "容器安全检查", "desc": "检查证据包结构与内部文件是否合规" },
-      { "stage": "结构校验", "desc": "按协议规范校验所有对象的字段与格式" },
-      { "stage": "图谱完整性", "desc": "验证事件与制品的关系图谱是否闭环" },
+      { "stage": "容器解析", "desc": "解析 .aep 包结构，检查内部文件与路径安全" },
+      { "stage": "图谱构建", "desc": "从包内对象构建证据图谱，确认关系可解析" },
+      { "stage": "对象校验", "desc": "按协议规范校验所有对象的字段与格式" },
       { "stage": "Merkle 验证", "desc": "重算 Merkle 树，确认所有内容一致" },
-      { "stage": "SM2 签名验证", "desc": "用公钥验证签名，确认来源真实" },
-      { "stage": "身份验证", "desc": "核验签名者身份信息" },
-      { "stage": "等级计算", "desc": "根据证据强度计算证据等级" }
+      { "stage": "签名与身份验证", "desc": "验证 SM2 签名与身份声明（含证书链）" },
+      { "stage": "等级计算", "desc": "根据证据强度计算等级，并检测等级虚高" },
+      { "stage": "报告生成", "desc": "输出验证报告（text / JSON / SARIF / HTML）" }
     ],
     "statementTitle": "安全声明",
     "mitigationLabel": "防护",
@@ -224,13 +236,13 @@
     "subtitle": "快速集成 AEP 到你的应用",
     "quickStartTitle": "快速开始",
     "quickStartSteps": [
-      { "title": "安装 CLI 工具", "desc": "一条命令安装 AEP 命令行工具" },
-      { "title": "初始化证据包", "desc": "在项目中初始化证据包结构" },
-      { "title": "生成存证", "desc": "为文件或内容生成带签名的证据" }
+      { "title": "获取 AEP CLI", "desc": "下载预编译可执行文件，无需自行编译" },
+      { "title": "初始化身份与项目", "desc": "生成 SM2 身份并创建项目" },
+      { "title": "存证并验证", "desc": "为文件或目录生成带签名的证据包并验证" }
     ],
     "toolsTitle": "工具矩阵",
     "tools": [
-      { "name": "MCP Server", "status": "available", "desc": "17 个 MCP 工具，AI Agent 原生支持" },
+      { "name": "MCP Server", "status": "available", "desc": "18 个 MCP 工具，AI Agent 原生支持" },
       { "name": "CLI Tool", "status": "available", "desc": "命令行工具，批量存证验证导出" },
       { "name": "Python SDK", "status": "comingSoon", "desc": "Python 开发者工具包" },
       { "name": "Rust SDK", "status": "comingSoon", "desc": "高性能 Rust 实现" },
@@ -238,20 +250,21 @@
     ],
     "examplesTitle": "示例代码",
     "docsTitle": "文档入口",
-    "docsDesc": "完整的协议规范、API 参考和集成指南正在建设中，v0.2 随文档系统上线。",
-    "docsLink": "查看 GitHub"
+    "docsDesc": "协议规范（C01–C06 / D01–D04）、参考实现与开发文档见 aep-designs 文档仓库。",
+    "docsLink": "访问文档仓库"
   },
   "downloads": {
     "title": "下载中心",
     "subtitle": "获取 AEP 工具和 SDK",
     "cliTitle": "AEP CLI",
-    "cliDesc": "命令行工具：一键存证、验证、导出证据包",
+    "cliDesc": "命令行工具：一键存证、验证、导出证据包（提供预编译可执行文件）",
     "cliVersion": "v0.1.0",
-    "cliUpdated": "更新日期：2026-08-09",
+    "cliUpdated": "更新日期：2026-08-20",
     "cliPlatforms": ["Linux", "macOS", "Windows"],
-    "cliInstallTitle": "安装命令",
+    "cliInstallTitle": "安装方式",
+    "binNote": "预编译二进制正在准备中，发布后可通过 GitHub Releases 直接下载，无需自行编译。",
     "mcpTitle": "AEP MCP Server",
-    "mcpDesc": "AI Agent 原生支持：17 个 MCP 工具，存证验证一体化",
+    "mcpDesc": "AI Agent 原生支持：18 个 MCP 工具，存证验证一体化",
     "mcpInstallTitle": "安装方式",
     "skillTitle": "AEP Skill",
     "skillDesc": "智能体技能包：一键接入主流 AI 助手",

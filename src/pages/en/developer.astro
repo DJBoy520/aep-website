@@ -23,26 +23,27 @@ const tools: Tool[] = d.tools.map((tool) => ({
 }));
 
 // Command examples for the three quick-start steps (code content, hardcoded by design)
+// 1. Download the pre-built executable (example: Linux x64; available once released)
 const stepCommands: string[] = [
-  'curl -fsSL https://github.com/aep-protocol/aep-cli/releases/download/v0.1.0/install.sh | sh',
-  'aep init my-project',
-  'aep notarize artifact.md --project my-project',
+  'curl -fsSL -o aep https://github.com/DJBoy520/aep-refimpl/releases/latest/download/aep-linux-x64\nchmod +x aep && sudo mv aep /usr/local/bin/',
+  'aep init --non-interactive && aep project create myproj',
+  'aep notarize ./artifact --project myproj --verify -o artifact.aep',
 ];
 
 // CLI notarization example (multi-line)
-const cliExample = `# init project
-aep init my-project
-# notarize a file
-aep notarize report.md --project my-project
-# validate the evidence package
-aep validate evidence.aep`;
+const cliExample = `# initialize identity and project (first use)
+aep init --non-interactive
+aep project create myproj
+# notarize: generate a signed evidence package for files/directories and verify
+aep notarize ./artifact --project myproj --verify -o artifact.aep
+# validate the evidence package (seven stages)
+aep validate artifact.aep --json`;
 
 // MCP invocation example (JSON config snippet)
 const mcpExample = `{
   "mcpServers": {
     "aep": {
-      "command": "aep-mcp",
-      "args": ["--project", "my-project"]
+      "command": "aep-mcp"
     }
   }
 }`;
@@ -109,7 +110,7 @@ const mcpExample = `{
         <SectionTitle title={d.docsTitle} />
         <p class="mt-6 max-w-2xl text-[var(--text-secondary)]">{d.docsDesc}</p>
         <div class="mt-8">
-          <Button href="https://github.com/" variant="primary">
+          <Button href="https://github.com/DJBoy520/aep-design" variant="primary">
             {d.docsLink}
           </Button>
         </div>

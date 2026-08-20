@@ -30,6 +30,16 @@
     "placeholderTitle": "AEP - Attestation & Evidence Exchange Protocol",
     "placeholderDesc": "A trusted evidence and verification protocol for AI-generated content."
   },
+  "about": {
+    "title": "About the Project",
+    "subtitle": "Trusted digital proof for every piece of AI-generated content",
+    "problemTitle": "The Problem",
+    "problemDesc": "AI-generated content is growing explosively, yet its origin, time and integrity are hard to prove. Deepfakes, misuse and copyright disputes abound — we often cannot tell who generated a piece of content, when it was generated, or whether it has been altered.",
+    "valueTitle": "The Value",
+    "valueDesc": "AEP records the generation process of AI content into structured evidence packages using national-standard cryptography (SM2/SM3), time proof and verifiable data structures. Anyone holding an evidence package can independently verify its origin, time and integrity — without relying on any centralized platform.",
+    "visionTitle": "The Architecture",
+    "visionDesc": "AEP is building a complete evidence infrastructure for AI: an open protocol with a reference implementation, CLI and MCP tools, a web client, a national-standard PKI certificate service, an online verification service and multi-language SDKs — covering the full chain from generation and notarization to verification and audit."
+  },
   "evidenceFlow": {
     "title": "Complete Evidence Chain",
     "subtitle": "From generation to verification, cryptographic evidence at every step",
@@ -62,23 +72,24 @@
     "title": "Seven-Stage Verification Process",
     "subtitle": "Each step is independently verifiable",
     "steps": [
-      "Container Check",
-      "Schema Validation",
-      "Graph Validation",
+      "Container Parsing",
+      "Graph Building",
+      "Object Validation",
       "Merkle Verification",
-      "SM2 Signature Verification",
-      "Identity Check",
-      "Level Calculation"
+      "Signature & Identity Verification",
+      "Level Calculation",
+      "Report Generation"
     ],
     "resultTitle": "Verification Passed",
     "resultLevel": "Evidence Level",
-    "levelValue": "L3"
+    "levelValue": "L1",
+    "resultNote": "Example: a package with a single signature"
   },
   "developerEntry": {
     "title": "Developer Friendly",
     "subtitle": "Multiple integration options for fast adoption",
     "mcpTitle": "MCP Integration",
-    "mcpDesc": "17 MCP tools with native AI agent support",
+    "mcpDesc": "18 MCP tools with native AI agent support",
     "cliTitle": "CLI Tool",
     "cliDesc": "Command-line tool for batch notarization, verification and export",
     "skillsTitle": "Agent Skills",
@@ -111,7 +122,7 @@
   },
   "protocol": {
     "title": "Protocol Specification",
-    "subtitle": "An open, verifiable and extensible AI evidence protocol",
+    "subtitle": "An open, verifiable and extensible protocol for digital evidence exchange",
     "overviewTitle": "Overview",
     "overview": [
       "AEP (Attestation & Evidence Exchange Protocol) is an open protocol that provides trusted digital proof for AI-generated content.",
@@ -134,17 +145,18 @@
       { "title": "Evidence Graph", "desc": "A graph of events and artifacts fully recording the generation process" }
     ],
     "levelsTitle": "Evidence Levels",
-    "levelsSubtitle": "From L0 to L7, evidence strength increases progressively",
+    "levelsSubtitle": "From L0 to L7, evidence strength increases progressively (cumulative)",
     "levels": [
-      { "level": "L0", "desc": "No evidence" },
-      { "level": "L1", "desc": "Claim: content only" },
-      { "level": "L2", "desc": "Hash record: content fingerprint notarized" },
-      { "level": "L3", "desc": "Signed record: signature + hash, traceable source" },
-      { "level": "L4", "desc": "Timestamp: adds time proof, replay protection" },
-      { "level": "L5", "desc": "Event chain: continuous event records, auditable process" },
-      { "level": "L6", "desc": "Complete graph: closed evidence graph" },
-      { "level": "L7", "desc": "Judicial grade: full evidence chain for legal scenarios" }
+      { "level": "L0", "desc": "PlainHash: any valid package (unsigned)" },
+      { "level": "L1", "desc": "Signed: at least one valid signature" },
+      { "level": "L2", "desc": "Identity-verified: identity verified by CA/IdP" },
+      { "level": "L3", "desc": "Timestamped: trusted timestamp (RFC 3161)" },
+      { "level": "L4", "desc": "Anchored: blockchain / distributed anchoring" },
+      { "level": "L5", "desc": "Notarized: endorsement by a notary authority" },
+      { "level": "L6", "desc": "Continuously-witnessed: continuous recording with multi-party witnessing" },
+      { "level": "L7", "desc": "Hardware-rooted: TEE / secure chip hardware trust root" }
     ],
+    "levelsStatus": "Implementation status: L0–L1 (PlainHash + Signed) shipped; L2–L7 are reserved protocol levels.",
     "standardsTitle": "Relationship with Other Standards",
     "standards": [
       { "title": "C2PA", "desc": "C2PA focuses on content provenance (Content Credentials); AEP focuses on verifiable evidence of the generation process. They complement each other." },
@@ -185,30 +197,30 @@
     "modelTitle": "Security Model Overview",
     "modelText": [
       "AEP's security design centers on one idea: providing cryptographic evidence capabilities, not asserting that content is true. The protocol does not claim content is true; it provides verifiable evidence so anyone can independently verify a content's source, time and integrity.",
-      "All security properties are built on proven national-standard cryptographic algorithms (SM2, SM3) and standard data structures (Merkle tree, timestamps)."
+      "All security properties are built on proven national-standard cryptographic algorithms (SM2, SM3) and standard data structures (Merkle tree, evidence graph)."
     ],
     "cryptoTitle": "Cryptographic Foundation",
     "crypto": [
       { "title": "SM2 Digital Signature", "desc": "National-standard asymmetric algorithm for source authentication and non-repudiation" },
       { "title": "SM3 Hash Algorithm", "desc": "National-standard hash with 256-bit digest for content integrity" },
       { "title": "Merkle Tree Proofs", "desc": "Efficient set-integrity verification supporting large-scale independent checks" },
-      { "title": "Timestamp Mechanism", "desc": "Provides time proof, reducing replay attack risk" }
+      { "title": "Trusted Timestamp", "desc": "RFC 3161 time proof, reduces replay risk (planned)" }
     ],
     "threatTitle": "Threat Model",
     "threats": [
       { "threat": "Content Tampering", "desc": "Attacker modifies notarized AI content", "mitigation": "SM3 hash + Merkle tree: any byte change causes digest mismatch and verification failure" },
       { "threat": "Identity Forgery", "desc": "Attacker impersonates others to generate evidence", "mitigation": "SM2 digital signature: only the private key holder can produce valid signatures; verifiers check with the public key" },
-      { "threat": "Replay Attack", "desc": "Attacker re-submits old evidence as new", "mitigation": "Timestamps + event sequence numbers: verifiers can check time and ordering" }
+      { "threat": "Replay Attack", "desc": "Attacker re-submits old evidence as new", "mitigation": "Event sequence numbers and time proof: verifiers can check time and ordering" }
     ],
     "flowTitle": "Verification Flow",
     "flowSteps": [
-      { "stage": "Container Check", "desc": "Check evidence package structure and internal files for compliance" },
-      { "stage": "Schema Validation", "desc": "Validate fields and formats of all objects against the protocol specification" },
-      { "stage": "Graph Validation", "desc": "Verify the relation graph of events and artifacts is closed" },
+      { "stage": "Container Parsing", "desc": "Parse the .aep package structure; check internal files and path safety" },
+      { "stage": "Graph Building", "desc": "Build the evidence graph from package objects; confirm relations resolve" },
+      { "stage": "Object Validation", "desc": "Validate fields and formats of all objects against the protocol specification" },
       { "stage": "Merkle Verification", "desc": "Recompute the Merkle tree to confirm all content is consistent" },
-      { "stage": "SM2 Signature Verification", "desc": "Verify the signature with the public key to confirm the source" },
-      { "stage": "Identity Check", "desc": "Verify the signer's identity information" },
-      { "stage": "Level Calculation", "desc": "Compute the evidence level based on evidence strength" }
+      { "stage": "Signature & Identity Verification", "desc": "Verify SM2 signatures and identity claims (including certificate chains)" },
+      { "stage": "Level Calculation", "desc": "Compute the evidence level from evidence strength; detect level overclaim" },
+      { "stage": "Report Generation", "desc": "Output verification reports (text / JSON / SARIF / HTML)" }
     ],
     "statementTitle": "Security Statement",
     "mitigationLabel": "Mitigation",
@@ -224,13 +236,13 @@
     "subtitle": "Quickly integrate AEP into your application",
     "quickStartTitle": "Quick Start",
     "quickStartSteps": [
-      { "title": "Install CLI Tool", "desc": "Install the AEP command-line tool with one command" },
-      { "title": "Initialize Evidence Package", "desc": "Initialize the evidence package structure in your project" },
-      { "title": "Generate Evidence", "desc": "Generate signed evidence for files or content" }
+      { "title": "Get AEP CLI", "desc": "Download the pre-built executable — no compilation needed" },
+      { "title": "Initialize Identity & Project", "desc": "Create an SM2 identity and a project" },
+      { "title": "Notarize & Verify", "desc": "Generate a signed evidence package for files or directories and verify it" }
     ],
     "toolsTitle": "Tool Matrix",
     "tools": [
-      { "name": "MCP Server", "status": "available", "desc": "17 MCP tools with native AI agent support" },
+      { "name": "MCP Server", "status": "available", "desc": "18 MCP tools with native AI agent support" },
       { "name": "CLI Tool", "status": "available", "desc": "Command-line tool for batch notarization, verification and export" },
       { "name": "Python SDK", "status": "comingSoon", "desc": "Python developer toolkit" },
       { "name": "Rust SDK", "status": "comingSoon", "desc": "High-performance Rust implementation" },
@@ -238,20 +250,21 @@
     ],
     "examplesTitle": "Code Examples",
     "docsTitle": "Documentation",
-    "docsDesc": "The full protocol specification, API reference and integration guide are under construction and will launch with the documentation system in v0.2.",
-    "docsLink": "View on GitHub"
+    "docsDesc": "Protocol specifications (C01–C06 / D01–D04), the reference implementation and developer docs live in the aep-designs repository.",
+    "docsLink": "View Docs"
   },
   "downloads": {
     "title": "Download Center",
     "subtitle": "Get AEP tools and SDKs",
     "cliTitle": "AEP CLI",
-    "cliDesc": "Command-line tool: one-click notarization, verification and evidence package export",
+    "cliDesc": "Command-line tool: one-click notarization, verification and evidence package export (pre-built executables provided)",
     "cliVersion": "v0.1.0",
-    "cliUpdated": "Updated: 2026-08-09",
+    "cliUpdated": "Updated: 2026-08-20",
     "cliPlatforms": ["Linux", "macOS", "Windows"],
     "cliInstallTitle": "Installation",
+    "binNote": "Pre-built binaries are being prepared; once released they will be downloadable directly from GitHub Releases — no compilation needed.",
     "mcpTitle": "AEP MCP Server",
-    "mcpDesc": "Native AI agent support: 17 MCP tools for notarization and verification in one",
+    "mcpDesc": "Native AI agent support: 18 MCP tools for notarization and verification in one",
     "mcpInstallTitle": "Installation",
     "skillTitle": "AEP Skill",
     "skillDesc": "Agent skill pack: one-click integration with mainstream AI assistants",

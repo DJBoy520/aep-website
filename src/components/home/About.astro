@@ -1,0 +1,36 @@
+---
+import SectionTitle from '../common/SectionTitle.astro';
+import Card from '../common/Card.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const a = t.about;
+---
+
+<!-- 项目介绍：要解决的问题 → 核心价值 → 整体架构（三卡片） -->
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+  <SectionTitle title={a.title} subtitle={a.subtitle} align="center" />
+
+  <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+    <!-- 要解决的问题 -->
+    <Card hover class="flex flex-col">
+      <div class="text-3xl" aria-hidden="true">🎯</div>
+      <h3 class="mt-4 text-lg font-semibold text-[var(--text-primary)]">{a.problemTitle}</h3>
+      <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">{a.problemDesc}</p>
+    </Card>
+
+    <!-- 核心价值 -->
+    <Card hover class="flex flex-col">
+      <div class="text-3xl" aria-hidden="true">🛡️</div>
+      <h3 class="mt-4 text-lg font-semibold text-[var(--text-primary)]">{a.valueTitle}</h3>
+      <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">{a.valueDesc}</p>
+    </Card>
+
+    <!-- 整体架构 -->
+    <Card hover class="flex flex-col">
+      <div class="text-3xl" aria-hidden="true">🧩</div>
+      <h3 class="mt-4 text-lg font-semibold text-[var(--text-primary)]">{a.visionTitle}</h3>
+      <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">{a.visionDesc}</p>
+    </Card>
+  </div>
+</section>

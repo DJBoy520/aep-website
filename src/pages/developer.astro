@@ -23,26 +23,27 @@ const tools: Tool[] = d.tools.map((tool) => ({
 }));
 
 // 快速开始三步对应的命令示例（代码内容，允许硬编码）
+// 1. 下载预编译可执行文件（示例：Linux x64；发布后可用）
 const stepCommands: string[] = [
-  'curl -fsSL https://github.com/aep-protocol/aep-cli/releases/download/v0.1.0/install.sh | sh',
-  'aep init my-project',
-  'aep notarize artifact.md --project my-project',
+  'curl -fsSL -o aep https://github.com/DJBoy520/aep-refimpl/releases/latest/download/aep-linux-x64\nchmod +x aep && sudo mv aep /usr/local/bin/',
+  'aep init --non-interactive && aep project create myproj',
+  'aep notarize ./artifact --project myproj --verify -o artifact.aep',
 ];
 
 // CLI 存证示例（多行）
-const cliExample = `# init project
-aep init my-project
-# notarize a file
-aep notarize report.md --project my-project
-# validate the evidence package
-aep validate evidence.aep`;
+const cliExample = `# 初始化身份与项目（首次使用）
+aep init --non-interactive
+aep project create myproj
+# 存证：为文件/目录生成带签名的证据包并验证
+aep notarize ./artifact --project myproj --verify -o artifact.aep
+# 验证证据包（七阶段）
+aep validate artifact.aep --json`;
 
 // MCP 调用示例（JSON 配置片段）
 const mcpExample = `{
   "mcpServers": {
     "aep": {
-      "command": "aep-mcp",
-      "args": ["--project", "my-project"]
+      "command": "aep-mcp"
     }
   }
 }`;
@@ -109,7 +110,7 @@ const mcpExample = `{
         <SectionTitle title={d.docsTitle} />
         <p class="mt-6 max-w-2xl text-[var(--text-secondary)]">{d.docsDesc}</p>
         <div class="mt-8">
-          <Button href="https://github.com/" variant="primary">
+          <Button href="https://github.com/DJBoy520/aep-design" variant="primary">
             {d.docsLink}
           </Button>
         </div>

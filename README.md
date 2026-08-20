@@ -21,7 +21,6 @@ AEP（Attestation & Evidence Exchange Protocol）官方门户，承载协议展�
 │   ├── Dockerfile           # 多阶段构建（builder + nginx runtime）
 │   ├── nginx.conf           # Gzip / 静态缓存 / 路由回退
 │   └── docker-compose.yml   # 一键启动
-├── docs/                    # 文档（PRD / 执行手册 / 设计文档）
 ├── public/                  # 静态资源（favicon 等）
 ├── src/
 │   ├── components/          # 组件
@@ -84,7 +83,9 @@ docker run -p 8080:80 aep-website
 
 ## 文档索引
 
-- [01-PRD-需求文档](docs/01-PRD-需求文档.md)
-- [02-OpenClaw执行手册-v2](docs/02-OpenClaw执行手册-v2.md)
-- [03-开发设计文档](docs/03-开发设计文档.md)
+项目文档已迁移至 [aep-designs](https://github.com/DJBoy520/aep-design) 仓库（aep-website/ 子目录），本仓库不再保存文档：
+
+- [01-PRD-需求文档](https://github.com/DJBoy520/aep-design/blob/main/aep-website/01-PRD-需求文档.md)
+- [02-OpenClaw执行手册](https://github.com/DJBoy520/aep-design/blob/main/aep-website/02-OpenClaw执行手册.md)
+- [03-开发设计文档](https://github.com/DJBoy520/aep-design/blob/main/aep-website/03-开发设计文档.md)
 - [AI_RULES.md](AI_RULES.md) — 所有 AI 助手参与本项目前必须阅读

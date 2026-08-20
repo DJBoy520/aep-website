@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/home/Hero.astro';
+import About from '../components/home/About.astro';
 import EvidenceFlow from '../components/home/EvidenceFlow.astro';
 import CryptoOverview from '../components/home/CryptoOverview.astro';
 import PackagePreview from '../components/home/PackagePreview.astro';
@@ -14,8 +15,9 @@ const t = getTranslation(Astro.url.pathname);
 ---
 
 <MainLayout title={t.home.placeholderTitle} description={t.hero.description}>
-  <!-- 首页 8 个区块：Hero → EvidenceFlow → CryptoOverview → PackagePreview → VerificationProcess → DeveloperEntry → UseCases → ComingSoon（组件内部自行取 i18n） -->
+  <!-- 首页 9 个区块：Hero → About → EvidenceFlow → CryptoOverview → PackagePreview → VerificationProcess → DeveloperEntry → UseCases → ComingSoon（组件内部自行取 i18n） -->
   <Hero />
+  <About />
   <EvidenceFlow />
   <CryptoOverview />
   <PackagePreview />

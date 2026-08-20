@@ -9,14 +9,12 @@ import { getTranslation } from '@/i18n/utils';
 const t = getTranslation(Astro.url.pathname);
 const d = t.downloads;
 
-// 下载链接占位（v0.1 无真实发布文件，统一指向 GitHub Releases）
-const releasesUrl = 'https://github.com/aep-protocol/aep-cli/releases';
+// 下载链接指向真实仓库的 GitHub Releases（预编译二进制发布后可用）
+const releasesUrl = 'https://github.com/DJBoy520/aep-refimpl/releases';
 const installCmd =
-  'curl -fsSL https://github.com/aep-protocol/aep-cli/releases/download/v0.1.0/install.sh | sh';
-const mcpInstallCmd = `# via npm
-npm install -g aep-mcp
-# via pip
-pip install aep-mcp`;
+  'curl -fsSL -o aep https://github.com/DJBoy520/aep-refimpl/releases/latest/download/aep-linux-x64\nchmod +x aep && sudo mv aep /usr/local/bin/';
+const mcpInstallCmd = `# MCP Server 随 CLI 一并分发，通过 npm 全局安装（发布后可用）
+npm install -g aep-mcp`;
 ---
 
 <MainLayout title={d.title} description={d.subtitle}>
@@ -50,6 +48,7 @@ pip install aep-mcp`;
               </Button>
             ))}
           </div>
+          <p class="mt-4 text-sm text-[var(--text-secondary)]">{d.binNote}</p>
           <h3 class="mt-8 text-sm font-semibold text-[var(--text-primary)]">
             {d.cliInstallTitle}
           </h3>
