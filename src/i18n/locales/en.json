@@ -137,8 +137,8 @@
     ],
     "resultTitle": "Verification Passed",
     "resultLevel": "Evidence Level",
-    "levelValue": "L1",
-    "resultNote": "Example: a package with a single signature"
+    "levelValue": "L4",
+    "resultNote": "Example: full evidence package with signature, TSA timestamp, and blockchain anchor"
   },
   "developerEntry": {
     "title": "Developer Friendly",

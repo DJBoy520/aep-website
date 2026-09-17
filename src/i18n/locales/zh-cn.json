@@ -137,8 +137,8 @@
     ],
     "resultTitle": "验证通过",
     "resultLevel": "证据等级",
-    "levelValue": "L1",
-    "resultNote": "示例：含单个签名的证据包"
+    "levelValue": "L4",
+    "resultNote": "示例：含数字签名、TSA 时间戳与区块链锚定的完整证据包"
   },
   "developerEntry": {
     "title": "开发者友好",
