@@ -7,15 +7,35 @@ const lang = getLangFromPath(Astro.url.pathname);
 const t = getTranslation(Astro.url.pathname);
 
 interface Entry {
+  id: string;
   title: string;
   desc: string;
   status: 'available' | 'comingSoon';
+  featured?: boolean;
 }
 
 const entries: Entry[] = [
-  { title: t.developerEntry.mcpTitle, desc: t.developerEntry.mcpDesc, status: 'available' },
-  { title: t.developerEntry.cliTitle, desc: t.developerEntry.cliDesc, status: 'available' },
-  { title: t.developerEntry.skillsTitle, desc: t.developerEntry.skillsDesc, status: 'comingSoon' },
+  {
+    id: 'mcp',
+    title: t.developerEntry.mcpTitle,
+    desc: t.developerEntry.mcpDesc,
+    status: 'available',
+    featured: true,
+  },
+  {
+    id: 'cli',
+    title: t.developerEntry.cliTitle,
+    desc: t.developerEntry.cliDesc,
+    status: 'available',
+    featured: false,
+  },
+  {
+    id: 'skills',
+    title: t.developerEntry.skillsTitle,
+    desc: t.developerEntry.skillsDesc,
+    status: 'comingSoon',
+    featured: false,
+  },
 ];
 
 // 状态标签样式：Available 绿色 + 圆点；Coming Soon 琥珀色
@@ -26,13 +46,31 @@ function statusClasses(status: Entry['status']): string {
 }
 ---
 
-<!-- 开发者入口：3 卡片（MCP 可用 / CLI 可用 / Agent Skills 即将推出） -->
+<!-- 开发者入口：以 MCP 为一等公民首要推荐 + CLI / Agent Skills -->
 <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
   <SectionTitle title={t.developerEntry.title} subtitle={t.developerEntry.subtitle} align="center" />
 
   <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
     {entries.map((entry) => (
-      <Card hover class="flex flex-col">
+      <Card
+        hover
+        class={`relative flex flex-col ${
+          entry.featured
+            ? 'border-aep-primary/60 ring-2 ring-aep-primary/20 bg-gradient-to-b from-aep-primary/[0.06] via-[var(--card-bg)] to-[var(--card-bg)] shadow-md'
+            : ''
+        }`}
+      >
+        {entry.featured && (
+          <div class="mb-3">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-aep-primary px-3 py-1 text-xs font-bold text-white shadow-sm">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              {t.developerEntry.firstClass}
+            </span>
+          </div>
+        )}
+
         <div class="flex items-center justify-between gap-3">
           <h3 class="text-lg font-semibold text-[var(--text-primary)]">{entry.title}</h3>
           <span
@@ -46,10 +84,14 @@ function statusClasses(status: Entry['status']): string {
             {entry.status === 'available' ? t.common.available : t.common.comingSoon}
           </span>
         </div>
-        <p class="mt-3 flex-1 text-sm text-[var(--text-secondary)]">{entry.desc}</p>
+
+        <p class="mt-3 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">{entry.desc}</p>
+
         <a
-          href={getLocalizedPath('/developer', lang)}
-          class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-aep-primary hover:underline"
+          href={getLocalizedPath(entry.id === 'mcp' ? '/developer#mcp' : '/developer', lang)}
+          class={`mt-5 inline-flex items-center gap-1.5 text-sm font-semibold transition ${
+            entry.featured ? 'text-aep-primary hover:text-aep-purple' : 'text-aep-primary hover:underline'
+          }`}
         >
           {t.common.learnMore}
           <span aria-hidden="true">→</span>

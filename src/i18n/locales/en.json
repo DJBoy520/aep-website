@@ -8,10 +8,11 @@
     "downloads": "Downloads"
   },
   "hero": {
+    "mcpBadge": "⚡ Evidence MCP as First-Class Citizen · Ready to Use",
     "title": "AEP",
     "subtitle": "AI Agent Evidence Infrastructure",
     "slogan": "Free to create evidence. Pay to operate at scale.",
-    "description": "Establish a verifiable, traceable, and auditable chain of evidence (Proof of AI Action) for critical AI behaviors, enabling deterministic collaboration between humans and autonomous agents in a zero-trust world."
+    "description": "Building verifiable, traceable, and auditable evidence chains (Proof of AI Action) for mission-critical AI operations, enabling deterministic collaboration between humans and autonomous agents in a zero-trust world."
   },
   "common": {
     "getStarted": "Get Started",
@@ -39,11 +40,15 @@
     "valueDesc": "AEP packages agent actions and resulting artifacts into cryptographically verifiable structured evidence containers (.aep). Anyone holding an evidence package can independently verify the execution identity, causal order, and immutable integrity without relying on centralized servers — delivering a robust Proof of AI Action.",
     "visionTitle": "AEP Trust Fabric Matrix",
     "visionDesc": "AEP constructs a three-dimensional trust fabric for autonomous AI: AEP PKI Fabric establishes execution identity (Who), AEP TSA Core locks causal sequencing (When), and AEP Chain Ledger anchors immutable finality (Immutability). With Evidence MCP as the first-class citizen gateway, AEP covers the full lifecycle from action capture and notarization to independent verification and neutral audit.",
+    "matrixBadge": "3D Trust Architecture · TRUST FABRIC",
     "pkiTitle": "AEP PKI Fabric",
+    "pkiDimension": "WHO · Non-forgeable Identity",
     "pkiDesc": "Machine identity network and digital certificate infrastructure, assigning independent cryptographic credentials and certificate chains to each AI Agent to solve the Who problem and guarantee non-repudiation.",
     "tsaTitle": "AEP TSA Core",
+    "tsaDimension": "WHEN · Causal Time Ordering",
     "tsaDesc": "High-precision causal time sequencing and RFC 3161 trusted timestamp receipts, solving the When problem by proving actions existed prior to specific points in time without backdating risk.",
     "chainTitle": "AEP Chain Ledger",
+    "chainDimension": "IMMUTABILITY · Ledger Anchored Finality",
     "chainDesc": "Distributed global ledger and zero-knowledge public existence anchoring, solving the Immutability problem by anchoring evidence root digests publicly to guarantee immutable finality."
   },
   "evidenceFlow": {
@@ -138,6 +143,7 @@
   "developerEntry": {
     "title": "Developer Friendly",
     "subtitle": "Evidence MCP as first-class citizen, fast integration into AI agent ecosystems",
+    "firstClass": "First-Class Citizen",
     "mcpTitle": "Evidence MCP (Recommended)",
     "mcpDesc": "First-class citizen entry for AI agents, native Model Context Protocol support, out-of-the-box evidence capture and verification",
     "cliTitle": "AEP CLI",
@@ -279,7 +285,9 @@
         "desc": "Hardware-rooted: TEE / secure enclave hardware root of trust"
       }
     ],
-    "levelsStatus": "Current implementation progress: L0–L1 (PlainHash + Signed) available; L2–L7 reserved in protocol.",
+    "levelsStatus": "Current Engineering Status: L0–L4 (Hash, Signature, Identity/Witness, Timestamp, Ledger Anchor) are fully implemented for production; L5–L7 are reserved for advanced protocol evolution.",
+    "levelImplemented": "Implemented",
+    "levelReserved": "Reserved",
     "standardsTitle": "Relationship with Other Standards",
     "standards": [
       {

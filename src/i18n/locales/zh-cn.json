@@ -8,6 +8,7 @@
     "downloads": "下载"
   },
   "hero": {
+    "mcpBadge": "⚡ Evidence MCP 一等公民入口现已就绪",
     "title": "AEP",
     "subtitle": "AI Agent Evidence Infrastructure",
     "slogan": "Free to create evidence. Pay to operate at scale.",
@@ -39,11 +40,15 @@
     "valueDesc": "AEP 将 Agent 的行为与制品封装为密码学可验证的结构化证据包（.aep）。任何人拿到证据包，均可脱离中心化依赖，独立验证执行主体、发生时序与不可篡改完整性，为 AI 关键行为提供坚固的证据链（Proof of AI Action）。",
     "visionTitle": "AEP Trust Fabric 矩阵",
     "visionDesc": "AEP 构建面向 AI 智能体的三维信任矩阵：AEP PKI Fabric 锚定执行主体（Who），AEP TSA Core 锁定因果时序（When），AEP Chain Ledger 锚定防篡改终态（Immutability）。以 Evidence MCP 为一等公民入口，覆盖从行为捕获、存证到独立验证、客观审计的全生命周期。",
+    "matrixBadge": "三维可信体系 · TRUST FABRIC",
     "pkiTitle": "AEP PKI Fabric",
+    "pkiDimension": "WHO · 不可伪造主体",
     "pkiDesc": "机器身份网络与数字证书体系，基于非对称密码学为每个 AI Agent 分配独立身份凭证与证书链，精准解决 Who 问题，确立不可否认的执行主体。",
     "tsaTitle": "AEP TSA Core",
+    "tsaDimension": "WHEN · 因果时序锁定",
     "tsaDesc": "高精度因果时间定序与可信时间戳存证回执（RFC 3161），解决 When 问题，证明行为在特定物理与逻辑时间点前已真实存在且不可前溯。",
     "chainTitle": "AEP Chain Ledger",
+    "chainDimension": "IMMUTABILITY · 账本防篡改终态",
     "chainDesc": "分布式全局账本与零隐私泄露的公开存在性锚定，解决 Immutability 问题，将证据根指纹公开锚定至全局账本，锁定防篡改终态。"
   },
   "evidenceFlow": {
@@ -138,6 +143,7 @@
   "developerEntry": {
     "title": "开发者友好",
     "subtitle": "以 MCP 为一等公民入口，快速接入 AI 智能体生态",
+    "firstClass": "First-Class Citizen 一等公民",
     "mcpTitle": "Evidence MCP（首选推荐）",
     "mcpDesc": "AI Agent 一等公民入口，原生 Model Context Protocol 支持，存证验证开箱即用",
     "cliTitle": "CLI 命令行工具",
@@ -279,7 +285,9 @@
         "desc": "Hardware-rooted：TEE / 安全芯片硬件级信任根绑定"
       }
     ],
-    "levelsStatus": "当前实现进度：L0–L1（PlainHash + Signed）已实现，L2–L7 为协议预留等级。",
+    "levelsStatus": "当前工程落地状态：L0–L4（哈希、签名、身份见证、时间戳、账本锚定）已具备完整工程落地实现；L5–L7 为高阶拓展演进等级。",
+    "levelImplemented": "已实现",
+    "levelReserved": "预留中",
     "standardsTitle": "与其他标准的关系",
     "standards": [
       {

@@ -7,16 +7,28 @@ const t = getTranslation(Astro.url.pathname);
 ---
 
 <!-- 首页 Hero：左侧文案 + 右侧抽象装饰（SVG 用 currentColor/主题色类适配明暗主题） -->
-<section class="bg-gradient-to-br from-aep-primary/5 via-transparent to-aep-purple/5">
+<section class="relative overflow-hidden bg-gradient-to-br from-aep-primary/5 via-transparent to-aep-purple/5">
   <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
     <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
       <!-- 左：文案 -->
       <div>
-        <h1 class="text-5xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-6xl">
+        <!-- MCP 一等公民入口推荐徽章 -->
+        <a
+          href={getLocalizedPath('/developer', lang)}
+          class="inline-flex items-center gap-2 rounded-full border border-aep-primary/30 bg-aep-primary/10 px-3.5 py-1.5 text-xs font-semibold text-aep-primary transition hover:border-aep-primary/50 hover:bg-aep-primary/15"
+        >
+          <span class="flex h-2 w-2 rounded-full bg-aep-primary animate-pulse" aria-hidden="true"></span>
+          <span>{t.hero.mcpBadge}</span>
+          <span aria-hidden="true" class="text-aep-primary/70">→</span>
+        </a>
+
+        <h1 class="mt-4 text-5xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-6xl">
           {t.hero.title} <span class="text-aep-primary">{t.hero.subtitle}</span>
         </h1>
-        <p class="mt-6 text-2xl font-semibold text-[var(--text-primary)]">{t.hero.slogan}</p>
-        <p class="mt-4 text-[var(--text-secondary)]">{t.hero.description}</p>
+        <p class="mt-5 text-xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-2xl">
+          <span class="bg-gradient-to-r from-aep-primary to-aep-purple bg-clip-text text-transparent">{t.hero.slogan}</span>
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-[var(--text-secondary)]">{t.hero.description}</p>
         <div class="mt-8 flex flex-wrap gap-4">
           <Button variant="primary" size="lg" href={getLocalizedPath('/developer', lang)}>
             {t.common.getStarted}

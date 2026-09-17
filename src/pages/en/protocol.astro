@@ -6,6 +6,9 @@ import { getTranslation } from '@/i18n/utils';
 
 const t = getTranslation(Astro.url.pathname);
 const p = t.protocol;
+
+// L0–L4 are fully implemented for production
+const isLevelImplemented = (idx: number) => idx <= 4;
 ---
 
 <MainLayout title={p.title} description={p.subtitle}>
@@ -59,16 +62,46 @@ const p = t.protocol;
       <section>
         <SectionTitle title={p.levelsTitle} subtitle={p.levelsSubtitle} />
         <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {p.levels.map((item) => (
-            <div class="flex items-start gap-3 rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] p-4">
-              <span class="shrink-0 rounded-md bg-aep-primary px-2 py-0.5 text-sm font-bold text-white">
-                {item.level}
-              </span>
-              <p class="text-sm leading-relaxed text-[var(--text-secondary)]">{item.desc}</p>
-            </div>
-          ))}
+          {p.levels.map((item, index) => {
+            const isImplemented = isLevelImplemented(index);
+            return (
+              <div
+                class={`flex flex-col justify-between rounded-xl border p-5 transition duration-200 ${
+                  isImplemented
+                    ? 'border-aep-primary/30 bg-[var(--card-bg)] shadow-sm hover:border-aep-primary/60 hover:shadow-md'
+                    : 'border-[var(--border-color)] bg-[var(--card-bg)]/60 opacity-80'
+                }`}
+              >
+                <div>
+                  <div class="flex items-center justify-between gap-2">
+                    <span
+                      class={`shrink-0 rounded-md px-2.5 py-0.5 text-sm font-bold ${
+                        isImplemented
+                          ? 'bg-aep-primary text-white shadow-sm'
+                          : 'bg-[var(--border-color)] text-[var(--text-secondary)]'
+                      }`}
+                    >
+                      {item.level}
+                    </span>
+                    <span
+                      class={`rounded-full px-2 py-0.5 text-xs font-semibold ${
+                        isImplemented
+                          ? 'border border-aep-green/30 bg-aep-green/10 text-aep-green'
+                          : 'bg-[var(--border-color)]/60 text-[var(--text-secondary)]'
+                      }`}
+                    >
+                      {isImplemented ? p.levelImplemented : p.levelReserved}
+                    </span>
+                  </div>
+                  <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{item.desc}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
-        <p class="mt-6 text-center text-sm text-[var(--text-secondary)]">{p.levelsStatus}</p>
+        <div class="mt-8 rounded-xl border border-aep-green/30 bg-aep-green/5 p-5 text-center shadow-sm">
+          <p class="text-sm font-medium leading-relaxed text-[var(--text-primary)]">{p.levelsStatus}</p>
+        </div>
       </section>
 
       <!-- 与其他标准的关系 -->

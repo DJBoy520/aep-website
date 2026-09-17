@@ -7,30 +7,119 @@ const t = getTranslation(Astro.url.pathname);
 const a = t.about;
 ---
 
-<!-- 项目介绍：要解决的问题 → 核心价值 → 整体架构（三卡片） -->
+<!-- 项目介绍：要解决的问题 + 核心价值 + AEP Trust Fabric 三维信任矩阵 -->
 <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
   <SectionTitle title={a.title} subtitle={a.subtitle} align="center" />
 
-  <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+  <!-- 问题与价值两相对照卡片 -->
+  <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
     <!-- 要解决的问题 -->
-    <Card hover class="flex flex-col">
-      <div class="text-3xl" aria-hidden="true">🎯</div>
-      <h3 class="mt-4 text-lg font-semibold text-[var(--text-primary)]">{a.problemTitle}</h3>
-      <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">{a.problemDesc}</p>
+    <Card hover class="flex flex-col border-l-4 border-l-aep-amber/80 bg-gradient-to-br from-aep-amber/5 via-transparent to-transparent">
+      <div class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-aep-amber/10 text-xl text-aep-amber" aria-hidden="true">
+          🎯
+        </div>
+        <h3 class="text-xl font-bold text-[var(--text-primary)]">{a.problemTitle}</h3>
+      </div>
+      <p class="mt-4 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+        {a.problemDesc}
+      </p>
     </Card>
 
     <!-- 核心价值 -->
-    <Card hover class="flex flex-col">
-      <div class="text-3xl" aria-hidden="true">🛡️</div>
-      <h3 class="mt-4 text-lg font-semibold text-[var(--text-primary)]">{a.valueTitle}</h3>
-      <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">{a.valueDesc}</p>
+    <Card hover class="flex flex-col border-l-4 border-l-aep-primary bg-gradient-to-br from-aep-primary/5 via-transparent to-transparent">
+      <div class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-aep-primary/10 text-xl text-aep-primary" aria-hidden="true">
+          🛡️
+        </div>
+        <h3 class="text-xl font-bold text-[var(--text-primary)]">{a.valueTitle}</h3>
+      </div>
+      <p class="mt-4 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+        {a.valueDesc}
+      </p>
     </Card>
+  </div>
 
-    <!-- 整体架构 -->
-    <Card hover class="flex flex-col">
-      <div class="text-3xl" aria-hidden="true">🧩</div>
-      <h3 class="mt-4 text-lg font-semibold text-[var(--text-primary)]">{a.visionTitle}</h3>
-      <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">{a.visionDesc}</p>
-    </Card>
+  <!-- AEP Trust Fabric 矩阵高规格展示区 -->
+  <div class="mt-12 rounded-2xl border border-aep-primary/20 bg-gradient-to-b from-aep-primary/[0.04] via-transparent to-aep-purple/[0.04] p-6 sm:p-10 shadow-sm">
+    <!-- 矩阵头部说明 -->
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-aep-primary/30 bg-aep-primary/10 px-3.5 py-1 text-xs font-semibold text-aep-primary">
+        <span class="h-1.5 w-1.5 rounded-full bg-aep-primary animate-pulse" aria-hidden="true"></span>
+        {a.matrixBadge}
+      </span>
+      <h3 class="mt-4 text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--text-primary)]">
+        {a.visionTitle}
+      </h3>
+      <p class="mt-3 text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
+        {a.visionDesc}
+      </p>
+    </div>
+
+    <!-- 三维信任矩阵卡片网格 -->
+    <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <!-- 维度 1: WHO - AEP PKI Fabric -->
+      <div class="group relative flex flex-col rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-aep-primary/60 hover:shadow-lg">
+        <div class="flex items-center justify-between gap-2">
+          <span class="inline-flex items-center rounded-md bg-aep-primary/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-aep-primary">
+            {a.pkiDimension}
+          </span>
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-aep-primary/10 text-aep-primary" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+        </div>
+        <h4 class="mt-4 text-lg font-bold text-[var(--text-primary)] transition-colors group-hover:text-aep-primary">
+          {a.pkiTitle}
+        </h4>
+        <p class="mt-3 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+          {a.pkiDesc}
+        </p>
+      </div>
+
+      <!-- 维度 2: WHEN - AEP TSA Core -->
+      <div class="group relative flex flex-col rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-aep-purple/60 hover:shadow-lg">
+        <div class="flex items-center justify-between gap-2">
+          <span class="inline-flex items-center rounded-md bg-aep-purple/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-aep-purple">
+            {a.tsaDimension}
+          </span>
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-aep-purple/10 text-aep-purple" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+        </div>
+        <h4 class="mt-4 text-lg font-bold text-[var(--text-primary)] transition-colors group-hover:text-aep-purple">
+          {a.tsaTitle}
+        </h4>
+        <p class="mt-3 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+          {a.tsaDesc}
+        </p>
+      </div>
+
+      <!-- 维度 3: IMMUTABILITY - AEP Chain Ledger -->
+      <div class="group relative flex flex-col rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-aep-blue/60 hover:shadow-lg">
+        <div class="flex items-center justify-between gap-2">
+          <span class="inline-flex items-center rounded-md bg-aep-blue/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-aep-blue">
+            {a.chainDimension}
+          </span>
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-aep-blue/10 text-aep-blue" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+        </div>
+        <h4 class="mt-4 text-lg font-bold text-[var(--text-primary)] transition-colors group-hover:text-aep-blue">
+          {a.chainTitle}
+        </h4>
+        <p class="mt-3 flex-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+          {a.chainDesc}
+        </p>
+      </div>
+    </div>
   </div>
 </section>
