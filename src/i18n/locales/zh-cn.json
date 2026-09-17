@@ -1,127 +1,18 @@
 {
   "nav": {
     "home": "首页",
-    "product": "产品介绍",
-    "quickstart": "快速上手",
-    "tools": "在线工具",
-    "protocol": "技术规范",
-    "downloads": "开源与下载",
-    "faq": "常见问题",
-    "about": "关于项目",
+    "protocol": "协议",
     "architecture": "架构",
     "security": "安全",
-    "developer": "开发者"
+    "developer": "开发者",
+    "downloads": "下载"
   },
   "hero": {
     "mcpBadge": "⚡ Evidence MCP 核心集成入口现已就绪",
-    "title": "AEP 新一代数字信任协议",
-    "subtitle": "轻量化可信身份与时间认证体系",
-    "slogan": "适配车联网、物联网、电子存证场景，基于国密标准设计、预留抗量子能力，简化传统 PKI 复杂架构，提供标准化签名、验签、可信时间戳全能力。",
-    "description": "适配车联网、物联网、电子存证场景，基于国密标准设计、预留抗量子能力，简化传统 PKI 复杂架构，提供标准化签名、验签、可信时间戳全能力。",
-    "actions": {
-      "quickstart": "快速入门",
-      "tools": "在线体验",
-      "protocol": "技术规范"
-    },
-    "scenarios": [
-      {
-        "title": "车联网可信认证",
-        "desc": "车辆设备身份可信、传输数据防篡改",
-        "icon": "🚗"
-      },
-      {
-        "title": "物联网海量设备认证",
-        "desc": "轻量化证书管理，适配海量终端设备",
-        "icon": "🌐"
-      },
-      {
-        "title": "电子证据固化存证",
-        "desc": "权威可信时间戳，实现电子数据不可篡改固化",
-        "icon": "⚖️"
-      },
-      {
-        "title": "商用密码合规适配",
-        "desc": "完全兼容国密标准，满足密评、合规检测要求",
-        "icon": "🛡️"
-      }
-    ]
-  },
-  "glossary": {
-    "pki": {
-      "term": "PKI",
-      "name": "公钥基础设施",
-      "tooltip": "公钥基础设施，AEP 进行了轻量化改造，去除传统臃肿 CA 链路"
-    },
-    "tsa": {
-      "term": "TSA",
-      "name": "可信时间戳服务",
-      "tooltip": "通过权威时间源证明数据在特定时间点前已存在且未被修改"
-    },
-    "trustedTimestamp": {
-      "term": "可信时间戳",
-      "name": "可信时间戳",
-      "tooltip": "结合高精度时钟源与密码学签名的抗抵赖时间证明"
-    },
-    "smCrypto": {
-      "term": "国密",
-      "name": "商用密码",
-      "tooltip": "中国国家商用密码算法标准（如 SM2 椭圆曲线、SM3 杂凑密码、SM4 对称加密）"
-    },
-    "pqc": {
-      "term": "抗量子",
-      "name": "抗量子密码",
-      "tooltip": "预留抵御未来量子计算机破译威胁的新一代密码学算法扩展能力"
-    },
-    "certChain": {
-      "term": "证书链",
-      "name": "证书链",
-      "tooltip": "由根证书、中间证书和终端证书构成的层级身份认证与信任传递信任链"
-    }
-  },
-  "faq": {
-    "title": "常见问题 FAQ",
-    "subtitle": "关于 AEP 数字信任协议的技术细节、设计哲学与应用解答",
-    "items": [
-      {
-        "question": "AEP 和传统 PKI 有什么区别？",
-        "answer": "AEP 进行了轻量化改造，去除了传统 CA 复杂臃肿的在线链路与笨重格式，将身份鉴别、签名与时间戳规范化内聚为开箱即用的轻量协议，大幅降低计算开销与网络往返延迟，特别适配端侧与资源受限环境。"
-      },
-      {
-        "question": "是否兼容国密标准？",
-        "answer": "原生深度兼容。AEP 底层完整支持 SM2 椭圆曲线非对称密码、SM3 密码杂凑算法与 SM4 分组密码算法，严格符合国家商用密码与密码评估检测（密评）技术规范要求。"
-      },
-      {
-        "question": "适用哪些落地场景？",
-        "answer": "主要适用于：① 车联网 V2X 车辆与路侧设备身份可信认证；② 海量物联网（IoT）终端轻量化认证与指令防伪；③ 司法与金融电子证据固化存证；④ 跨域多 Agent/智能体协同执行与审计防抵赖。"
-      },
-      {
-        "question": "接入开发的门槛如何？",
-        "answer": "极简极速。AEP 提供直观的轻量 CLI 命令行工具、标准化 MCP (Model Context Protocol) 插件以及开箱即用的多语言 SDK，最快 5 分钟即可完成工程化集成与全链路验证。"
-      }
-    ]
-  },
-  "tools": {
-    "title": "在线体验与调试工具",
-    "subtitle": "直接在浏览器中测试 AEP 签名生成、可信时间戳加盖与全要素验真",
-    "inputLabel": "原始数据文本输入",
-    "inputPlaceholder": "请输入需要签名存证的数据文本，例如订单数据、事件日志或声明...",
-    "fillSample": "一键填充示例",
-    "signBtn": "生成数字签名",
-    "timestampBtn": "加盖可信时间戳",
-    "verifyBtn": "在线验真",
-    "resetBtn": "重置",
-    "viewVisual": "简洁可视化视图",
-    "viewRaw": "原始报文视图",
-    "copy": "复制内容",
-    "copied": "已复制",
-    "signResultTitle": "签名与时间戳凭证",
-    "verifyResultTitle": "验证结论",
-    "verifyValid": "验真通过：数据完整未被篡改，签名有效且时间戳可信",
-    "verifyInvalid": "验真失败：签名无效或数据已被篡改",
-    "hashLabel": "SM3 杂凑值",
-    "signerLabel": "签名者公钥 / 身份标识",
-    "timestampLabel": "可信时间戳",
-    "samplePayload": "{\n  \"action\": \"transfer_approval\",\n  \"operator\": \"agent-devops-01\",\n  \"target\": \"prod-database-cluster\",\n  \"status\": \"approved\"\n}"
+    "title": "AEP",
+    "subtitle": "AI Agent Evidence Infrastructure",
+    "slogan": "Free to create evidence. Pay to operate at scale.",
+    "description": "为关键 AI 行为建立可验证、可追溯、可审计的证据链（Proof of AI Action），让人类与自主智能体在零信任世界中达成确定性协作。"
   },
   "common": {
     "getStarted": "开始使用",
@@ -310,33 +201,8 @@
     ]
   },
   "protocol": {
-    "title": "技术规范",
-    "subtitle": "开放、密码学可验证、轻量化的数字信任与时间认证协议",
-    "modeSwitch": {
-      "label": "阅读模式",
-      "simple": "简易科普版",
-      "full": "专业完整版",
-      "simpleDesc": "聚焦核心概念、核心价值与快速认知，去除繁琐编码与底层实现细节",
-      "fullDesc": "包含完整密码学公式、ASN.1/TLV 报文结构、算法参数与严格状态机模型"
-    },
-    "simpleMode": {
-      "summaryTitle": "三分钟理解 AEP 协议",
-      "summaryDesc": "AEP（Attestation & Evidence Exchange Protocol）是面向下一代智能网络与可信实体的轻量化数字信任基础设施协议。它摒弃了传统 PKI 繁重的在线校验和笨重证书链设计，采用国密算法底座与自包含证明结构，让任何终端或 Agent 都能在离线或弱网环境中快速实现身份鉴权、抗抵赖签名与权威时间锁定。",
-      "highlights": [
-        {
-          "title": "轻量极速",
-          "desc": "报文体积压缩 70% 以上，端侧签名/验签延迟极低，契合车规芯片与低功耗物联网设备。"
-        },
-        {
-          "title": "权威时间锁",
-          "desc": "内嵌标准化可信时间戳（TSA），不可倒流、不可篡改，提供法律效力级时间存证。"
-        },
-        {
-          "title": "原生国密与抗量子",
-          "desc": "开箱支持 SM2/SM3/SM4 算法簇，预留抗量子密码学（PQC）扩展插槽，从容应对未来安全演进。"
-        }
-      ]
-    },
+    "title": "协议规范",
+    "subtitle": "开放、密码学可验证、可扩展的 AI 证据交换协议",
     "overviewTitle": "协议概述",
     "overview": [
       "AEP（Attestation & Evidence Exchange Protocol）是专为 AI 智能体打造的开放证据基础设施协议。",

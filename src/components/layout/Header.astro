@@ -5,141 +5,59 @@ import { getTranslation, getLangFromPath, getLocalizedPath } from '@/i18n/utils'
 
 const lang = getLangFromPath(Astro.url.pathname);
 const t = getTranslation(Astro.url.pathname);
-const currentPath = Astro.url.pathname;
 
-// 7大标准导航项：产品介绍、快速上手、在线工具、技术规范、开源与下载、常见问题、关于项目
+// 导航项：文案走 i18n，链接按当前语言加前缀
 const navItems = [
-  { label: t.nav.product, href: getLocalizedPath('/about', lang) },
-  { label: t.nav.quickstart, href: getLocalizedPath('/quickstart', lang) },
-  { label: t.nav.tools, href: getLocalizedPath('/tools', lang) },
+  { label: t.nav.home, href: getLocalizedPath('/', lang) },
   { label: t.nav.protocol, href: getLocalizedPath('/protocol', lang) },
+  { label: t.nav.architecture, href: getLocalizedPath('/architecture', lang) },
+  { label: t.nav.security, href: getLocalizedPath('/security', lang) },
+  { label: t.nav.developer, href: getLocalizedPath('/developer', lang) },
   { label: t.nav.downloads, href: getLocalizedPath('/downloads', lang) },
-  { label: t.nav.faq, href: getLocalizedPath('/faq', lang) },
-  { label: t.nav.about, href: getLocalizedPath('/about', lang) },
 ];
-
-const isActive = (href: string) => {
-  if (href === '/' || href === '/en') {
-    return currentPath === href;
-  }
-  return currentPath === href || currentPath.startsWith(`${href}/`);
-};
 ---
 
-<header class="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/90 backdrop-blur-md">
+<header class="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/80 backdrop-blur-md">
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-    <!-- 左：Logo -->
-    <a href={getLocalizedPath('/', lang)} class="flex shrink-0 items-center gap-2 text-[var(--text-primary)] group">
-      <svg class="h-6 w-6 text-aep-primary transition-transform group-hover:scale-105" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <!-- 左：Logo（文字 + 小图标占位） -->
+    <a href={getLocalizedPath('/', lang)} class="flex shrink-0 items-center gap-2 text-[var(--text-primary)]">
+      <svg class="h-5 w-5 text-aep-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 2 22 12 12 22 2 12Z" />
         <rect x="9" y="9" width="6" height="6" fill="var(--bg-primary)" />
       </svg>
-      <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-secondary)] bg-clip-text">AEP</span>
+      <span class="text-lg font-bold tracking-tight">AEP</span>
     </a>
 
     <!-- 中：桌面端导航（≥768px 显示） -->
     <nav class="hidden md:block" aria-label="主导航">
       <ul class="flex items-center gap-1">
-        {navItems.map((item) => {
-          const active = isActive(item.href);
-          return (
-            <li>
-              <a
-                href={item.href}
-                class:list={[
-                  'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
-                  active
-                    ? 'text-aep-primary bg-aep-primary/10 font-semibold'
-                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]',
-                ]}
-                aria-current={active ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            </li>
-          );
-        })}
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="rounded-md px-3 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-aep-primary"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
 
     <!-- 右：主题切换 + 语言切换 + 移动端汉堡按钮 -->
     <div class="flex shrink-0 items-center gap-2">
-      <div class="hidden sm:flex items-center gap-2">
-        <ThemeToggle />
-        <LanguageSwitcher />
-      </div>
-
-      <!-- 汉堡按钮（<768px 显示） -->
+      <ThemeToggle />
+      <LanguageSwitcher />
+      <!-- 汉堡按钮（<768px 显示；展开功能后续步骤实现） -->
       <button
         type="button"
-        id="mobile-menu-toggle"
-        class="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border-color)] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] md:hidden"
+        class="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border-color)] text-[var(--text-secondary)] md:hidden"
         aria-label="打开菜单"
-        aria-expanded="false"
-        aria-controls="mobile-drawer"
       >
-        <svg id="menu-open-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <path d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="menu-close-icon" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <path d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
   </div>
-
-  <!-- 移动端抽屉菜单 -->
-  <div
-    id="mobile-drawer"
-    class="hidden border-b border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-4 md:hidden shadow-lg"
-  >
-    <nav class="flex flex-col space-y-1">
-      {navItems.map((item) => {
-        const active = isActive(item.href);
-        return (
-          <a
-            href={item.href}
-            class:list={[
-              'rounded-md px-3 py-2 text-base font-medium transition-colors',
-              active
-                ? 'text-aep-primary bg-aep-primary/10 font-semibold'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]',
-            ]}
-            aria-current={active ? 'page' : undefined}
-          >
-            {item.label}
-          </a>
-        );
-      })}
-    </nav>
-    <div class="mt-4 flex items-center justify-between border-t border-[var(--border-color)] pt-4 sm:hidden">
-      <div class="flex items-center gap-2">
-        <ThemeToggle />
-        <LanguageSwitcher />
-      </div>
-    </div>
-  </div>
 </header>
-
-<script>
-  function setupMobileMenu() {
-    const toggleBtn = document.getElementById('mobile-menu-toggle');
-    const drawer = document.getElementById('mobile-drawer');
-    const openIcon = document.getElementById('menu-open-icon');
-    const closeIcon = document.getElementById('menu-close-icon');
-
-    if (!toggleBtn || !drawer || !openIcon || !closeIcon) return;
-
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
-      drawer.classList.toggle('hidden');
-      openIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-    });
-  }
-
-  // Support Astro view transitions / initial load
-  setupMobileMenu();
-  document.addEventListener('astro:page-load', setupMobileMenu);
-</script>
