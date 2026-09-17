@@ -2,120 +2,252 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import SectionTitle from '../../components/common/SectionTitle.astro';
 import Card from '../../components/common/Card.astro';
-import { getTranslation } from '@/i18n/utils';
+import Tooltip from '../../components/common/Tooltip.astro';
+import { getTranslation, getLangFromPath } from '@/i18n/utils';
 
+const lang = getLangFromPath(Astro.url.pathname);
 const t = getTranslation(Astro.url.pathname);
 const p = t.protocol;
+const isZh = lang === 'zh-cn';
 
-// L0–L4 are fully implemented for production
+// L0–L4 implemented evidence levels
 const isLevelImplemented = (idx: number) => idx <= 4;
 ---
 
 <MainLayout title={p.title} description={p.subtitle}>
-  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-    <div class="space-y-16">
-      <!-- 页面标题区 -->
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
+    <div class="space-y-12">
+      <!-- Title + Mode Switcher -->
       <div class="text-center">
-        <h1 class="text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+        <h1 class="text-3xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
           {p.title}
         </h1>
         <p class="mx-auto mt-4 max-w-2xl text-[var(--text-secondary)]">{p.subtitle}</p>
+
+        <!-- Mode Toggle -->
+        <div class="mt-8 inline-flex items-center rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] p-1.5 shadow-sm">
+          <button
+            id="mode-btn-simple"
+            type="button"
+            class="flex items-center gap-2 rounded-xl px-5 py-2 text-sm font-semibold transition-all bg-aep-primary text-white shadow-md shadow-aep-primary/20"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            {p.modeSwitch.simple}
+          </button>
+          <button
+            id="mode-btn-full"
+            type="button"
+            class="flex items-center gap-2 rounded-xl px-5 py-2 text-sm font-semibold transition-all text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            {p.modeSwitch.full}
+          </button>
+        </div>
+        <p id="mode-desc-text" class="mt-3 text-xs text-[var(--text-secondary)]">
+          {p.modeSwitch.simpleDesc}
+        </p>
       </div>
 
-      <!-- 协议概述 -->
-      <section>
-        <SectionTitle title={p.overviewTitle} />
-        <div class="mt-8 space-y-4">
-          {p.overview.map((para) => (
-            <p class="leading-relaxed text-[var(--text-secondary)]">{para}</p>
-          ))}
-        </div>
-      </section>
+      <!-- ================= Mode 1: Simple Overview ================= -->
+      <div id="section-simple-mode" class="space-y-12">
+        <div class="rounded-2xl border border-aep-primary/30 bg-gradient-to-br from-aep-primary/5 via-transparent to-aep-purple/5 p-6 sm:p-10">
+          <h2 class="text-2xl font-bold text-[var(--text-primary)] flex items-center gap-3">
+            <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-aep-primary text-white text-base font-black">
+              3'
+            </span>
+            {p.simpleMode.summaryTitle}
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-[var(--text-secondary)]">
+            {p.simpleMode.summaryDesc}
+          </p>
 
-      <!-- 设计原则 -->
-      <section>
-        <SectionTitle title={p.principlesTitle} />
-        <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {p.principles.map((item) => (
-            <Card hover>
-              <h3 class="font-semibold text-aep-primary">{item.title}</h3>
-              <p class="mt-2 text-sm text-[var(--text-secondary)]">{item.desc}</p>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <!-- 核心概念 -->
-      <section>
-        <SectionTitle title={p.conceptsTitle} />
-        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {p.concepts.map((item) => (
-            <div class="rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] p-5">
-              <h3 class="font-semibold text-[var(--text-primary)]">{item.title}</h3>
-              <p class="mt-1 text-sm text-[var(--text-secondary)]">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- 证据等级 -->
-      <section>
-        <SectionTitle title={p.levelsTitle} subtitle={p.levelsSubtitle} />
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {p.levels.map((item, index) => {
-            const isImplemented = isLevelImplemented(index);
-            return (
-              <div
-                class={`flex flex-col justify-between rounded-xl border p-5 transition duration-200 ${
-                  isImplemented
-                    ? 'border-aep-primary/30 bg-[var(--card-bg)] shadow-sm hover:border-aep-primary/60 hover:shadow-md'
-                    : 'border-[var(--border-color)] bg-[var(--card-bg)]/60 opacity-80'
-                }`}
-              >
-                <div>
-                  <div class="flex items-center justify-between gap-2">
-                    <span
-                      class={`shrink-0 rounded-md px-2.5 py-0.5 text-sm font-bold ${
-                        isImplemented
-                          ? 'bg-aep-primary text-white shadow-sm'
-                          : 'bg-[var(--border-color)] text-[var(--text-secondary)]'
-                      }`}
-                    >
-                      {item.level}
-                    </span>
-                    <span
-                      class={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                        isImplemented
-                          ? 'border border-aep-green/30 bg-aep-green/10 text-aep-green'
-                          : 'bg-[var(--border-color)]/60 text-[var(--text-secondary)]'
-                      }`}
-                    >
-                      {isImplemented ? p.levelImplemented : p.levelReserved}
-                    </span>
-                  </div>
-                  <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{item.desc}</p>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {p.simpleMode.highlights.map((item: any, idx: number) => (
+              <div class="p-5 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] shadow-sm">
+                <div class="text-sm font-bold text-aep-primary flex items-center gap-2 mb-2">
+                  <span class="flex h-5 w-5 items-center justify-center rounded-full bg-aep-primary/10 text-xs">
+                    {idx + 1}
+                  </span>
+                  {item.title}
                 </div>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
-        <div class="mt-8 rounded-xl border border-aep-green/30 bg-aep-green/5 p-5 text-center shadow-sm">
-          <p class="text-sm font-medium leading-relaxed text-[var(--text-primary)]">{p.levelsStatus}</p>
-        </div>
-      </section>
 
-      <!-- 与其他标准的关系 -->
-      <section>
-        <SectionTitle title={p.standardsTitle} />
-        <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {p.standards.map((item) => (
-            <Card hover>
-              <h3 class="font-semibold text-aep-primary">{item.title}</h3>
-              <p class="mt-2 text-sm text-[var(--text-secondary)]">{item.desc}</p>
-            </Card>
-          ))}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)]">
+            <h3 class="text-lg font-bold text-red-400 mb-3 flex items-center gap-2">
+              <span>✕</span>
+              Traditional PKI Bottlenecks
+            </h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--text-secondary)]">
+              <li class="flex items-start gap-2">
+                <span class="text-red-400 font-bold">•</span>
+                <span>Heavily reliant on centralized online OCSP/CRL loops with high network latency</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-red-400 font-bold">•</span>
+                <span>Complex ASN.1 / X.509 codecs overburden IoT microcontrollers and vehicular ECUs</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-red-400 font-bold">•</span>
+                <span>Timestamps isolated into fragmented third-party systems without causal integrity</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-6 rounded-2xl border border-aep-green/40 bg-aep-green/5">
+            <h3 class="text-lg font-bold text-aep-green mb-3 flex items-center gap-2">
+              <span>✓</span>
+              AEP Protocol Innovations
+            </h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--text-secondary)]">
+              <li class="flex items-start gap-2">
+                <span class="text-aep-green font-bold">•</span>
+                <span>Self-contained structured digital vouchers enabling instant offline verification</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-aep-green font-bold">•</span>
+                <span>Deep native Chinese cryptographic standard support (SM2/SM3/SM4) for compliance</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-aep-green font-bold">•</span>
+                <span>Built-in RFC 3161 microsecond time anchoring and global ledger proof hooks</span>
+              </li>
+            </ul>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <!-- ================= Mode 2: Professional Full Specification ================= -->
+      <div id="section-full-mode" class="hidden space-y-16">
+        <section>
+          <SectionTitle title={p.overviewTitle} />
+          <div class="mt-8 space-y-4">
+            {p.overview.map((para) => (
+              <p class="leading-relaxed text-[var(--text-secondary)]">{para}</p>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <SectionTitle title={p.principlesTitle} />
+          <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {p.principles.map((item) => (
+              <Card hover>
+                <h3 class="font-semibold text-aep-primary">{item.title}</h3>
+                <p class="mt-2 text-sm text-[var(--text-secondary)]">{item.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <SectionTitle title={p.conceptsTitle} />
+          <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {p.concepts.map((item) => (
+              <div class="rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)] p-5">
+                <h3 class="font-semibold text-[var(--text-primary)]">{item.title}</h3>
+                <p class="mt-1 text-sm text-[var(--text-secondary)]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <SectionTitle title={p.levelsTitle} subtitle={p.levelsSubtitle} />
+          <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {p.levels.map((item, index) => {
+              const isImplemented = isLevelImplemented(index);
+              return (
+                <div
+                  class={`flex flex-col justify-between rounded-xl border p-5 transition duration-200 ${
+                    isImplemented
+                      ? 'border-aep-primary/30 bg-[var(--card-bg)] shadow-sm hover:border-aep-primary/60 hover:shadow-md'
+                      : 'border-[var(--border-color)] bg-[var(--card-bg)]/60 opacity-80'
+                  }`}
+                >
+                  <div>
+                    <div class="flex items-center justify-between gap-2">
+                      <span
+                        class={`shrink-0 rounded-md px-2.5 py-0.5 text-sm font-bold ${
+                          isImplemented
+                            ? 'bg-aep-primary text-white shadow-sm'
+                            : 'bg-[var(--border-color)] text-[var(--text-secondary)]'
+                        }`}
+                      >
+                        {item.level}
+                      </span>
+                      <span
+                        class={`rounded-full px-2 py-0.5 text-xs font-semibold ${
+                          isImplemented
+                            ? 'border border-aep-green/30 bg-aep-green/10 text-aep-green'
+                            : 'bg-[var(--border-color)]/60 text-[var(--text-secondary)]'
+                        }`}
+                      >
+                        {isImplemented ? p.levelImplemented : p.levelReserved}
+                      </span>
+                    </div>
+                    <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{item.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div class="mt-8 rounded-xl border border-aep-green/30 bg-aep-green/5 p-5 text-center shadow-sm">
+            <p class="text-sm font-medium leading-relaxed text-[var(--text-primary)]">{p.levelsStatus}</p>
+          </div>
+        </section>
+
+        <section>
+          <SectionTitle title={p.standardsTitle} />
+          <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {p.standards.map((item) => (
+              <Card hover>
+                <h3 class="font-semibold text-aep-primary">{item.title}</h3>
+                <p class="mt-2 text-sm text-[var(--text-secondary)]">{item.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   </section>
 </MainLayout>
+
+<script define:vars={{ simpleDesc: p.modeSwitch.simpleDesc, fullDesc: p.modeSwitch.fullDesc }}>
+  const btnSimple = document.getElementById('mode-btn-simple');
+  const btnFull = document.getElementById('mode-btn-full');
+  const secSimple = document.getElementById('section-simple-mode');
+  const secFull = document.getElementById('section-full-mode');
+  const descText = document.getElementById('mode-desc-text');
+
+  function setMode(mode) {
+    if (mode === 'simple') {
+      btnSimple.classList.add('bg-aep-primary', 'text-white', 'shadow-md', 'shadow-aep-primary/20');
+      btnSimple.classList.remove('text-[var(--text-secondary)]');
+      btnFull.classList.remove('bg-aep-primary', 'text-white', 'shadow-md', 'shadow-aep-primary/20');
+      btnFull.classList.add('text-[var(--text-secondary)]');
+      secSimple.classList.remove('hidden');
+      secFull.classList.add('hidden');
+      if (descText) descText.textContent = simpleDesc;
+    } else {
+      btnFull.classList.add('bg-aep-primary', 'text-white', 'shadow-md', 'shadow-aep-primary/20');
+      btnFull.classList.remove('text-[var(--text-secondary)]');
+      btnSimple.classList.remove('bg-aep-primary', 'text-white', 'shadow-md', 'shadow-aep-primary/20');
+      btnSimple.classList.add('text-[var(--text-secondary)]');
+      secFull.classList.remove('hidden');
+      secSimple.classList.add('hidden');
+      if (descText) descText.textContent = fullDesc;
+    }
+  }
+
+  btnSimple?.addEventListener('click', () => setMode('simple'));
+  btnFull?.addEventListener('click', () => setMode('full'));
+</script>

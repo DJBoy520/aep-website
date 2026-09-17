@@ -1,0 +1,328 @@
+---
+import { getTranslation, getLangFromPath } from '@/i18n/utils';
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = getTranslation(Astro.url.pathname);
+const p = t.tools;
+const isZh = lang === 'zh-cn';
+---
+
+<div class="rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 sm:p-8 shadow-xl shadow-aep-primary/5">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-[var(--border-color)]">
+    <div>
+      <h2 class="text-xl font-bold text-[var(--text-primary)]">{p.title}</h2>
+      <p class="mt-1 text-sm text-[var(--text-secondary)]">{p.subtitle}</p>
+    </div>
+    <button
+      id="btn-fill-sample"
+      type="button"
+      class="inline-flex items-center gap-2 rounded-lg border border-aep-primary/40 bg-aep-primary/10 px-3.5 py-1.5 text-xs font-semibold text-aep-primary hover:bg-aep-primary/20 transition-colors self-start sm:self-auto"
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+      </svg>
+      {p.fillSample}
+    </button>
+  </div>
+
+  <!-- 输入区 -->
+  <div class="mt-6">
+    <label for="tools-payload-input" class="block text-sm font-semibold text-[var(--text-primary)]">
+      {p.inputLabel}
+    </label>
+    <div class="mt-2 relative">
+      <textarea
+        id="tools-payload-input"
+        rows="5"
+        class="w-full rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)] p-4 font-mono text-sm text-[var(--text-primary)] focus:border-aep-primary focus:outline-none focus:ring-1 focus:ring-aep-primary transition-all resize-y"
+        placeholder={p.inputPlaceholder}
+      ></textarea>
+    </div>
+  </div>
+
+  <!-- 操作按钮栏 -->
+  <div class="mt-6 flex flex-wrap items-center gap-3">
+    <button
+      id="btn-sign"
+      type="button"
+      class="inline-flex items-center gap-2 rounded-xl bg-aep-primary px-5 py-2.5 text-sm font-medium text-white hover:bg-aep-primary/90 transition-all shadow-md shadow-aep-primary/20"
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+      </svg>
+      {p.signBtn}
+    </button>
+
+    <button
+      id="btn-timestamp"
+      type="button"
+      class="inline-flex items-center gap-2 rounded-xl border border-aep-purple/40 bg-aep-purple/10 px-5 py-2.5 text-sm font-medium text-aep-purple hover:bg-aep-purple/20 transition-all"
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      {p.timestampBtn}
+    </button>
+
+    <button
+      id="btn-verify"
+      type="button"
+      class="inline-flex items-center gap-2 rounded-xl border border-aep-green/40 bg-aep-green/10 px-5 py-2.5 text-sm font-medium text-aep-green hover:bg-aep-green/20 transition-all"
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      {p.verifyBtn}
+    </button>
+
+    <button
+      id="btn-reset"
+      type="button"
+      class="ml-auto inline-flex items-center gap-1.5 rounded-lg border border-[var(--border-color)] px-3.5 py-2 text-xs font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors"
+    >
+      <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+      {p.resetBtn}
+    </button>
+  </div>
+
+  <!-- 结果呈现区域 -->
+  <div id="results-container" class="mt-8 pt-6 border-t border-[var(--border-color)]">
+    <!-- 视图切换与复制 -->
+    <div class="flex items-center justify-between gap-4 mb-4">
+      <div class="inline-flex rounded-lg border border-[var(--border-color)] p-1 bg-[var(--bg-primary)]">
+        <button
+          id="tab-visual"
+          type="button"
+          class="rounded-md px-3 py-1 text-xs font-semibold bg-aep-primary text-white shadow-sm transition-all"
+        >
+          {p.viewVisual}
+        </button>
+        <button
+          id="tab-raw"
+          type="button"
+          class="rounded-md px-3 py-1 text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
+        >
+          {p.viewRaw}
+        </button>
+      </div>
+
+      <button
+        id="btn-copy-raw"
+        type="button"
+        class="inline-flex items-center gap-1.5 text-xs font-medium text-aep-primary hover:underline"
+      >
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        <span id="copy-label">{p.copy}</span>
+      </button>
+    </div>
+
+    <!-- 视图1: 简洁可视化视图 -->
+    <div id="view-visual-content" class="space-y-4">
+      <!-- 验真状态卡片 -->
+      <div id="verify-status-box" class="flex items-center gap-3 p-4 rounded-xl border border-aep-green/30 bg-aep-green/10 text-aep-green">
+        <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <div>
+          <div class="text-sm font-bold">{p.verifyResultTitle}</div>
+          <div id="verify-status-text" class="text-xs mt-0.5">{p.verifyValid}</div>
+        </div>
+      </div>
+
+      <!-- 属性网格 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="p-3.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]">
+          <span class="text-[var(--text-secondary)] block mb-1">{p.hashLabel}</span>
+          <span id="field-hash" class="font-mono text-[var(--text-primary)] break-all font-semibold">
+            d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f...
+          </span>
+        </div>
+        <div class="p-3.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]">
+          <span class="text-[var(--text-secondary)] block mb-1">{p.signerLabel}</span>
+          <span id="field-signer" class="font-mono text-[var(--text-primary)] break-all font-semibold">
+            did:aep:sm2:node-agent-07 (Trust Level: L3)
+          </span>
+        </div>
+        <div class="p-3.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]">
+          <span class="text-[var(--text-secondary)] block mb-1">{p.timestampLabel}</span>
+          <span id="field-timestamp" class="font-mono text-[var(--text-primary)] font-semibold">
+            2026-09-17T14:22:31.849Z (RFC 3161 TSA Verified)
+          </span>
+        </div>
+        <div class="p-3.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]">
+          <span class="text-[var(--text-secondary)] block mb-1">{isZh ? "算法套件与标准" : "Cipher Suite & Standard"}</span>
+          <span class="font-mono text-[var(--text-primary)] font-semibold">
+            SM2 / SM3 / SM4 (GM/T 0009-2012)
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 视图2: 原始报文视图 -->
+    <div id="view-raw-content" class="hidden">
+      <pre
+        id="raw-json-viewer"
+        class="w-full overflow-x-auto rounded-xl border border-[var(--border-color)] bg-slate-950 p-4 font-mono text-xs text-emerald-400 leading-relaxed shadow-inner max-h-96"
+      ></pre>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ samplePayload: p.samplePayload, copiedText: p.copied, copyText: p.copy }}>
+  const input = document.getElementById('tools-payload-input');
+  const btnFill = document.getElementById('btn-fill-sample');
+  const btnSign = document.getElementById('btn-sign');
+  const btnTimestamp = document.getElementById('btn-timestamp');
+  const btnVerify = document.getElementById('btn-verify');
+  const btnReset = document.getElementById('btn-reset');
+  const tabVisual = document.getElementById('tab-visual');
+  const tabRaw = document.getElementById('tab-raw');
+  const viewVisual = document.getElementById('view-visual-content');
+  const viewRaw = document.getElementById('view-raw-content');
+  const rawJsonViewer = document.getElementById('raw-json-viewer');
+  const btnCopy = document.getElementById('btn-copy-raw');
+  const copyLabel = document.getElementById('copy-label');
+  const fieldHash = document.getElementById('field-hash');
+  const fieldTimestamp = document.getElementById('field-timestamp');
+  const fieldSigner = document.getElementById('field-signer');
+  const statusBox = document.getElementById('verify-status-box');
+
+  // Simple string hash simulation for demo
+  function mockSm3(str) {
+    let hash = 0x811c9dc5;
+    for (let i = 0; i < str.length; i++) {
+      hash ^= str.charCodeAt(i);
+      hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24);
+    }
+    const hex = (hash >>> 0).toString(16).padStart(8, '0');
+    return `${hex}e49a88c2419f18a29b0071da568c0714b13a890731f2490b832b87a81b376d2a`.slice(0, 64);
+  }
+
+  let currentState = {
+    hasSigned: true,
+    hasTimestamp: true,
+    verified: true,
+    content: samplePayload
+  };
+
+  function updatePayloadJson() {
+    const text = input.value || samplePayload;
+    const hash = mockSm3(text);
+    const date = new Date().toISOString();
+
+    const voucher = {
+      version: "2.0.0-aep",
+      standard: "GM/T 0009-2012 / SM2-SM3",
+      payloadDigest: {
+        algorithm: "SM3",
+        hash: hash
+      },
+      signature: currentState.hasSigned ? {
+        algorithm: "1.2.156.10197.1.501 (SM2-with-SM3)",
+        signer: "did:aep:sm2:node-agent-07",
+        r: "0x78a1bf80c85d1e434f952f447cf0fbf377196238b688c3a10526083897b2181c",
+        s: "0x3565e3962657e28f8535a39773a4d46d5ee302f3170e1762143003a2909e44ff"
+      } : null,
+      timestampProof: currentState.hasTimestamp ? {
+        format: "RFC3161-AEP-TSA",
+        tsaId: "CN-TSA-AEP-ROOT-01",
+        genTime: date,
+        accuracy: "1ms",
+        nonce: "84719204918239"
+      } : null,
+      verificationResult: {
+        valid: currentState.verified,
+        level: currentState.hasTimestamp ? "L3" : (currentState.hasSigned ? "L1" : "L0"),
+        verifiedAt: date
+      }
+    };
+
+    if (fieldHash) fieldHash.innerText = hash;
+    if (fieldTimestamp) {
+      fieldTimestamp.innerText = currentState.hasTimestamp ? `${date} (TSA Authority OK)` : "未加盖 / None";
+    }
+    if (fieldSigner) {
+      fieldSigner.innerText = currentState.hasSigned ? "did:aep:sm2:node-agent-07 (Valid)" : "未签名 / None";
+    }
+
+    if (rawJsonViewer) {
+      rawJsonViewer.textContent = JSON.stringify(voucher, null, 2);
+    }
+  }
+
+  // Initial populate
+  if (input) {
+    input.value = samplePayload;
+    updatePayloadJson();
+  }
+
+  btnFill?.addEventListener('click', () => {
+    input.value = samplePayload;
+    currentState.hasSigned = true;
+    currentState.hasTimestamp = true;
+    currentState.verified = true;
+    updatePayloadJson();
+  });
+
+  btnSign?.addEventListener('click', () => {
+    currentState.hasSigned = true;
+    updatePayloadJson();
+  });
+
+  btnTimestamp?.addEventListener('click', () => {
+    currentState.hasTimestamp = true;
+    updatePayloadJson();
+  });
+
+  btnVerify?.addEventListener('click', () => {
+    currentState.verified = true;
+    updatePayloadJson();
+    if (statusBox) {
+      statusBox.classList.remove('hidden');
+    }
+  });
+
+  btnReset?.addEventListener('click', () => {
+    input.value = '';
+    currentState.hasSigned = false;
+    currentState.hasTimestamp = false;
+    currentState.verified = false;
+    updatePayloadJson();
+  });
+
+  tabVisual?.addEventListener('click', () => {
+    tabVisual.classList.add('bg-aep-primary', 'text-white');
+    tabVisual.classList.remove('text-[var(--text-secondary)]');
+    tabRaw.classList.remove('bg-aep-primary', 'text-white');
+    tabRaw.classList.add('text-[var(--text-secondary)]');
+    viewVisual?.classList.remove('hidden');
+    viewRaw?.classList.add('hidden');
+  });
+
+  tabRaw?.addEventListener('click', () => {
+    tabRaw.classList.add('bg-aep-primary', 'text-white');
+    tabRaw.classList.remove('text-[var(--text-secondary)]');
+    tabVisual.classList.remove('bg-aep-primary', 'text-white');
+    tabVisual.classList.add('text-[var(--text-secondary)]');
+    viewRaw?.classList.remove('hidden');
+    viewVisual?.classList.add('hidden');
+  });
+
+  btnCopy?.addEventListener('click', async () => {
+    if (rawJsonViewer) {
+      try {
+        await navigator.clipboard.writeText(rawJsonViewer.textContent || '');
+        if (copyLabel) copyLabel.textContent = copiedText;
+        setTimeout(() => {
+          if (copyLabel) copyLabel.textContent = copyText;
+        }, 2000);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  });
+</script>

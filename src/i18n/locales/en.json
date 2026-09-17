@@ -1,18 +1,127 @@
 {
   "nav": {
     "home": "Home",
-    "protocol": "Protocol",
+    "product": "Product",
+    "quickstart": "Quickstart",
+    "tools": "Online Tools",
+    "protocol": "Specification",
+    "downloads": "Downloads",
+    "faq": "FAQ",
+    "about": "About",
     "architecture": "Architecture",
     "security": "Security",
-    "developer": "Developer",
-    "downloads": "Downloads"
+    "developer": "Developer"
   },
   "hero": {
     "mcpBadge": "⚡ Evidence MCP Core Integration · Ready for Production",
-    "title": "AEP",
-    "subtitle": "AI Agent Evidence Infrastructure",
-    "slogan": "Free to create evidence. Pay to operate at scale.",
-    "description": "Building verifiable, traceable, and auditable evidence chains (Proof of AI Action) for mission-critical AI operations, enabling deterministic collaboration between humans and autonomous agents in a zero-trust world."
+    "title": "AEP Next-Gen Digital Trust Protocol",
+    "subtitle": "Lightweight Identity & Time Certification",
+    "slogan": "Tailored for IoV, IoT, and digital notarization; architected on Chinese cryptographic standards with post-quantum readiness; streamlining traditional PKI to provide unified signing, verification, and trusted timestamping.",
+    "description": "Tailored for IoV, IoT, and digital notarization; architected on Chinese cryptographic standards with post-quantum readiness; streamlining traditional PKI to provide unified signing, verification, and trusted timestamping.",
+    "actions": {
+      "quickstart": "Quick Start",
+      "tools": "Live Demo",
+      "protocol": "Specification"
+    },
+    "scenarios": [
+      {
+        "title": "IoV Trusted Authentication",
+        "desc": "Vehicle & device trusted identity, anti-tampering transmission",
+        "icon": "🚗"
+      },
+      {
+        "title": "Massive IoT Device Certification",
+        "desc": "Lightweight certificate management for high-density edge devices",
+        "icon": "🌐"
+      },
+      {
+        "title": "Electronic Evidence Notarization",
+        "desc": "Authoritative trusted timestamps securing tamper-evident data freezing",
+        "icon": "⚖️"
+      },
+      {
+        "title": "Commercial Cryptography Compliance",
+        "desc": "Native SM standard support compliant with cryptography evaluations",
+        "icon": "🛡️"
+      }
+    ]
+  },
+  "glossary": {
+    "pki": {
+      "term": "PKI",
+      "name": "Public Key Infrastructure",
+      "tooltip": "Public Key Infrastructure. AEP delivers a lightweight redesign, eliminating bulky traditional CA online chains."
+    },
+    "tsa": {
+      "term": "TSA",
+      "name": "Time Stamping Authority",
+      "tooltip": "Authoritative time source proving data existed prior to a specific point in time without alteration."
+    },
+    "trustedTimestamp": {
+      "term": "Trusted Timestamp",
+      "name": "Trusted Timestamp",
+      "tooltip": "Non-repudiation time proof combining high-precision clock sources and cryptographic signatures."
+    },
+    "smCrypto": {
+      "term": "Commercial Cryptography",
+      "name": "Commercial Cryptography",
+      "tooltip": "Chinese National Commercial Cryptographic Standards (SM2 elliptic curves, SM3 hashing, SM4 block cipher)."
+    },
+    "pqc": {
+      "term": "Post-Quantum Cryptography",
+      "name": "Post-Quantum Cryptography",
+      "tooltip": "Extensible cryptographic scheme engineered to withstand quantum computing decryption threats."
+    },
+    "certChain": {
+      "term": "Certificate Chain",
+      "name": "Certificate Chain",
+      "tooltip": "Hierarchical trust delegation chain comprising root, intermediate, and leaf entity certificates."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions (FAQ)",
+    "subtitle": "Technical insights, architectural rationale, and implementation guides for AEP",
+    "items": [
+      {
+        "question": "What is the difference between AEP and traditional PKI?",
+        "answer": "AEP is a streamlined evolution of PKI that removes the bloated online validation chains and heavy ASN.1 overhead of traditional CAs. It provides cohesive, self-contained signing, verification, and timestamping optimized for edge devices and resource-constrained environments."
+      },
+      {
+        "question": "Is AEP compliant with commercial cryptographic standards?",
+        "answer": "Yes, natively and deeply. AEP fully implements SM2 elliptic-curve cryptography, SM3 hashing, and SM4 encryption, satisfying all Chinese Commercial Cryptography Evaluation (GM/T) specifications out of the box."
+      },
+      {
+        "question": "What are the primary target scenarios?",
+        "answer": "Key application domains include: ① Internet of Vehicles (V2X) vehicle-to-infrastructure trusted communication; ② High-concurrency IoT edge device authentication; ③ Legal, financial, and regulatory electronic evidence preservation; ④ Multi-agent cross-domain audit trails and non-repudiation."
+      },
+      {
+        "question": "What is the barrier to integration?",
+        "answer": "Extremely low. AEP offers lightweight CLI utilities, native MCP (Model Context Protocol) integration, and ergonomic SDKs across popular languages. Developers can achieve full integration and end-to-end verification in under 5 minutes."
+      }
+    ]
+  },
+  "tools": {
+    "title": "Online Playground & Debugger",
+    "subtitle": "Test AEP digital signing, trusted timestamping, and verification directly in your browser",
+    "inputLabel": "Raw Data Payload Input",
+    "inputPlaceholder": "Enter data payload to sign or notarize, e.g. transaction logs, audit events, or claims...",
+    "fillSample": "Fill Sample",
+    "signBtn": "Generate Signature",
+    "timestampBtn": "Attach Timestamp",
+    "verifyBtn": "Verify Online",
+    "resetBtn": "Reset",
+    "viewVisual": "Visual View",
+    "viewRaw": "Raw Payload View",
+    "copy": "Copy",
+    "copied": "Copied",
+    "signResultTitle": "Signature & Timestamp Voucher",
+    "verifyResultTitle": "Verification Verdict",
+    "verifyValid": "Verification Passed: Integrity intact, signature valid, and timestamp authentic.",
+    "verifyInvalid": "Verification Failed: Signature mismatch or data payload altered.",
+    "hashLabel": "SM3 Hash Digest",
+    "signerLabel": "Signer Public Key / Entity ID",
+    "timestampLabel": "Trusted Timestamp",
+    "samplePayload": "{\n  \"action\": \"transfer_approval\",\n  \"operator\": \"agent-devops-01\",\n  \"target\": \"prod-database-cluster\",\n  \"status\": \"approved\"\n}"
   },
   "common": {
     "getStarted": "Get Started",
@@ -202,7 +311,32 @@
   },
   "protocol": {
     "title": "Protocol Specification",
-    "subtitle": "An open, cryptographically verifiable, and extensible evidence protocol for AI agents",
+    "subtitle": "Open, cryptographically verifiable, and lightweight digital trust and time certification protocol",
+    "modeSwitch": {
+      "label": "Reading Mode",
+      "simple": "Simple Overview",
+      "full": "Complete Specification",
+      "simpleDesc": "Focuses on core concepts, high-level architecture, and value proposition without low-level packet encoding",
+      "fullDesc": "Includes full mathematical formulations, ASN.1/TLV encodings, algorithm parameters, and state transition models"
+    },
+    "simpleMode": {
+      "summaryTitle": "Understand AEP in 3 Minutes",
+      "summaryDesc": "AEP (Attestation & Evidence Exchange Protocol) is a lightweight digital trust protocol designed for next-generation distributed systems and autonomous devices. By shedding the bloated overhead and cumbersome online certificate validations of legacy PKI, AEP employs Chinese cryptographic standards and self-contained evidence structures to provide fast identity authentication, non-repudiation signatures, and authoritative time anchoring even in offline or constrained environments.",
+      "highlights": [
+        {
+          "title": "Lightweight & Fast",
+          "desc": "Payload sizes compressed by over 70%, with minimal signing and verification latency tailored for vehicular microcontrollers and IoT devices."
+        },
+        {
+          "title": "Authoritative Time Lock",
+          "desc": "Embedded trusted timestamping (TSA) guaranteeing unalterable, non-rewindable time proof with legal evidentiary validity."
+        },
+        {
+          "title": "Native GM & Post-Quantum Ready",
+          "desc": "Native out-of-the-box support for SM2/SM3/SM4 algorithm suites, with built-in upgrade slots for post-quantum cryptographic extensions."
+        }
+      ]
+    },
     "overviewTitle": "Overview",
     "overview": [
       "AEP (Attestation & Evidence Exchange Protocol) is an open evidence infrastructure protocol built specifically for AI agents.",

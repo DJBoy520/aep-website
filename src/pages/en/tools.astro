@@ -1,0 +1,46 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import SectionTitle from '@/components/common/SectionTitle.astro';
+import CryptoPlayground from '@/components/tools/CryptoPlayground.astro';
+import { getTranslation, getLangFromPath } from '@/i18n/utils';
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = getTranslation(Astro.url.pathname);
+const isZh = lang === 'zh-cn';
+---
+
+<MainLayout title="Online Tools - AEP" description={t.tools.subtitle}>
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:py-16">
+    <SectionTitle
+      title={t.tools.title}
+      subtitle={t.tools.subtitle}
+      align="center"
+    />
+
+    <div class="mt-10">
+      <CryptoPlayground />
+    </div>
+
+    <!-- Supplementary Feature Cards -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+      <div class="p-5 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]">
+        <div class="font-bold text-aep-primary mb-2">SM2/SM3 Standard</div>
+        <p class="text-[var(--text-secondary)] leading-relaxed">
+          National commercial cryptography standard elliptic curves and 256-bit hashing ensuring unforgeability and non-repudiation.
+        </p>
+      </div>
+      <div class="p-5 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]">
+        <div class="font-bold text-aep-purple mb-2">RFC 3161 Timestamp</div>
+        <p class="text-[var(--text-secondary)] leading-relaxed">
+          Synchronized with authoritative national time services, locking down tamper-evident microsecond-level physical timestamps.
+        </p>
+      </div>
+      <div class="p-5 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]">
+        <div class="font-bold text-aep-green mb-2">Offline Verification</div>
+        <p class="text-[var(--text-secondary)] leading-relaxed">
+          Zero centralized lock-in. Any third party can independently verify certificates and signatures without active internet access.
+        </p>
+      </div>
+    </div>
+  </div>
+</MainLayout>

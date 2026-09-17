@@ -1,24 +1,30 @@
 ---
 import SectionTitle from '../common/SectionTitle.astro';
-import { getTranslation } from '@/i18n/utils';
+import { getTranslation, getLangFromPath } from '@/i18n/utils';
 
+const lang = getLangFromPath(Astro.url.pathname);
 const t = getTranslation(Astro.url.pathname);
-const items = t.useCases.items;
+const items = t.hero.scenarios || [];
+const isZh = lang === 'zh-cn';
 ---
 
-<!-- 应用场景：卡片网格（icon + 标题 + 具体业务痛点描述，悬停上浮） -->
-<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
-  <SectionTitle title={t.useCases.title} subtitle={t.useCases.subtitle} align="center" />
+<!-- 四大核心业务场景卡片（通俗无技术废话） -->
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+  <SectionTitle 
+    title={isZh ? "四大核心落地场景" : "Four Core Application Scenarios"} 
+    subtitle={isZh ? "面向生产环境设计，去除复杂臃肿运维，开箱即用的数字信任与因果时序防护" : "Production-ready, lightweight digital trust and causal timestamp protection"} 
+    align="center" 
+  />
 
-  <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {items.map((item) => (
-      <div class="group flex flex-col rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-aep-primary/60 hover:shadow-lg">
-        <div class="flex items-center gap-3">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-aep-primary/10 text-2xl transition group-hover:scale-110" aria-hidden="true">
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {items.map((item: any) => (
+      <div class="group relative flex flex-col rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-aep-primary/60 hover:shadow-xl hover:shadow-aep-primary/5">
+        <div class="flex items-center gap-3.5">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-aep-primary/10 text-2xl transition-transform group-hover:scale-110" aria-hidden="true">
             {item.icon}
           </div>
           <h3 class="text-base font-bold text-[var(--text-primary)] transition group-hover:text-aep-primary">
-            {item.label}
+            {item.title}
           </h3>
         </div>
         {item.desc && (

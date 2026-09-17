@@ -1,0 +1,46 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import SectionTitle from '@/components/common/SectionTitle.astro';
+import CryptoPlayground from '@/components/tools/CryptoPlayground.astro';
+import { getTranslation, getLangFromPath } from '@/i18n/utils';
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = getTranslation(Astro.url.pathname);
+const isZh = lang === 'zh-cn';
+---
+
+<MainLayout title={isZh ? "在线工具 - AEP" : "Online Tools - AEP"} description={t.tools.subtitle}>
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:py-16">
+    <SectionTitle
+      title={t.tools.title}
+      subtitle={t.tools.subtitle}
+      align="center"
+    />
+
+    <div class="mt-10">
+      <CryptoPlayground />
+    </div>
+
+    <!-- 补充说明卡片 -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+      <div class="p-5 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]">
+        <div class="font-bold text-aep-primary mb-2">SM2/SM3 国密标准</div>
+        <p class="text-[var(--text-secondary)] leading-relaxed">
+          采用国家商用密码 GM/T 0009-2012 标准椭圆曲线数字签名算法与 256 位哈希，防篡改与不可抵赖。
+        </p>
+      </div>
+      <div class="p-5 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]">
+        <div class="font-bold text-aep-purple mb-2">RFC 3161 可信时间戳</div>
+        <p class="text-[var(--text-secondary)] leading-relaxed">
+          与国家权威授时中心时钟源联动，为电子凭据锁定精确微秒级不可逆物理时间证明。
+        </p>
+      </div>
+      <div class="p-5 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)]">
+        <div class="font-bold text-aep-green mb-2">离线独立验真</div>
+        <p class="text-[var(--text-secondary)] leading-relaxed">
+          去中心化依赖，任何接收方脱离网络亦可通过公钥或证书链独立核验完整性与合法性。
+        </p>
+      </div>
+    </div>
+  </div>
+</MainLayout>
