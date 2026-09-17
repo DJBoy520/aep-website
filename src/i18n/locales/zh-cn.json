@@ -8,7 +8,7 @@
     "downloads": "下载"
   },
   "hero": {
-    "mcpBadge": "⚡ Evidence MCP 一等公民入口现已就绪",
+    "mcpBadge": "⚡ Evidence MCP 核心集成入口现已就绪",
     "title": "AEP",
     "subtitle": "AI Agent Evidence Infrastructure",
     "slogan": "Free to create evidence. Pay to operate at scale.",
@@ -35,21 +35,21 @@
     "title": "项目介绍",
     "subtitle": "AI 智能体可信证据基础设施",
     "problemTitle": "要解决的问题",
-    "problemDesc": "自主 AI Agent 正在接管代码编写、系统运维、交易决策与数据流转等关键任务。黑盒决策与不可重现的生成行为带来严重的信任危机——Agent 执行了什么、何时执行、依据何种上下文、是否被劫持篡改，传统日志缺乏密码学自证与客观审计能力。",
+    "problemDesc": "自主 AI Agent（如 Coding Agent、DevOps Agent 等）正在接管代码编写、系统运维、交易决策与数据流转等关键任务，面临三大核心痛点：① 责任黑盒：Agent 执行关键变更（删库、改配置、发布代码、操作财务转账）无防篡改留痕，出事无法追溯究竟是人还是 AI 干的、依据什么上下文干的；② 传统日志易被篡改：普通文本日志和数据库记录可被管理员或攻击者轻易修改抹除，缺乏密码学客观自证力；③ 多 Agent 协同协作无凭据：上下游 Agent 之间传递数据与决策缺乏不可伪造的防抵赖签章。",
     "valueTitle": "核心价值",
-    "valueDesc": "AEP 将 Agent 的行为与制品封装为密码学可验证的结构化证据包（.aep）。任何人拿到证据包，均可脱离中心化依赖，独立验证执行主体、发生时序与不可篡改完整性，为 AI 关键行为提供坚固的证据链（Proof of AI Action）。",
-    "visionTitle": "AEP Trust Fabric 矩阵",
-    "visionDesc": "AEP 构建面向 AI 智能体的三维信任矩阵：AEP PKI Fabric 锚定执行主体（Who），AEP TSA Core 锁定因果时序（When），AEP Chain Ledger 锚定防篡改终态（Immutability）。以 Evidence MCP 为一等公民入口，覆盖从行为捕获、存证到独立验证、客观审计的全生命周期。",
-    "matrixBadge": "三维可信体系 · TRUST FABRIC",
-    "pkiTitle": "AEP PKI Fabric",
+    "valueDesc": "AEP 将 Agent 的行为与制品封装为密码学可验证的结构化证据包（.aep）。任何人拿到证据包，均可脱离中心化依赖，独立验证执行主体、发生时序与不可篡改完整性，为 AI 关键行为提供坚固的客观证据链（Proof of AI Action），让人类与自主智能体在零信任世界中达成确定性协作。",
+    "visionTitle": "可信基础设施服务矩阵",
+    "visionDesc": "AEP 为自主 AI 构建全方位的可信基础设施服务矩阵：AEP PKI 确立机器身份凭证（Who），AEP TSA 锁定可信因果时序（When），AEP Chain 锚定全局防篡改终态（Immutability）。以 Evidence MCP 为核心原生入口，覆盖从行为捕获、存证到独立验证、客观审计的全生命周期。",
+    "matrixBadge": "云端可信服务矩阵 · TRUST SERVICES",
+    "pkiTitle": "AEP PKI（机器身份与数字证书服务）",
     "pkiDimension": "WHO · 不可伪造主体",
     "pkiDesc": "机器身份网络与数字证书体系，基于非对称密码学为每个 AI Agent 分配独立身份凭证与证书链，精准解决 Who 问题，确立不可否认的执行主体。",
-    "tsaTitle": "AEP TSA Core",
+    "tsaTitle": "AEP TSA（可信时间戳服务）",
     "tsaDimension": "WHEN · 因果时序锁定",
     "tsaDesc": "高精度因果时间定序与可信时间戳存证回执（RFC 3161），解决 When 问题，证明行为在特定物理与逻辑时间点前已真实存在且不可前溯。",
-    "chainTitle": "AEP Chain Ledger",
-    "chainDimension": "IMMUTABILITY · 账本防篡改终态",
-    "chainDesc": "分布式全局账本与零隐私泄露的公开存在性锚定，解决 Immutability 问题，将证据根指纹公开锚定至全局账本，锁定防篡改终态。"
+    "chainTitle": "AEP Chain（区块链存证锚定服务）",
+    "chainDimension": "IMMUTABILITY · 链上防篡改终态",
+    "chainDesc": "分布式区块链全局账本与零隐私泄露的公开存在性锚定，解决 Immutability 问题，将证据根指纹公开锚定至区块链，锁定防篡改终态。"
   },
   "evidenceFlow": {
     "title": "完整的证据链路",
@@ -142,42 +142,48 @@
   },
   "developerEntry": {
     "title": "开发者友好",
-    "subtitle": "以 MCP 为一等公民入口，快速接入 AI 智能体生态",
-    "firstClass": "First-Class Citizen 一等公民",
+    "subtitle": "以 Evidence MCP 为核心入口，快速接入 AI 智能体生态",
+    "firstClass": "Core Integration 核心原生集成",
     "mcpTitle": "Evidence MCP（首选推荐）",
-    "mcpDesc": "AI Agent 一等公民入口，原生 Model Context Protocol 支持，存证验证开箱即用",
+    "mcpDesc": "AI Agent 核心原生入口，原生 Model Context Protocol 支持，存证验证开箱即用",
     "cliTitle": "CLI 命令行工具",
     "cliDesc": "自动化流水线与批量存证、离线独立验证及证据包导出",
     "skillsTitle": "Agent Skills",
     "skillsDesc": "主流智能体框架技能扩展包，一键无缝集成"
   },
   "useCases": {
-    "title": "广泛的应用场景",
-    "subtitle": "覆盖 AI 生成的各个领域",
+    "title": "核心应用场景与业务痛点解决",
+    "subtitle": "针对自主 Agent 关键操作与决策，提供客观不可篡改的证据链支撑",
     "items": [
       {
-        "label": "AI 写作",
-        "icon": "✍️"
+        "label": "AI Coding Agent 操作审计与代码防投毒",
+        "icon": "🛡️",
+        "desc": "记录代码修改、依赖变动与执行环境探针，杜绝恶意后门注入与归责不清"
       },
       {
-        "label": "代码生成",
-        "icon": "💻"
+        "label": "AI 财务与自动审批留痕",
+        "icon": "💳",
+        "desc": "大模型执行审批、采购、转账指令时，全链路固化执行上下文与不可抵赖签名时间戳"
       },
       {
-        "label": "图像生成",
-        "icon": "🎨"
+        "label": "AI 合同生成与关键决策存证",
+        "icon": "📜",
+        "desc": "对 AI 生成的法律合同、风控评估报告提供权威物理时间与防篡改存证"
       },
       {
-        "label": "视频生成",
-        "icon": "🎬"
+        "label": "AI API / DevOps 运维行为客观证据",
+        "icon": "⚙️",
+        "desc": "线上自动化运维操作与敏感 API 调用留痕，出具事故仲裁客观铁证"
       },
       {
-        "label": "智能体执行",
-        "icon": "🤖"
+        "label": "多 Agent 跨系统协作防抵赖",
+        "icon": "🤖",
+        "desc": "上下游智能体交互与任务交接签署密码学凭证，阻断信息污染与推诿扯皮"
       },
       {
-        "label": "企业审计",
-        "icon": "🏢"
+        "label": "合规监管与中立机构客观审计",
+        "icon": "🏢",
+        "desc": "开箱即用的标准 .aep 证据包，支持任何第三方随时独立离线核验全链路"
       }
     ]
   },
@@ -285,14 +291,14 @@
         "desc": "Hardware-rooted：TEE / 安全芯片硬件级信任根绑定"
       }
     ],
-    "levelsStatus": "当前工程落地状态：L0–L4（哈希、签名、身份见证、时间戳、账本锚定）已具备完整工程落地实现；L5–L7 为高阶拓展演进等级。",
-    "levelImplemented": "已实现",
+    "levelsStatus": "当前工程落地状态：L0–L4（哈希校验、数字签名、身份凭证、可信时间戳 TSA、区块链锚定 Chain）已全链路打通并提供生产级技术能力；L5–L7 为高阶拓展演进等级。",
+    "levelImplemented": "已就绪",
     "levelReserved": "预留中",
     "standardsTitle": "与其他标准的关系",
     "standards": [
       {
         "title": "Evidence MCP",
-        "desc": "MCP 是 Agent 工具交互的事实标准；AEP 将 Evidence MCP 作为一等公民入口，赋能智能体原生证据能力。"
+        "desc": "MCP 是 Agent 工具交互的事实标准；AEP 将 Evidence MCP 作为原生核心入口，赋予智能体原生证据能力。"
       },
       {
         "title": "C2PA",
@@ -306,7 +312,7 @@
   },
   "architecture": {
     "title": "技术架构",
-    "subtitle": "分层解耦与 Trust Fabric 矩阵设计",
+    "subtitle": "分层解耦与可信基础设施服务矩阵设计",
     "layersTitle": "五层架构体系",
     "layers": [
       {
@@ -454,7 +460,7 @@
       {
         "name": "Evidence MCP Server",
         "status": "available",
-        "desc": "AI Agent 一等公民入口，原生 Model Context Protocol 支持，存证验证开箱即用"
+        "desc": "AI Agent 核心原生入口，原生 Model Context Protocol 支持，存证验证开箱即用"
       },
       {
         "name": "AEP CLI",
@@ -497,7 +503,7 @@
     "cliInstallTitle": "安装方式",
     "binNote": "预编译二进制已发布至 GitHub Releases，可直接下载运行或通过包管理器安装。",
     "mcpTitle": "Evidence MCP Server",
-    "mcpDesc": "AI Agent 一等公民入口：原生 MCP 协议支持，存证、签名、定序与核验一体化",
+    "mcpDesc": "AI Agent 核心原生入口：原生 MCP 协议支持，存证、签名、定序与核验一体化",
     "mcpInstallTitle": "安装与配置",
     "skillTitle": "AEP Agent Skill",
     "skillDesc": "智能体技能包：主流 Agent 框架一键加载，赋予行动证据链自证能力",

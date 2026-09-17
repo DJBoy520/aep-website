@@ -8,7 +8,7 @@
     "downloads": "Downloads"
   },
   "hero": {
-    "mcpBadge": "⚡ Evidence MCP as First-Class Citizen · Ready to Use",
+    "mcpBadge": "⚡ Evidence MCP Core Integration · Ready for Production",
     "title": "AEP",
     "subtitle": "AI Agent Evidence Infrastructure",
     "slogan": "Free to create evidence. Pay to operate at scale.",
@@ -34,22 +34,22 @@
   "about": {
     "title": "About the Project",
     "subtitle": "AI Agent Evidence Infrastructure",
-    "problemTitle": "The Problem",
-    "problemDesc": "Autonomous AI agents are taking over mission-critical tasks in code generation, DevOps, financial transactions, and automated workflows. Black-box decisions and non-reproducible outputs create a severe trust crisis: what an agent executed, when it acted, under what context, and whether it was intercepted or altered cannot be proven by conventional logs lacking cryptographic proof and neutral auditability.",
-    "valueTitle": "The Value",
-    "valueDesc": "AEP packages agent actions and resulting artifacts into cryptographically verifiable structured evidence containers (.aep). Anyone holding an evidence package can independently verify the execution identity, causal order, and immutable integrity without relying on centralized servers — delivering a robust Proof of AI Action.",
-    "visionTitle": "AEP Trust Fabric Matrix",
-    "visionDesc": "AEP constructs a three-dimensional trust fabric for autonomous AI: AEP PKI Fabric establishes execution identity (Who), AEP TSA Core locks causal sequencing (When), and AEP Chain Ledger anchors immutable finality (Immutability). With Evidence MCP as the first-class citizen gateway, AEP covers the full lifecycle from action capture and notarization to independent verification and neutral audit.",
-    "matrixBadge": "3D Trust Architecture · TRUST FABRIC",
-    "pkiTitle": "AEP PKI Fabric",
+    "problemTitle": "The Problems We Solve",
+    "problemDesc": "Autonomous AI agents (Coding Agents, DevOps Agents, etc.) are executing mission-critical tasks such as code modification, infrastructure deployment, financial transactions, and automated approvals, exposing three core vulnerabilities: ① Accountability Black Box: Agents perform impactful actions (dropping tables, altering configs, deploying code, executing transfers) without tamper-proof audit trails, making it impossible to attribute whether human or AI acted, and upon which context; ② Vulnerability of Conventional Logs: Plain-text logs and database records can be easily modified or deleted by administrators or attackers, lacking objective cryptographic self-proving power; ③ Multi-Agent Collaboration Without Verifiable Proofs: Handoffs and decisions across upstream/downstream agents lack non-repudiation and unforgeable digital signatures.",
+    "valueTitle": "Core Value",
+    "valueDesc": "AEP packages agent actions and resulting artifacts into cryptographically verifiable structured evidence containers (.aep). Anyone holding an evidence package can independently verify the execution identity, causal order, and immutable integrity without relying on centralized servers — delivering an ironclad Proof of AI Action.",
+    "visionTitle": "Trusted Infrastructure Services Matrix",
+    "visionDesc": "AEP provides a comprehensive trusted infrastructure services matrix for autonomous AI: AEP PKI establishes machine identity credentials (Who), AEP TSA locks reliable causal sequencing (When), and AEP Chain anchors global immutable finality (Immutability). With Evidence MCP as the native core integration gateway, AEP covers the full lifecycle from action capture and notarization to independent verification and neutral audit.",
+    "matrixBadge": "Cloud Trusted Services Matrix · TRUST SERVICES",
+    "pkiTitle": "AEP PKI (Machine Identity & Digital Certificate Service)",
     "pkiDimension": "WHO · Non-forgeable Identity",
     "pkiDesc": "Machine identity network and digital certificate infrastructure, assigning independent cryptographic credentials and certificate chains to each AI Agent to solve the Who problem and guarantee non-repudiation.",
-    "tsaTitle": "AEP TSA Core",
+    "tsaTitle": "AEP TSA (Trusted Timestamp Service)",
     "tsaDimension": "WHEN · Causal Time Ordering",
     "tsaDesc": "High-precision causal time sequencing and RFC 3161 trusted timestamp receipts, solving the When problem by proving actions existed prior to specific points in time without backdating risk.",
-    "chainTitle": "AEP Chain Ledger",
-    "chainDimension": "IMMUTABILITY · Ledger Anchored Finality",
-    "chainDesc": "Distributed global ledger and zero-knowledge public existence anchoring, solving the Immutability problem by anchoring evidence root digests publicly to guarantee immutable finality."
+    "chainTitle": "AEP Chain (Blockchain Notarization & Anchoring Service)",
+    "chainDimension": "IMMUTABILITY · Blockchain Anchored Finality",
+    "chainDesc": "Distributed blockchain ledger and zero-knowledge public existence anchoring, solving the Immutability problem by anchoring evidence root digests publicly to guarantee immutable finality."
   },
   "evidenceFlow": {
     "title": "Complete Evidence Chain",
@@ -142,42 +142,48 @@
   },
   "developerEntry": {
     "title": "Developer Friendly",
-    "subtitle": "Evidence MCP as first-class citizen, fast integration into AI agent ecosystems",
-    "firstClass": "First-Class Citizen",
+    "subtitle": "Evidence MCP as core integration gateway, fast integration into AI agent ecosystems",
+    "firstClass": "Core Integration",
     "mcpTitle": "Evidence MCP (Recommended)",
-    "mcpDesc": "First-class citizen entry for AI agents, native Model Context Protocol support, out-of-the-box evidence capture and verification",
+    "mcpDesc": "Native core integration gateway for AI agents, native Model Context Protocol support, out-of-the-box evidence capture and verification",
     "cliTitle": "AEP CLI",
     "cliDesc": "Automated pipelines, batch notarization, offline independent verification, and evidence package export",
     "skillsTitle": "Agent Skills",
     "skillsDesc": "Skill extensions for mainstream agent frameworks, one-click frictionless integration"
   },
   "useCases": {
-    "title": "Broad Use Cases",
-    "subtitle": "Covering every domain of AI generation",
+    "title": "Key Use Cases & Problem Resolution",
+    "subtitle": "Delivering objective, tamper-proof evidence chains for autonomous Agent operations and decisions",
     "items": [
       {
-        "label": "AI Writing",
-        "icon": "✍️"
+        "label": "AI Coding Agent Audit & Anti-Poisoning",
+        "icon": "🛡️",
+        "desc": "Track code diffs, dependency modifications, and runtime probes to prevent malicious backdoors and disambiguate accountability"
       },
       {
-        "label": "Code Generation",
-        "icon": "💻"
+        "label": "AI Financial & Automated Approval Records",
+        "icon": "💳",
+        "desc": "Solidify context, asymmetric signatures, and timestamps when LLMs trigger approvals, procurement, or funds transfer"
       },
       {
-        "label": "Image Generation",
-        "icon": "🎨"
+        "label": "AI Contract Generation & Critical Decisions",
+        "icon": "📜",
+        "desc": "Provide cryptographic time and tamper-proof evidence for AI-generated legal contracts and risk evaluation reports"
       },
       {
-        "label": "Video Generation",
-        "icon": "🎬"
+        "label": "AI API & DevOps Operations Evidence",
+        "icon": "⚙️",
+        "desc": "Retain immutable execution traces for automated operations and sensitive API calls as objective dispute arbiters"
       },
       {
-        "label": "Agent Execution",
-        "icon": "🤖"
+        "label": "Multi-Agent Cross-System Collaboration",
+        "icon": "🤖",
+        "desc": "Sign cryptographic receipts across upstream and downstream agents to prevent context pollution and buck-passing"
       },
       {
-        "label": "Enterprise Audit",
-        "icon": "🏢"
+        "label": "Compliance Regulation & Neutral Auditing",
+        "icon": "🏢",
+        "desc": "Out-of-the-box standard .aep packages allow any third party to independently verify full evidence chains offline"
       }
     ]
   },
@@ -285,28 +291,28 @@
         "desc": "Hardware-rooted: TEE / secure enclave hardware root of trust"
       }
     ],
-    "levelsStatus": "Current Engineering Status: L0–L4 (Hash, Signature, Identity/Witness, Timestamp, Ledger Anchor) are fully implemented for production; L5–L7 are reserved for advanced protocol evolution.",
-    "levelImplemented": "Implemented",
+    "levelsStatus": "Current Engineering Status: L0–L4 (Hash, Signature, Identity/Witness, Timestamp TSA, Blockchain Anchor Chain) are fully implemented and production-ready; L5–L7 are reserved for advanced protocol evolution.",
+    "levelImplemented": "Production Ready",
     "levelReserved": "Reserved",
     "standardsTitle": "Relationship with Other Standards",
     "standards": [
       {
         "title": "Evidence MCP",
-        "desc": "MCP is the de facto standard for agent-tool interaction; AEP treats Evidence MCP as a first-class citizen entry to empower agents with native evidence capabilities."
+        "desc": "MCP is the de facto standard for agent-tool interaction; AEP treats Evidence MCP as a native core integration gateway to empower agents with native evidence capabilities."
       },
       {
         "title": "C2PA",
-        "desc": "C2PA focuses on content credentials for media, while AEP focuses on end-to-end verifiable evidence chains for AI agents, making them complementary."
+        "desc": "C2PA focuses on media content provenance (Content Credentials), while AEP concentrates on verifiable evidence chains across the full lifecycle of AI agent executions. The two are complementary."
       },
       {
         "title": "W3C PROV",
-        "desc": "PROV provides a general provenance ontology; AEP's evidence graph aligns with its model and adds cryptographic optimization for AI actions."
+        "desc": "PROV provides a general provenance ontology specification. AEP's evidence graph closely aligns with its data model while being cryptographically optimized for AI behaviors."
       }
     ]
   },
   "architecture": {
-    "title": "Technical Architecture",
-    "subtitle": "Layered decoupling and Trust Fabric matrix design",
+    "title": "Architecture",
+    "subtitle": "Layered decoupling and Trusted Infrastructure Services matrix design",
     "layersTitle": "Five-Layer Architecture System",
     "layers": [
       {
@@ -454,12 +460,12 @@
       {
         "name": "Evidence MCP Server",
         "status": "available",
-        "desc": "First-class citizen entry for AI agents, native Model Context Protocol support, out-of-the-box evidence capture and verification"
+        "desc": "Native core integration gateway for AI agents, native Model Context Protocol support, out-of-the-box evidence capture and verification"
       },
       {
         "name": "AEP CLI",
         "status": "available",
-        "desc": "Command-line tool for automated pipeline notarization, offline independent verification, and batch export"
+        "desc": "Command-line tool suite: automated pipeline notarization, offline independent verification, and evidence package export"
       },
       {
         "name": "Python SDK",
@@ -469,12 +475,12 @@
       {
         "name": "Rust SDK",
         "status": "comingSoon",
-        "desc": "High-performance core library for high-throughput evidence capture and native embedding"
+        "desc": "High-performance core library for high-throughput notarization and native embedding"
       },
       {
         "name": "Go SDK",
         "status": "comingSoon",
-        "desc": "Go SDK for seamless integration across cloud-native and microservice environments"
+        "desc": "Go SDK for cloud-native and microservice architectures"
       }
     ],
     "examplesTitle": "Code Examples",
@@ -497,7 +503,7 @@
     "cliInstallTitle": "Installation",
     "binNote": "Pre-built binaries are available on GitHub Releases; download and run directly or install via package managers.",
     "mcpTitle": "Evidence MCP Server",
-    "mcpDesc": "First-class citizen entry for AI agents: native MCP protocol support, uniting notarization, signing, timestamping, and verification",
+    "mcpDesc": "Native core integration gateway for AI agents: native MCP protocol support, uniting notarization, signing, timestamping, and verification",
     "mcpInstallTitle": "Installation & Configuration",
     "skillTitle": "AEP Agent Skill",
     "skillDesc": "Agent skill package: one-click loading into mainstream agent frameworks to empower verifiable action chains",
