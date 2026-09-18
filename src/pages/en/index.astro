@@ -1,28 +1,18 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import Hero from '@/components/home/Hero.astro';
-import About from '@/components/home/About.astro';
-import EvidenceFlow from '@/components/home/EvidenceFlow.astro';
-import CryptoOverview from '@/components/home/CryptoOverview.astro';
-import PackagePreview from '@/components/home/PackagePreview.astro';
-import VerificationProcess from '@/components/home/VerificationProcess.astro';
-import DeveloperEntry from '@/components/home/DeveloperEntry.astro';
+import Problems from '@/components/home/Problems.astro';
 import UseCases from '@/components/home/UseCases.astro';
-import ComingSoon from '@/components/home/ComingSoon.astro';
+import DeveloperEntry from '@/components/home/DeveloperEntry.astro';
 import { getTranslation } from '@/i18n/utils';
 
 const t = getTranslation(Astro.url.pathname);
 ---
 
 <MainLayout title={t.home.placeholderTitle} description={t.hero.description}>
-  <!-- English homepage mirrors the Chinese one: same components, auto-switching language by /en prefix -->
+  <!-- English homepage mirrors the Chinese one: Hero → Problems → UseCases → DeveloperEntry -->
   <Hero />
-  <About />
-  <EvidenceFlow />
-  <CryptoOverview />
-  <PackagePreview />
-  <VerificationProcess />
-  <DeveloperEntry />
+  <Problems />
   <UseCases />
-  <ComingSoon />
+  <DeveloperEntry />
 </MainLayout>

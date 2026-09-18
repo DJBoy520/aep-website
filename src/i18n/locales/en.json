@@ -9,15 +9,15 @@
   },
   "hero": {
     "mcpBadge": "⚡ Evidence MCP Core Integration · Ready for Production",
-    "title": "AEP",
-    "subtitle": "AI Agent Evidence Infrastructure",
-    "slogan": "Free to create evidence. Pay to operate at scale.",
-    "description": "Building verifiable, traceable, and auditable evidence chains (Proof of AI Action) for mission-critical AI operations, enabling deterministic collaboration between humans and autonomous agents in a zero-trust world."
+    "title": "AEP |",
+    "subtitle": "AI Creation & Agent Evidence Infrastructure",
+    "slogan": "Every creative process and AI action deserves an immutable birth certificate.",
+    "description": "Establish immutable, cryptographically self-verifying end-to-end evidence chains for AI creative processes and critical agent actions, bridging the trust deficit in the AI era."
   },
   "common": {
-    "getStarted": "Get Started",
-    "viewProtocol": "View Protocol",
-    "downloadTools": "Download Tools",
+    "getStarted": "Quick Start",
+    "viewProtocol": "Technical Specs",
+    "downloadTools": "Open Source & Tools",
     "learnMore": "Learn More",
     "available": "Available",
     "comingSoon": "Coming Soon"
@@ -28,8 +28,35 @@
     "communityTitle": "Community"
   },
   "home": {
-    "placeholderTitle": "AEP - AI Agent Evidence Infrastructure",
-    "placeholderDesc": "AI Agent Evidence Infrastructure: verifiable, traceable, and auditable proof of AI action."
+    "placeholderTitle": "AEP | AI Creation & Agent Evidence Infrastructure",
+    "placeholderDesc": "Every creative process and AI action deserves an immutable birth certificate."
+  },
+  "problems": {
+    "title": "Fundamental Problems We Solve",
+    "subtitle": "From ex-post isolated snapshots to end-to-end trusted evidence, bridging the trust deficit in the AI era",
+    "cards": [
+      {
+        "title": "Overvaluing Outputs, Neglecting Process: Impossible Provenance",
+        "painPointLabel": "Traditional Pain Point",
+        "painPoint": "Only the final artifact hash is retained, discarding prompt deduction and human iterations; copyright and provenance disputes cannot be substantiated.",
+        "solutionLabel": "AEP Solution",
+        "solution": "DAG evidence graphs capture the full causal chain of prompts, parameter derivations, human edits, and model versions."
+      },
+      {
+        "title": "Vulnerable Text Logs: Blame Shifting and Tampering",
+        "painPointLabel": "Traditional Pain Point",
+        "painPoint": "Application logs and database records can be altered or erased by admins or attackers, lacking objective neutral self-proving authority.",
+        "solutionLabel": "AEP Solution",
+        "solution": "Self-contained .aep cryptographic packages bound to authoritative timestamps and digital signatures; any tampering invalidates the proof instantly."
+      },
+      {
+        "title": "Challenging Fact-Finding: High Judicial Admissibility Thresholds",
+        "painPointLabel": "Traditional Pain Point",
+        "painPoint": "Fragmented electronic evidence, screenshots, and plain texts are trivial to forge, severely hindering judicial and arbitral fact-finding.",
+        "solutionLabel": "AEP Solution",
+        "solution": "Structured evidence aligned directly with electronic litigation preservation baselines; authoritative timestamps and chains flow straight into courtroom and arbitration."
+      }
+    ]
   },
   "about": {
     "title": "About the Project",
@@ -152,38 +179,33 @@
     "skillsDesc": "Skill extensions for mainstream agent frameworks, one-click frictionless integration"
   },
   "useCases": {
-    "title": "Key Use Cases & Problem Resolution",
-    "subtitle": "Delivering objective, tamper-proof evidence chains for autonomous Agent operations and decisions",
+    "title": "Five Core Use Cases",
+    "subtitle": "Providing tamper-proof objective evidence for creative iterations, generative assets, and mission-critical agent actions",
     "items": [
       {
-        "label": "AI Coding Agent Audit & Anti-Poisoning",
-        "icon": "🛡️",
-        "desc": "Track code diffs, dependency modifications, and runtime probes to prevent malicious backdoors and disambiguate accountability"
+        "label": "Papers, Patents & Software Copyright Protection",
+        "icon": "📄",
+        "desc": "End-to-end evidence retention for research derivation, experimental telemetry, prompt evolutions, and code commits, establishing indisputable priority and attribution."
       },
       {
-        "label": "AI Financial & Automated Approval Records",
-        "icon": "💳",
-        "desc": "Solidify context, asymmetric signatures, and timestamps when LLMs trigger approvals, procurement, or funds transfer"
+        "label": "Multimedia Generative Assets (Audio / Video / Image)",
+        "icon": "🎨",
+        "desc": "Full-chain provenance for generative art, synthesized audio, and video editing/remixing to prevent copyright laundering and illicit derivative works."
       },
       {
-        "label": "AI Contract Generation & Critical Decisions",
-        "icon": "📜",
-        "desc": "Provide cryptographic time and tamper-proof evidence for AI-generated legal contracts and risk evaluation reports"
+        "label": "AI Coding & Code Supply Chain Anti-Poisoning",
+        "icon": "💻",
+        "desc": "Trace code diffs, dependency additions, and runtime environment probes by agents like Cursor or OpenClaw, eliminating stealth backdoors with pinpoint attribution."
       },
       {
-        "label": "AI API & DevOps Operations Evidence",
-        "icon": "⚙️",
-        "desc": "Retain immutable execution traces for automated operations and sensitive API calls as objective dispute arbiters"
+        "label": "Judicial Evidence Admissibility & Dispute Arbitration",
+        "icon": "⚖️",
+        "desc": "Export structured .aep evidence packages meeting judicial scrutiny baselines directly to internet courts, notaries, and arbitration panels to eliminate fact-finding gridlock."
       },
       {
-        "label": "Multi-Agent Cross-System Collaboration",
+        "label": "Mission-Critical Agent Actions & Automated Approvals",
         "icon": "🤖",
-        "desc": "Sign cryptographic receipts across upstream and downstream agents to prevent context pollution and buck-passing"
-      },
-      {
-        "label": "Compliance Regulation & Neutral Auditing",
-        "icon": "🏢",
-        "desc": "Out-of-the-box standard .aep packages allow any third party to independently verify full evidence chains offline"
+        "desc": "Solidify non-repudiable execution receipts, prompts, and complete contexts when LLMs execute autonomous operations, procurement, payment transfers, or policy approvals."
       }
     ]
   },

@@ -1,0 +1,59 @@
+---
+import SectionTitle from '../common/SectionTitle.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const problems = t.problems;
+---
+
+<!-- 三大根本痛点对比：传统方式 vs AEP 解决 -->
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+  <SectionTitle title={problems.title} subtitle={problems.subtitle} align="center" />
+
+  <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+    {problems.cards.map((card, index) => (
+      <div class="flex flex-col justify-between rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-aep-primary/50 hover:shadow-xl sm:p-7">
+        <div>
+          <!-- 卡片序号 & 标题 -->
+          <div class="flex items-center gap-3">
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-aep-primary/10 text-xs font-bold text-aep-primary">
+              0{index + 1}
+            </span>
+            <h3 class="text-lg font-bold tracking-tight text-[var(--text-primary)]">
+              {card.title}
+            </h3>
+          </div>
+
+          <!-- 痛点对比块 -->
+          <div class="mt-6 space-y-4">
+            <!-- 传统痛点 -->
+            <div class="rounded-xl border border-rose-500/20 bg-rose-500/5 p-4">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-500">
+                <svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span>{card.painPointLabel}</span>
+              </div>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                {card.painPoint}
+              </p>
+            </div>
+
+            <!-- AEP 解决 -->
+            <div class="rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-4">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-500">
+                <svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>{card.solutionLabel}</span>
+              </div>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)] font-medium">
+                {card.solution}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

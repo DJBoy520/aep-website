@@ -6,13 +6,13 @@ const t = getTranslation(Astro.url.pathname);
 const items = t.useCases.items;
 ---
 
-<!-- 应用场景：卡片网格（icon + 标题 + 具体业务痛点描述，悬停上浮） -->
+<!-- 五大核心落地应用场景：卡片网格（icon + 标题 + 描述，悬停上浮） -->
 <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
   <SectionTitle title={t.useCases.title} subtitle={t.useCases.subtitle} align="center" />
 
-  <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {items.map((item) => (
-      <div class="group flex flex-col rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-aep-primary/60 hover:shadow-lg">
+  <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {items.map((item, index) => (
+      <div class={`group flex flex-col rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-aep-primary/60 hover:shadow-lg ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
         <div class="flex items-center gap-3">
           <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-aep-primary/10 text-2xl transition group-hover:scale-110" aria-hidden="true">
             {item.icon}

@@ -9,15 +9,15 @@
   },
   "hero": {
     "mcpBadge": "⚡ Evidence MCP 核心集成入口现已就绪",
-    "title": "AEP",
-    "subtitle": "AI Agent Evidence Infrastructure",
-    "slogan": "Free to create evidence. Pay to operate at scale.",
-    "description": "为关键 AI 行为建立可验证、可追溯、可审计的证据链（Proof of AI Action），让人类与自主智能体在零信任世界中达成确定性协作。"
+    "title": "AEP ｜",
+    "subtitle": "AI 创作与智能体证据基础设施",
+    "slogan": "让每一次创作过程与 AI 行为，都有不可篡改的“出生证明”。",
+    "description": "为 AI 创作过程与关键智能体行为建立不可篡改、密码学可自证的全程证据链，弥合智能时代的信任断层。"
   },
   "common": {
-    "getStarted": "开始使用",
-    "viewProtocol": "查看协议",
-    "downloadTools": "下载工具",
+    "getStarted": "快速上手",
+    "viewProtocol": "技术规范",
+    "downloadTools": "开源与工具",
     "learnMore": "了解更多",
     "available": "可用",
     "comingSoon": "即将推出"
@@ -28,8 +28,35 @@
     "communityTitle": "社区"
   },
   "home": {
-    "placeholderTitle": "AEP - AI Agent Evidence Infrastructure",
-    "placeholderDesc": "AI 智能体可信证据基础设施：让关键 AI 行为具备可验证、可追溯、可审计的证据链（Proof of AI Action）。"
+    "placeholderTitle": "AEP ｜ AI 创作与智能体证据基础设施",
+    "placeholderDesc": "让每一次创作过程与 AI 行为，都有不可篡改的“出生证明”。"
+  },
+  "problems": {
+    "title": "我们解决什么根本问题",
+    "subtitle": "从“事后单点快照”到“全程可信证据”，弥合 AI 时代的信任断层",
+    "cards": [
+      {
+        "title": "重结果轻过程，原创无法自证",
+        "painPointLabel": "传统痛点",
+        "painPoint": "仅存最终文件哈希，丢失提示词推演与人工迭代，版权与原创纠纷无法举证。",
+        "solutionLabel": "AEP 解决",
+        "solution": "DAG 证据图记录 Prompt、参数推演、人工修改与模型版本的完整因果链条。"
+      },
+      {
+        "title": "文本日志易篡改，出事推诿扯皮",
+        "painPointLabel": "传统痛点",
+        "painPoint": "应用日志与数据库记录可被管理员或黑客随意修改删除，缺乏客观中立自证力。",
+        "solutionLabel": "AEP 解决",
+        "solution": "自包含 .aep 密码学证据包，权威时序与数字签名绑定，轻微改动立刻失效。"
+      },
+      {
+        "title": "维权事实查明难，司法采信门槛高",
+        "painPointLabel": "传统痛点",
+        "painPoint": "电子证据碎片化、截图文本易被伪造，法官和仲裁机构事实查明难度极高。",
+        "solutionLabel": "AEP 解决",
+        "solution": "结构化存证直通电子诉讼存证基线，权威时间戳与完整证据链直达法庭与仲裁。"
+      }
+    ]
   },
   "about": {
     "title": "项目介绍",
@@ -152,38 +179,33 @@
     "skillsDesc": "主流智能体框架技能扩展包，一键无缝集成"
   },
   "useCases": {
-    "title": "核心应用场景与业务痛点解决",
-    "subtitle": "针对自主 Agent 关键操作与决策，提供客观不可篡改的证据链支撑",
+    "title": "五大核心落地应用场景",
+    "subtitle": "针对创作过程、生成资产与关键智能体操作，提供不可篡改的客观证据支撑",
     "items": [
       {
-        "label": "AI Coding Agent 操作审计与代码防投毒",
-        "icon": "🛡️",
-        "desc": "记录代码修改、依赖变动与执行环境探针，杜绝恶意后门注入与归责不清"
+        "label": "论文、专利与软件著作权保护",
+        "icon": "📄",
+        "desc": "科研推演记录、实验数据流、Prompt 演进、代码版本迭代全过程存证，确立无可争议的发明优先权与原创贡献依据。"
       },
       {
-        "label": "AI 财务与自动审批留痕",
-        "icon": "💳",
-        "desc": "大模型执行审批、采购、转账指令时，全链路固化执行上下文与不可抵赖签名时间戳"
+        "label": "多媒体数据应用（音频 / 视频 / 图像）",
+        "icon": "🎨",
+        "desc": "数字艺术生成、声音合成、音视频剪辑二创全链路留痕，防洗稿、防侵权二改，明晰创作者版权生成链条。"
       },
       {
-        "label": "AI 合同生成与关键决策存证",
-        "icon": "📜",
-        "desc": "对 AI 生成的法律合同、风控评估报告提供权威物理时间与防篡改存证"
+        "label": "AI Coding 与代码供应链防投毒",
+        "icon": "💻",
+        "desc": "记录 Cursor、OpenClaw 等智能体的代码修改、依赖安装与环境探针，杜绝恶意后门注入，出事清晰定责。"
       },
       {
-        "label": "AI API / DevOps 运维行为客观证据",
-        "icon": "⚙️",
-        "desc": "线上自动化运维操作与敏感 API 调用留痕，出具事故仲裁客观铁证"
+        "label": "司法出证与纠纷仲裁",
+        "icon": "⚖️",
+        "desc": "一键导出符合司法审查基线的结构化 .aep 证据包，直达互联网法院、公证处与仲裁机构，解决事实查明难。"
       },
       {
-        "label": "多 Agent 跨系统协作防抵赖",
+        "label": "关键 Agent 行为与自动审批留痕",
         "icon": "🤖",
-        "desc": "上下游智能体交互与任务交接签署密码学凭证，阻断信息污染与推诿扯皮"
-      },
-      {
-        "label": "合规监管与中立机构客观审计",
-        "icon": "🏢",
-        "desc": "开箱即用的标准 .aep 证据包，支持任何第三方随时独立离线核验全链路"
+        "desc": "大模型执行自动化运维、采购、财务支付或审批决策时，固化不可抵赖的执行凭据、Prompt 与完整上下文。"
       }
     ]
   },
