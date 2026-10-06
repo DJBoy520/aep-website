@@ -3,6 +3,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/home/Hero.astro';
 import Problems from '../components/home/Problems.astro';
 import UseCases from '../components/home/UseCases.astro';
+import InfraNetwork from '../components/home/InfraNetwork.astro';
 import DeveloperEntry from '../components/home/DeveloperEntry.astro';
 import { getTranslation } from '@/i18n/utils';
 
@@ -10,9 +11,10 @@ const t = getTranslation(Astro.url.pathname);
 ---
 
 <MainLayout title={t.home.placeholderTitle} description={t.hero.description}>
-  <!-- 首页 4 个核心区域：Hero → Problems → UseCases → DeveloperEntry -->
+  <!-- 首页 5 个核心区域：Hero → Problems → UseCases → InfraNetwork → DeveloperEntry -->
   <Hero />
   <Problems />
   <UseCases />
+  <InfraNetwork />
   <DeveloperEntry />
 </MainLayout>

@@ -6,9 +6,12 @@ interface Props {
 
 const { hover = false, class: className } = Astro.props;
 
+// 卡片基线：圆角 rounded-xl + 1px 描边 + 随主题切换的层次阴影
 const classes = [
-  'rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6',
-  hover ? 'transition hover:-translate-y-1 hover:shadow-lg' : '',
+  'rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-card',
+  hover
+    ? 'transition duration-300 ease-aep hover:-translate-y-1 hover:border-aep-primary/50 hover:shadow-card-hover'
+    : '',
   className,
 ]
   .filter(Boolean)

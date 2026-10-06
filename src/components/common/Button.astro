@@ -9,13 +9,16 @@ interface Props {
 const { variant = 'primary', size = 'md', href, class: className } = Astro.props;
 
 const baseClasses =
-  'inline-flex items-center justify-center rounded-lg font-medium transition-colors';
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition duration-200 ease-aep active:translate-y-px';
 
 const variantClasses: Record<'primary' | 'secondary' | 'outline', string> = {
-  primary: 'bg-aep-primary text-white hover:bg-aep-primary-dark',
+  // 实心主按钮：填充色与文字成对（浅色主题深青底白字 5.36:1，深色主题高亮底深字 10.17:1）
+  primary:
+    'bg-aep-fill-primary text-aep-on-fill shadow-card hover:bg-aep-fill-primary-hover hover:shadow-card-hover',
   secondary:
-    'bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border-color)] hover:bg-[var(--border-color)]',
-  outline: 'border border-aep-primary text-aep-primary hover:bg-aep-primary/10',
+    'bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border-color)] hover:border-[var(--border-strong)] hover:bg-[var(--card-bg)]',
+  outline:
+    'border border-aep-primary/60 text-aep-primary-ink hover:border-aep-primary hover:bg-aep-primary/10',
 };
 
 const sizeClasses: Record<'sm' | 'md' | 'lg', string> = {

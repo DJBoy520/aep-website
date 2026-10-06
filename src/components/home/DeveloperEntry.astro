@@ -33,46 +33,46 @@ const entries: Entry[] = [
     id: 'skills',
     title: t.developerEntry.skillsTitle,
     desc: t.developerEntry.skillsDesc,
-    status: 'comingSoon',
+    status: 'available',
     featured: false,
   },
 ];
 
-// 状态标签样式：Available 绿色 + 圆点；Coming Soon 琥珀色
+// 状态标签样式：Available 绿色 + 圆点；Coming Soon 琥珀色（ink 令牌保证明暗主题均可读）
 function statusClasses(status: Entry['status']): string {
   return status === 'available'
-    ? 'bg-aep-green/10 text-aep-green'
-    : 'bg-aep-amber/10 text-aep-amber';
+    ? 'bg-aep-green/10 text-aep-green-ink'
+    : 'bg-aep-amber/10 text-aep-amber-ink';
 }
 ---
 
-<!-- 开发者入口：以 Evidence MCP 为核心原生集成首要推荐 + CLI / Agent Skills -->
-<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+<!-- 开发者入口：Evidence MCP 原生集成入口 + AEP CLI + Agent Skill 与运行时 -->
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
   <SectionTitle title={t.developerEntry.title} subtitle={t.developerEntry.subtitle} align="center" />
 
-  <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+  <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
     {entries.map((entry) => (
       <Card
         hover
         class={`relative flex flex-col ${
           entry.featured
-            ? 'border-aep-primary/60 ring-2 ring-aep-primary/20 bg-gradient-to-b from-aep-primary/[0.06] via-[var(--card-bg)] to-[var(--card-bg)] shadow-md'
+            ? 'border-aep-primary/60 ring-2 ring-aep-primary/20 bg-gradient-to-b from-aep-primary/[0.06] via-[var(--card-bg)] to-[var(--card-bg)]'
             : ''
         }`}
       >
         {entry.featured && (
           <div class="mb-3">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-aep-primary px-3 py-1 text-xs font-bold text-white shadow-sm">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-aep-fill-primary px-3 py-1 text-xs font-bold text-aep-on-fill">
               <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
-              {t.developerEntry.firstClass}
+              {t.developerEntry.coreBadge}
             </span>
           </div>
         )}
 
         <div class="flex items-center justify-between gap-3">
-          <h3 class="text-lg font-semibold text-[var(--text-primary)]">{entry.title}</h3>
+          <h3 class="text-lg font-semibold tracking-tight text-[var(--text-primary)]">{entry.title}</h3>
           <span
             class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${statusClasses(
               entry.status,
@@ -89,12 +89,17 @@ function statusClasses(status: Entry['status']): string {
 
         <a
           href={getLocalizedPath(entry.id === 'mcp' ? '/developer#mcp' : '/developer', lang)}
-          class={`mt-5 inline-flex items-center gap-1.5 text-sm font-semibold transition ${
-            entry.featured ? 'text-aep-primary hover:text-aep-purple' : 'text-aep-primary hover:underline'
+          class={`group/link mt-5 inline-flex w-fit items-center gap-1.5 rounded text-sm font-semibold text-aep-primary-ink transition-colors duration-200 hover:underline ${
+            entry.featured ? 'hover:text-aep-purple-ink' : ''
           }`}
         >
           {t.common.learnMore}
-          <span aria-hidden="true">→</span>
+          <span
+            aria-hidden="true"
+            class="transition-transform duration-200 group-hover/link:translate-x-0.5"
+          >
+            →
+          </span>
         </a>
       </Card>
     ))}

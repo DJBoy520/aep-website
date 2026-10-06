@@ -1,0 +1,35 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Button from '../../components/common/Button.astro';
+import { getLangFromPath, getLocalizedPath, getTranslation } from '@/i18n/utils';
+
+// English 404 page (/en/404): all copy and site links are localized for the /en prefix.
+const lang = getLangFromPath(Astro.url.pathname);
+const nf = getTranslation(Astro.url.pathname).notFound;
+const homePath = getLocalizedPath('/', lang);
+const protocolPath = getLocalizedPath('/protocol', lang);
+---
+
+<MainLayout title={nf.title} description={nf.description}>
+  <section class="mx-auto flex min-h-[60vh] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 sm:py-20 lg:py-24">
+    <div class="w-full max-w-xl rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-8 shadow-card sm:p-12">
+      <p class="text-6xl font-extrabold tracking-tight text-aep-primary-ink sm:text-7xl">
+        {nf.heading}
+      </p>
+      <h1 class="mt-4 text-2xl font-bold tracking-tight text-[var(--text-primary)] sm:text-3xl">
+        {nf.title}
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-[var(--text-secondary)]">
+        {nf.subheading}
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <Button variant="primary" href={homePath}>
+          {nf.backHome}
+        </Button>
+        <Button variant="secondary" href={protocolPath}>
+          {nf.viewProtocol}
+        </Button>
+      </div>
+    </div>
+  </section>
+</MainLayout>

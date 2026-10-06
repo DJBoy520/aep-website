@@ -15,12 +15,26 @@ const navItems = [
   { label: t.nav.developer, href: getLocalizedPath('/developer', lang) },
   { label: t.nav.downloads, href: getLocalizedPath('/downloads', lang) },
 ];
+
+// 当前页判定（忽略结尾斜杠），用于导航高亮与 aria-current
+const normalize = (path: string) => {
+  const trimmed = path.replace(/\/+$/, '');
+  return trimmed === '' ? '/' : trimmed;
+};
+const currentPath = normalize(Astro.url.pathname);
 ---
 
-<header class="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/80 backdrop-blur-md">
+<!-- 粘性导航：半透明玻璃底 + backdrop-blur（透明度走 --bg-glass，
+     Tailwind 无法对 var() 色值做 bg-[..]/85 透明度修饰） -->
+<header
+  class="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-glass)] backdrop-blur-md"
+>
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
     <!-- 左：Logo（文字 + 小图标占位） -->
-    <a href={getLocalizedPath('/', lang)} class="flex shrink-0 items-center gap-2 text-[var(--text-primary)]">
+    <a
+      href={getLocalizedPath('/', lang)}
+      class="flex shrink-0 items-center gap-2 rounded-md text-[var(--text-primary)] transition-colors duration-200 hover:text-aep-primary-ink"
+    >
       <svg class="h-5 w-5 text-aep-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 2 22 12 12 22 2 12Z" />
         <rect x="9" y="9" width="6" height="6" fill="var(--bg-primary)" />
@@ -29,18 +43,27 @@ const navItems = [
     </a>
 
     <!-- 中：桌面端导航（≥768px 显示） -->
-    <nav class="hidden md:block" aria-label="主导航">
+    <nav class="hidden md:block" aria-label={t.nav.mainNav}>
       <ul class="flex items-center gap-1">
-        {navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class="rounded-md px-3 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-aep-primary"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
+        {navItems.map((item) => {
+          const isActive = normalize(item.href) === currentPath;
+          return (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                class:list={[
+                  'rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200',
+                  isActive
+                    ? 'bg-aep-primary/10 font-semibold text-aep-primary-ink'
+                    : 'text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-aep-primary-ink',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </nav>
 
@@ -48,16 +71,103 @@ const navItems = [
     <div class="flex shrink-0 items-center gap-2">
       <ThemeToggle />
       <LanguageSwitcher />
-      <!-- 汉堡按钮（<768px 显示；展开功能后续步骤实现） -->
+      <!-- 汉堡按钮（<768px 显示） -->
       <button
         type="button"
-        class="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border-color)] text-[var(--text-secondary)] md:hidden"
-        aria-label="打开菜单"
+        id="mobile-menu-button"
+        class="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border-color)] text-[var(--text-secondary)] transition-colors duration-200 hover:border-[var(--border-strong)] hover:bg-[var(--bg-secondary)] hover:text-aep-primary-ink md:hidden"
+        aria-label={t.nav.openMenu}
+        aria-expanded="false"
+        aria-controls="mobile-menu-drawer"
+        data-open-label={t.nav.openMenu}
+        data-close-label={t.nav.closeMenu}
       >
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <svg id="mobile-menu-icon-open" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="mobile-menu-icon-close" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
   </div>
+
+  <!-- 移动端抽屉菜单（<768px 显示） -->
+  <div
+    id="mobile-menu-drawer"
+    class="hidden border-b border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-4 shadow-card-hover md:hidden"
+  >
+    <nav aria-label={t.nav.mobileNav}>
+      <ul class="flex flex-col gap-1">
+        {navItems.map((item) => {
+          const isActive = normalize(item.href) === currentPath;
+          return (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                class:list={[
+                  'mobile-nav-link block rounded-md px-3 py-2 text-base font-medium transition-colors duration-200',
+                  isActive
+                    ? 'bg-aep-primary/10 font-semibold text-aep-primary-ink'
+                    : 'text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-aep-primary-ink',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<script is:inline>
+  (() => {
+    const button = document.getElementById('mobile-menu-button');
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const iconOpen = document.getElementById('mobile-menu-icon-open');
+    const iconClose = document.getElementById('mobile-menu-icon-close');
+
+    if (!button || !drawer || !iconOpen || !iconClose) return;
+
+    const openLabel = button.getAttribute('data-open-label');
+    const closeLabel = button.getAttribute('data-close-label');
+
+    if (!openLabel || !closeLabel) return;
+
+    const setExpanded = (isExpanded) => {
+      button.setAttribute('aria-expanded', String(isExpanded));
+      button.setAttribute('aria-label', isExpanded ? closeLabel : openLabel);
+      if (isExpanded) {
+        drawer.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    };
+
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      setExpanded(!isExpanded);
+    });
+
+    const links = drawer.querySelectorAll('.mobile-nav-link');
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        setExpanded(false);
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+        setExpanded(false);
+        button.focus();
+      }
+    });
+  })();
+</script>

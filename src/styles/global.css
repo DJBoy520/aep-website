@@ -1,29 +1,102 @@
 /* Google Fonts: Inter (sans) + JetBrains Mono (mono) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
+/* ============================================================================
+   AEP 设计令牌（Design Tokens）
+   - 颜色数值的 SSOT 在 src/config/theme.ts，本文件为运行时 CSS 变量镜像。
+   - 取用规则：品牌色（aep-primary 等）只用于填充/描边/装饰；
+     浅底或深底上的强调文字一律用 ink 令牌（text-aep-*-ink），保证 ≥ 4.5:1。
+   - 圆角尺度：卡片/面板 rounded-xl，内部块与按钮 rounded-lg，
+     标签徽章 rounded-full，小方标 rounded-md。
+   - 垂直节奏：顶层 section py-16 sm:py-20 lg:py-24；
+     页面内相邻 section 间距 space-y-16；标题到卡片网格 mt-12，标题到正文 mt-6/mt-8。
+   ========================================================================== */
+
 /* Light theme (default) */
 :root,
 [data-theme='light'] {
+  /* 表面与描边 */
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
   --card-bg: #f8fafc;
-  --code-bg: #1e293b;
-  --code-text: #f9fafb;
+  /* 粘性导航玻璃底：--bg-primary 的 85% 透明版。
+     必须写成独立变量——Tailwind v3 无法给 var() 色值叠加透明度修饰符，
+     bg-[var(--bg-primary)]/85 这类写法会被静默丢弃。 */
+  --bg-glass: rgb(255 255 255 / 0.85);
+  --border-color: #d6dfea; /* slate 过渡色，卡片轮廓 1.35:1（白底）/1.29:1（卡片底） */
+  --border-strong: #c3cddc; /* hover 描边，1.60:1 */
+  /* 文字 */
+  --text-primary: #111827; /* 17.74:1 */
+  --text-secondary: #6b7280; /* 4.83:1 */
+  /* 文字专用强调色（对 #ffffff / #f8fafc） */
+  --aep-ink-primary: #0e7490; /* 5.36 / 5.12 */
+  --aep-ink-blue: #1d4ed8; /* 6.70 / 6.41 */
+  --aep-ink-purple: #6d28d9; /* 7.10 / 6.79 */
+  --aep-ink-green: #047857; /* 5.48 / 5.24 */
+  --aep-ink-amber: #92400e; /* 7.09 / 6.78；琥珀色标签底（bg-aep-amber/10~15）上仍 6.07:1 */
+  --aep-ink-red: #b91c1c; /* 6.47 / 6.18 */
+  /* 实心填充（按钮 / 徽章）：填充色与其中文字成对使用，保证 ≥ 4.5:1 */
+  --aep-fill-primary: #0e7490; /* + --aep-on-fill = 5.36:1 */
+  --aep-fill-primary-hover: #155e75; /* + --aep-on-fill = 7.27:1 */
+  --aep-fill-accent: #6d28d9; /* 渐变终点，+ --aep-on-fill = 7.10:1 */
+  --aep-on-fill: #ffffff;
+  /* 代码块（浅色主题下仍为深色块） */
+  --code-bg: #0f1c33;
+  --code-text: #e2e8f0;
+  --code-border: #1e2e4a;
+  --code-inline-bg: #eef2f7;
+  --code-inline-text: #0f1c33;
+  /* 层次、焦点、选区 */
+  --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.05), 0 1px 3px 0 rgb(15 23 42 / 0.06);
+  --shadow-card-hover: 0 12px 24px -10px rgb(15 23 42 / 0.18), 0 2px 6px -2px rgb(15 23 42 / 0.08);
+  --focus-ring: #0e7490;
+  --selection-bg: #cffafe;
 }
 
 /* Dark theme */
 [data-theme='dark'] {
+  /* 表面与描边：页面底 → 次级面 → 卡片三级递进，卡片 1.16:1 靠边框拉开 */
   --bg-primary: #0b132b;
-  --bg-secondary: #1e293b;
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --border-color: #334155;
-  --card-bg: #1e293b;
-  --code-bg: #0f172a;
+  --bg-secondary: #121c36;
+  --card-bg: #16213e;
+  --bg-glass: rgb(11 19 43 / 0.85); /* 粘性导航玻璃底：--bg-primary 的 85% 透明版 */
+  --border-color: #3b4a70; /* 对页面底 2.10:1 */
+  --border-strong: #46598a;
+  /* 文字 */
+  --text-primary: #f8fafc; /* 16.12:1 */
+  --text-secondary: #94a3b8; /* 6.20:1 */
+  /* 文字专用强调色（对 #0b132b / #16213e） */
+  --aep-ink-primary: #22d3ee; /* 10.17 / 8.80 */
+  --aep-ink-blue: #60a5fa; /* 7.23 / 6.25 */
+  --aep-ink-purple: #a78bfa; /* 6.76 / 5.84 */
+  --aep-ink-green: #34d399; /* 9.56 / 8.27 */
+  --aep-ink-amber: #fbbf24; /* 11.01 / 9.52 */
+  --aep-ink-red: #f87171; /* 6.65 / 5.75 */
+  /* 实心填充：深色主题用高亮填充 + 深色文字，保证 ≥ 4.5:1 */
+  --aep-fill-primary: #22d3ee; /* + --aep-on-fill = 10.17:1 */
+  --aep-fill-primary-hover: #67e8f9; /* + --aep-on-fill = 12.50:1 */
+  --aep-fill-accent: #a78bfa; /* 渐变终点，+ --aep-on-fill = 6.76:1 */
+  --aep-on-fill: #0b132b;
+  /* 代码块：比页面底更深，形成下凹层次 */
+  --code-bg: #0a1122;
   --code-text: #e2e8f0;
+  --code-border: #2b3a5e;
+  --code-inline-bg: #1e2b48;
+  --code-inline-text: #e2e8f0;
+  /* 层次、焦点、选区 */
+  --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.35);
+  --shadow-card-hover: 0 16px 32px -14px rgb(0 0 0 / 0.65), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+  --focus-ring: #22d3ee;
+  --selection-bg: #164e63;
+}
+
+/* 字体栈：拉丁字形走 Inter，其后为中文回退（见 tailwind.config.ts fontFamily.sans） */
+:root {
+  --font-sans:
+    'Inter', system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif;
+  --font-mono:
+    'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
 }
 
 /* Base reset */
@@ -35,13 +108,102 @@
 
 html {
   scroll-behavior: smooth;
+  /* 粘性导航高度 4rem + 呼吸位，避免锚点（如 /developer#mcp）被头部遮挡 */
+  scroll-padding-top: 5rem;
+  scrollbar-color: var(--border-strong) transparent;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  /* 中英混排正文行高：中文比西文需要更松的 leading */
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition:
     background-color 0.3s,
     color 0.3s;
+}
+
+/* ---------------------------------------------------------------------------
+   排版层：标题层级 / 正文节奏 / 链接 / 代码
+   组件上的 Tailwind 工具类优先级高于本节元素选择器，可继续局部覆盖。
+   ------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  letter-spacing: -0.03em;
+}
+
+p {
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: inherit;
+  font-variant-ligatures: none;
+  tab-size: 2;
+}
+
+pre {
+  scrollbar-width: thin;
+}
+
+/* 行内代码（代码块内的 code 不受影响） */
+:not(pre) > code {
+  border-radius: 0.375rem;
+  background-color: var(--code-inline-bg);
+  padding: 0.125rem 0.375rem;
+  color: var(--code-inline-text);
+  font-size: 0.875em;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+}
+
+/* 统一 focus 态：键盘可见、鼠标不打扰，外轮廓跟随元素圆角 */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

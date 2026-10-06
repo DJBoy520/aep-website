@@ -9,17 +9,22 @@ const { title, subtitle, align = 'left' } = Astro.props;
 const isCenter = align === 'center';
 ---
 
+<!-- 区块标题：h2 视觉层级统一（移动端 text-2xl → ≥sm text-3xl），左侧竖条为主题色装饰 -->
 <div class={isCenter ? 'text-center' : ''}>
   <h2
-    class={`flex items-center gap-3 text-3xl font-bold text-[var(--text-primary)] ${
+    class={`flex items-center gap-3 text-2xl font-bold text-[var(--text-primary)] sm:text-3xl ${
       isCenter ? 'justify-center' : ''
     }`}
   >
-    <span class="h-6 w-1.5 rounded-full bg-aep-primary" aria-hidden="true"></span>
+    <span class="h-6 w-1.5 shrink-0 rounded-full bg-aep-primary" aria-hidden="true"></span>
     {title}
   </h2>
   {subtitle && (
-    <p class={`mt-3 text-[var(--text-secondary)] ${isCenter ? 'mx-auto max-w-2xl' : ''}`}>
+    <p
+      class={`mt-3 text-base leading-relaxed text-[var(--text-secondary)] ${
+        isCenter ? 'mx-auto max-w-2xl text-balance' : 'max-w-3xl'
+      }`}
+    >
       {subtitle}
     </p>
   )}

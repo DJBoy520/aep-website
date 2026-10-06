@@ -1,14 +1,17 @@
 ---
+import { getTranslation } from '@/i18n/utils';
+
 // 明暗主题切换按钮。
 // 点击切换 <html> 的 data-theme 属性（light ↔ dark），
 // 并将选择持久化到 localStorage（key: 'theme'）。
 // 图标：light 主题显示太阳，dark 主题显示月亮（CSS 控制显隐）。
+const t = getTranslation(Astro.url.pathname);
 ---
 <button
   type="button"
-  class="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-secondary)] hover:text-aep-primary"
-  aria-label="切换主题"
-  title="切换主题"
+  class="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border-color)] text-[var(--text-secondary)] transition-colors duration-200 hover:border-[var(--border-strong)] hover:bg-[var(--bg-secondary)] hover:text-aep-primary-ink"
+  aria-label={t.common.toggleTheme}
+  title={t.common.toggleTheme}
   data-theme-toggle
 >
   <!-- 太阳图标：light 主题时显示 -->

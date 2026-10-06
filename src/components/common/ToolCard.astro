@@ -12,16 +12,17 @@ const { name, status, desc } = Astro.props;
 const t = getTranslation(Astro.url.pathname);
 
 // 状态标签样式：Available 绿色 + 圆点；Coming Soon 琥珀色（与首页 DeveloperEntry 一致）
+// 用 ink 令牌保证浅底/深底均可读（≥ 4.5:1）
 const statusClasses =
   status === 'available'
-    ? 'bg-aep-green/10 text-aep-green'
-    : 'bg-aep-amber/10 text-aep-amber';
+    ? 'bg-aep-green/10 text-aep-green-ink'
+    : 'bg-aep-amber/10 text-aep-amber-ink';
 ---
 
 <!-- 工具卡片：名称 + 状态标签 + 描述 -->
 <Card hover class="flex flex-col">
   <div class="flex items-center justify-between gap-3">
-    <h3 class="text-lg font-semibold text-[var(--text-primary)]">{name}</h3>
+    <h3 class="text-lg font-semibold tracking-tight text-[var(--text-primary)]">{name}</h3>
     <span
       class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${statusClasses}`}
     >

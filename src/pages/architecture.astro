@@ -24,20 +24,32 @@ const treeCode = `evidence.aep/
 ---
 
 <MainLayout title={a.title} description={a.subtitle}>
-  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
     <div class="space-y-16">
       <!-- 页面标题区 -->
       <div class="text-center">
-        <h1 class="text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+        <h1 class="text-balance text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
           {a.title}
         </h1>
-        <p class="mx-auto mt-4 max-w-2xl text-[var(--text-secondary)]">{a.subtitle}</p>
+        <p class="mx-auto mt-4 max-w-2xl text-balance text-[var(--text-secondary)]">{a.subtitle}</p>
       </div>
+
+      <!-- 架构概述 -->
+      {a.overview && (
+        <section>
+          <SectionTitle title={a.overviewTitle} />
+          <div class="mt-8 space-y-4">
+            {a.overview.map((para) => (
+              <p class="leading-relaxed text-[var(--text-secondary)]">{para}</p>
+            ))}
+          </div>
+        </section>
+      )}
 
       <!-- 五层架构图 -->
       <section>
         <SectionTitle title={a.layersTitle} />
-        <div class="mt-8 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 sm:p-8">
+        <div class="mt-12 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-card sm:p-8">
           <LayerDiagram layers={a.layers} />
         </div>
       </section>
@@ -45,8 +57,8 @@ const treeCode = `evidence.aep/
       <!-- 证据图谱 -->
       <section>
         <SectionTitle title={a.graphTitle} />
-        <p class="mt-4 text-[var(--text-secondary)]">{a.graphDesc}</p>
-        <div class="mt-8 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 sm:p-8">
+        <p class="mt-6 max-w-3xl leading-relaxed text-[var(--text-secondary)]">{a.graphDesc}</p>
+        <div class="mt-8 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-4 shadow-card sm:p-8">
           <EvidenceGraph />
         </div>
       </section>
@@ -54,12 +66,12 @@ const treeCode = `evidence.aep/
       <!-- 数据流 -->
       <section>
         <SectionTitle title={a.dataflowTitle} subtitle={a.dataflowSubtitle} />
-        <ol class="mx-auto mt-8 max-w-3xl">
+        <ol class="mx-auto mt-12 max-w-3xl">
           {a.dataflowSteps.map((step, i) => (
             <li class="flex gap-6 pb-8 last:pb-0">
               <div class="flex flex-col items-center">
                 <span
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-aep-primary to-aep-purple text-sm font-semibold text-white"
+                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-aep-fill-primary to-aep-fill-accent text-sm font-semibold text-aep-on-fill"
                   aria-hidden="true"
                 >
                   {i + 1}
@@ -79,7 +91,7 @@ const treeCode = `evidence.aep/
       <!-- 包格式 -->
       <section>
         <SectionTitle title={a.packageTitle} />
-        <p class="mt-4 text-[var(--text-secondary)]">{a.packageDesc}</p>
+        <p class="mt-6 max-w-3xl leading-relaxed text-[var(--text-secondary)]">{a.packageDesc}</p>
         <div class="mt-8">
           <CodeBlock code={treeCode} language="tree" />
         </div>

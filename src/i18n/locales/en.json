@@ -5,14 +5,18 @@
     "architecture": "Architecture",
     "security": "Security",
     "developer": "Developer",
-    "downloads": "Downloads"
+    "downloads": "Downloads",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation"
   },
   "hero": {
-    "mcpBadge": "⚡ Evidence MCP Core Integration · Ready for Production",
+    "mcpBadge": "Evidence MCP: Core Integration Entry",
     "title": "AEP |",
-    "subtitle": "AI Creation & Agent Evidence Infrastructure",
-    "slogan": "Every creative process and AI action deserves an immutable birth certificate.",
-    "description": "Establish immutable, cryptographically self-verifying end-to-end evidence chains for AI creative processes and critical agent actions, bridging the trust deficit in the AI era."
+    "subtitle": "Attestation & Evidence Exchange Protocol",
+    "slogan": "Immutable cryptographic attestation and verifiable evidence infrastructure for AI agents and AI creation.",
+    "description": "The Attestation & Evidence Exchange Protocol (AEP), Protocol Version 1.0.0, has been finalized and establishes independently verifiable evidence chains for AI actions and creative processes."
   },
   "common": {
     "getStarted": "Quick Start",
@@ -20,163 +24,55 @@
     "downloadTools": "Open Source & Tools",
     "learnMore": "Learn More",
     "available": "Available",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "toggleTheme": "Toggle theme"
   },
   "footer": {
     "copyright": "© 2026 AEP Protocol. All rights reserved.",
     "docsTitle": "Docs",
-    "communityTitle": "Community"
+    "communityTitle": "Community",
+    "navLabel": "Footer navigation"
   },
   "home": {
-    "placeholderTitle": "AEP | AI Creation & Agent Evidence Infrastructure",
-    "placeholderDesc": "Every creative process and AI action deserves an immutable birth certificate."
+    "placeholderTitle": "AEP | AI Creation & Agent Evidence Infrastructure"
   },
   "problems": {
     "title": "Fundamental Problems We Solve",
-    "subtitle": "From ex-post isolated snapshots to end-to-end trusted evidence, bridging the trust deficit in the AI era",
+    "subtitle": "From isolated post-hoc snapshots to end-to-end verifiable evidence, making AI actions and creative processes independently verifiable",
     "cards": [
       {
-        "title": "Overvaluing Outputs, Neglecting Process: Impossible Provenance",
+        "title": "Untrustworthy Black-Box Execution",
         "painPointLabel": "Traditional Pain Point",
-        "painPoint": "Only the final artifact hash is retained, discarding prompt deduction and human iterations; copyright and provenance disputes cannot be substantiated.",
+        "painPoint": "Critical AI actions and creative processes leave no verifiable trace; a post-hoc single-point snapshot discards the reasoning context and cannot be independently verified.",
         "solutionLabel": "AEP Solution",
-        "solution": "DAG evidence graphs capture the full causal chain of prompts, parameter derivations, human edits, and model versions."
+        "solution": "A complete causal evidence chain records actions and artifacts, making the acting principal, ordering, and content integrity independently verifiable."
       },
       {
-        "title": "Vulnerable Text Logs: Blame Shifting and Tampering",
+        "title": "Fragmented Evidence Formats",
         "painPointLabel": "Traditional Pain Point",
-        "painPoint": "Application logs and database records can be altered or erased by admins or attackers, lacking objective neutral self-proving authority.",
+        "painPoint": "Logs and platform records follow divergent formats and can be modified; no unified self-contained package exists, so cross-party verification is costly.",
         "solutionLabel": "AEP Solution",
-        "solution": "Self-contained .aep cryptographic packages bound to authoritative timestamps and digital signatures; any tampering invalidates the proof instantly."
+        "solution": "A standard .aep evidence package unifies the container structure and verification path, supporting independent offline verification by any party."
       },
       {
-        "title": "Challenging Fact-Finding: High Judicial Admissibility Thresholds",
+        "title": "Indistinguishable Accountability",
         "painPointLabel": "Traditional Pain Point",
-        "painPoint": "Fragmented electronic evidence, screenshots, and plain texts are trivial to forge, severely hindering judicial and arbitral fact-finding.",
+        "painPoint": "In human-AI collaboration and multi-agent handoffs, the acting principal and responsibility boundaries remain ambiguous, leaving no evidence in disputes.",
         "solutionLabel": "AEP Solution",
-        "solution": "Structured evidence aligned directly with electronic litigation preservation baselines; authoritative timestamps and chains flow straight into courtroom and arbitration."
+        "solution": "Machine identity binding and non-repudiable digital signatures establish the acting principal and the causal ordering of actions."
       }
     ]
-  },
-  "about": {
-    "title": "About the Project",
-    "subtitle": "AI Agent Evidence Infrastructure",
-    "problemTitle": "The Problems We Solve",
-    "problemDesc": "Autonomous AI agents (Coding Agents, DevOps Agents, etc.) are executing mission-critical tasks such as code modification, infrastructure deployment, financial transactions, and automated approvals, exposing three core vulnerabilities: ① Accountability Black Box: Agents perform impactful actions (dropping tables, altering configs, deploying code, executing transfers) without tamper-proof audit trails, making it impossible to attribute whether human or AI acted, and upon which context; ② Vulnerability of Conventional Logs: Plain-text logs and database records can be easily modified or deleted by administrators or attackers, lacking objective cryptographic self-proving power; ③ Multi-Agent Collaboration Without Verifiable Proofs: Handoffs and decisions across upstream/downstream agents lack non-repudiation and unforgeable digital signatures.",
-    "valueTitle": "Core Value",
-    "valueDesc": "AEP packages agent actions and resulting artifacts into cryptographically verifiable structured evidence containers (.aep). Anyone holding an evidence package can independently verify the execution identity, causal order, and immutable integrity without relying on centralized servers — delivering an ironclad Proof of AI Action.",
-    "visionTitle": "Trusted Infrastructure Services Matrix",
-    "visionDesc": "AEP provides a comprehensive trusted infrastructure services matrix for autonomous AI: AEP PKI establishes machine identity credentials (Who), AEP TSA locks reliable causal sequencing (When), and AEP Chain anchors global immutable finality (Immutability). With Evidence MCP as the native core integration gateway, AEP covers the full lifecycle from action capture and notarization to independent verification and neutral audit.",
-    "matrixBadge": "Cloud Trusted Services Matrix · TRUST SERVICES",
-    "pkiTitle": "AEP PKI (Machine Identity & Digital Certificate Service)",
-    "pkiDimension": "WHO · Non-forgeable Identity",
-    "pkiDesc": "Machine identity network and digital certificate infrastructure, assigning independent cryptographic credentials and certificate chains to each AI Agent to solve the Who problem and guarantee non-repudiation.",
-    "tsaTitle": "AEP TSA (Trusted Timestamp Service)",
-    "tsaDimension": "WHEN · Causal Time Ordering",
-    "tsaDesc": "High-precision causal time sequencing and RFC 3161 trusted timestamp receipts, solving the When problem by proving actions existed prior to specific points in time without backdating risk.",
-    "chainTitle": "AEP Chain (Blockchain Notarization & Anchoring Service)",
-    "chainDimension": "IMMUTABILITY · Blockchain Anchored Finality",
-    "chainDesc": "Distributed blockchain ledger and zero-knowledge public existence anchoring, solving the Immutability problem by anchoring evidence root digests publicly to guarantee immutable finality."
-  },
-  "evidenceFlow": {
-    "title": "Complete Evidence Chain",
-    "subtitle": "From generation to verification, cryptographic evidence at every step",
-    "steps": [
-      {
-        "title": "AI Content",
-        "desc": "AI-generated content"
-      },
-      {
-        "title": "Artifact",
-        "desc": "Artifact extraction and normalization"
-      },
-      {
-        "title": "SM3 Hash",
-        "desc": "Content hashing for integrity"
-      },
-      {
-        "title": "SM2 Sign",
-        "desc": "Digital signature for source authentication"
-      },
-      {
-        "title": "Merkle Tree",
-        "desc": "Merkle tree for set integrity"
-      },
-      {
-        "title": "Timestamp",
-        "desc": "Timestamp for time proof"
-      },
-      {
-        "title": "Blockchain Anchor",
-        "desc": "Distributed ledger anchoring for publicly verifiable immutable finality"
-      },
-      {
-        "title": ".aep Package",
-        "desc": "Evidence package assembly"
-      },
-      {
-        "title": "Independent Verification",
-        "desc": "Independently verifiable by anyone"
-      }
-    ]
-  },
-  "crypto": {
-    "title": "Built on Proven Cryptography",
-    "subtitle": "Standard cryptographic algorithms and verifiable data structures, secure and trustworthy",
-    "items": [
-      {
-        "title": "SM3 Hash Algorithm",
-        "desc": "Content integrity with 256-bit digest",
-        "icon": "🔐"
-      },
-      {
-        "title": "SM2 Digital Signature",
-        "desc": "Source authenticity and non-repudiation",
-        "icon": "✍️"
-      },
-      {
-        "title": "Merkle Tree",
-        "desc": "Efficient verification of large-scale data, set integrity",
-        "icon": "🌳"
-      },
-      {
-        "title": "Evidence Graph",
-        "desc": "Causal graph of events and artifacts, complete record of action workflows",
-        "icon": "🕸️"
-      }
-    ]
-  },
-  "packagePreview": {
-    "title": "Unified Evidence Package Format",
-    "subtitle": ".aep format, ready to use out of the box"
-  },
-  "verification": {
-    "title": "Seven-Stage Verification Process",
-    "subtitle": "Each step is independently verifiable",
-    "steps": [
-      "Container Parsing",
-      "Graph Building",
-      "Object Validation",
-      "Merkle Verification",
-      "Signature & Identity Verification",
-      "Level Calculation",
-      "Report Generation"
-    ],
-    "resultTitle": "Verification Passed",
-    "resultLevel": "Evidence Level",
-    "levelValue": "L4",
-    "resultNote": "Example: full evidence package with signature, TSA timestamp, and blockchain anchor"
   },
   "developerEntry": {
-    "title": "Developer Friendly",
-    "subtitle": "Evidence MCP as core integration gateway, fast integration into AI agent ecosystems",
-    "firstClass": "Core Integration",
+    "title": "Developer Entry",
+    "subtitle": "Connect agents and automated pipelines to AEP evidence infrastructure through Evidence MCP and the AEP CLI",
+    "coreBadge": "Core Native Integration",
     "mcpTitle": "Evidence MCP (Recommended)",
-    "mcpDesc": "Native core integration gateway for AI agents, native Model Context Protocol support, out-of-the-box evidence capture and verification",
-    "cliTitle": "AEP CLI",
-    "cliDesc": "Automated pipelines, batch notarization, offline independent verification, and evidence package export",
-    "skillsTitle": "Agent Skills",
-    "skillsDesc": "Skill extensions for mainstream agent frameworks, one-click frictionless integration"
+    "mcpDesc": "A native integration entry for agents, supporting the Model Context Protocol so attestation and verification are invoked directly by agents.",
+    "cliTitle": "AEP CLI (v2.1.7)",
+    "cliDesc": "Command-line suite for automated pipeline attestation, offline independent verification, and evidence package export; releases are published in aep-refimpl Releases.",
+    "skillsTitle": "Agent Skill & Runtime",
+    "skillsDesc": "Single-file zero-dependency native runtimes and agent skill packages, published in the aep-releases repository."
   },
   "useCases": {
     "title": "Five Core Use Cases",
@@ -184,52 +80,61 @@
     "items": [
       {
         "label": "Papers, Patents & Software Copyright Protection",
-        "icon": "📄",
-        "desc": "End-to-end evidence retention for research derivation, experimental telemetry, prompt evolutions, and code commits, establishing indisputable priority and attribution."
+        "desc": "End-to-end evidence retention for research derivation, experimental telemetry, prompt evolutions, and code commits, providing verifiable evidence of priority and attribution."
       },
       {
         "label": "Multimedia Generative Assets (Audio / Video / Image)",
-        "icon": "🎨",
         "desc": "Full-chain provenance for generative art, synthesized audio, and video editing/remixing to prevent copyright laundering and illicit derivative works."
       },
       {
         "label": "AI Coding & Code Supply Chain Anti-Poisoning",
-        "icon": "💻",
-        "desc": "Trace code diffs, dependency additions, and runtime environment probes by agents like Cursor or OpenClaw, eliminating stealth backdoors with pinpoint attribution."
+        "desc": "Trace code diffs, dependency additions, and runtime environment probes by agents like Cursor or OpenClaw, providing evidence for post-incident attribution and audit."
       },
       {
-        "label": "Judicial Evidence Admissibility & Dispute Arbitration",
-        "icon": "⚖️",
-        "desc": "Export structured .aep evidence packages meeting judicial scrutiny baselines directly to internet courts, notaries, and arbitration panels to eliminate fact-finding gridlock."
+        "label": "Judicial Evidence & Dispute Arbitration",
+        "desc": "Export structured .aep evidence packages that support submissions to internet courts, notaries, and arbitration panels, easing fact-finding."
       },
       {
         "label": "Mission-Critical Agent Actions & Automated Approvals",
-        "icon": "🤖",
         "desc": "Solidify non-repudiable execution receipts, prompts, and complete contexts when LLMs execute autonomous operations, procurement, payment transfers, or policy approvals."
       }
     ]
   },
-  "comingSoon": {
-    "title": "Continuously Evolving",
-    "subtitle": "More features and tools coming soon",
+  "infraNetwork": {
+    "title": "Infrastructure Network",
+    "subtitle": "AEP-PKI, AEP-TSA, AEP-Chain, and Developer IAM operate together as the verifiable evidence foundation for AI actions and creative processes",
+    "roleLabel": "Role",
     "items": [
-      "Python SDK",
-      "Rust SDK",
-      "Go SDK",
-      "Java SDK",
-      "Online Verification Service",
-      "Enterprise Platform",
-      "More Integrations"
+      {
+        "name": "AEP-PKI",
+        "domain": "ca.aep.org.cn",
+        "desc": "Certificate and identity service: issues machine identity certificates to agents and developers, establishing a cryptographic principal."
+      },
+      {
+        "name": "AEP-TSA",
+        "domain": "tsa.aep.org.cn",
+        "desc": "Trusted timestamp service: issues timestamp receipts for evidence, locking an irreversible causal ordering."
+      },
+      {
+        "name": "AEP-Chain",
+        "domain": "chain.aep.org.cn",
+        "desc": "On-chain anchoring service: anchors evidence root digests publicly to provide an independently verifiable proof of existence."
+      },
+      {
+        "name": "Developer IAM",
+        "domain": "iam.aep.org.cn",
+        "desc": "Developer identity and access management: unified developer onboarding, authentication, and permission governance."
+      }
     ]
   },
   "protocol": {
-    "title": "Protocol Specification",
-    "subtitle": "An open, cryptographically verifiable, and extensible evidence protocol for AI agents",
+    "title": "Attestation & Evidence Exchange Protocol Specification",
+    "subtitle": "Attestation & Evidence Exchange Protocol (AEP) · AI-Native Evidence Infrastructure Standard",
     "overviewTitle": "Overview",
     "overview": [
-      "AEP (Attestation & Evidence Exchange Protocol) is an open evidence infrastructure protocol built specifically for AI agents.",
-      "The core problem it solves: in an autonomous agent era, how to prove which agent executed a critical action, when it happened, and whether the context and execution remain intact and untampered.",
-      "Through digital certificates, causal time proofs, and global ledger anchoring, AEP establishes a transparent and neutrally auditable evidence chain for independent verification across the web."
+      "The Attestation & Evidence Exchange Protocol (AEP, Protocol v1.0.0 finalized) is an open evidence infrastructure protocol engineered for autonomous AI agents and automated content generation.",
+      "In an era of autonomous agents and high-frequency AI authoring, critical challenges emerge: post-hoc single-point hashes lose prompt iterations and human-in-the-loop context; mutable application logs lack neutral self-proving authority; and judicial or arbitral dispute resolution struggles with fact-finding. AEP provides machine identity binding, causal time proofs, and cryptographically verifiable full-lifecycle evidence chains that give AI actions and creative workflows independently verifiable evidence records.",
+      "AEP operates across four core trust infrastructure pillars: AEP-PKI (ca.aep.org.cn) establishes machine identity credentials (Who), AEP-TSA (tsa.aep.org.cn) locks irreversible causal sequencing (When), AEP-Chain (chain.aep.org.cn) anchors global immutable state, and Developer IAM (iam.aep.org.cn) manages unified developer access. The entire lifecycle supports neutral offline verification."
     ],
     "principlesTitle": "Design Principles",
     "principles": [
@@ -282,39 +187,39 @@
     "levels": [
       {
         "level": "L0",
-        "desc": "PlainHash: any valid package payload (unsigned hash)"
+        "desc": "PlainHash: any valid package payload with cryptographic hash for single-point integrity"
       },
       {
         "level": "L1",
-        "desc": "Signed: at least one valid asymmetric signature"
+        "desc": "Signed: at least one valid asymmetric signature providing tamper-proofing and signer attribution"
       },
       {
         "level": "L2",
-        "desc": "Identity-verified: identity verified via CA/IdP certificate chain"
+        "desc": "IdentityBound: identity verified via AEP-PKI certificate chain or IdP binding to establish machine principal"
       },
       {
         "level": "L3",
-        "desc": "Timestamped: high-precision trusted timestamp proof (RFC 3161)"
+        "desc": "Timestamped: high-precision AEP-TSA trusted timestamp proof (RFC 3161) locking causal sequencing"
       },
       {
         "level": "L4",
-        "desc": "Anchored: distributed global ledger existence anchoring"
+        "desc": "Anchored: AEP-Chain distributed global ledger existence anchoring for immutable finality"
       },
       {
         "level": "L5",
-        "desc": "Notarized: endorsement by a neutral audit or attestation authority"
+        "desc": "Notarized: endorsement by a neutral audit or notary authority"
       },
       {
         "level": "L6",
-        "desc": "Continuously-witnessed: continuous lifecycle execution records with multi-party consensus witnessing"
+        "desc": "Continuously-witnessed: continuous full-lifecycle execution logs with multi-party consensus witnessing"
       },
       {
         "level": "L7",
-        "desc": "Hardware-rooted: TEE / secure enclave hardware root of trust"
+        "desc": "Hardware-rooted: TEE secure enclave and hardware root of trust binding"
       }
     ],
-    "levelsStatus": "Current Engineering Status: L0–L4 (Hash, Signature, Identity/Witness, Timestamp TSA, Blockchain Anchor Chain) are fully implemented and production-ready; L5–L7 are reserved for advanced protocol evolution.",
-    "levelImplemented": "Production Ready",
+    "levelsStatus": "Current Reference Implementation Status (aep-refimpl v2.1.7): L0–L2 are fully implemented and production-ready; L3–L7 are reserved protocol tiers, with CLI timestamp and blockchain anchoring interactive prototypes available.",
+    "levelImplemented": "Implemented",
     "levelReserved": "Reserved",
     "standardsTitle": "Relationship with Other Standards",
     "standards": [
@@ -333,8 +238,14 @@
     ]
   },
   "architecture": {
-    "title": "Architecture",
-    "subtitle": "Layered decoupling and Trusted Infrastructure Services matrix design",
+    "title": "System Architecture",
+    "subtitle": "Attestation & Evidence Exchange Protocol (AEP) · Five-Layer Technical Stack and Infrastructure Matrix",
+    "overviewTitle": "Architecture Overview",
+    "overview": [
+      "The Attestation & Evidence Exchange Protocol (AEP) is engineered on a decoupled, layered design to provide standardized and cryptographically verifiable evidence chains for AI Agent executions and automated assets.",
+      "Addressing core pain points such as tamper-prone text logs and post-hoc snapshots that lose causal context, AEP defines a five-layer stack: Evidence MCP captures behaviors and events, which are then combined with Merkle proofs, asymmetric signatures, and timestamps, and packaged into standard .aep evidence packages.",
+      "At the infrastructure tier, AEP integrates AEP-PKI, AEP-TSA, AEP-Chain, and Developer IAM as four complementary infrastructure services, covering machine identity issuance, causal ordering, and immutable state anchoring."
+    ],
     "layersTitle": "Five-Layer Architecture System",
     "layers": [
       {
@@ -372,7 +283,7 @@
       "Any third party verifies independently offline or online"
     ],
     "packageTitle": "Evidence Package Container Format",
-    "packageDesc": "The .aep evidence package is a standardized, out-of-the-box container hermetically sealing manifest specifications, identity metadata, artifact digests, causal event chains, Merkle proofs, and digital signatures."
+    "packageDesc": "The .aep evidence package is a standardized, out-of-the-box container that bundles manifest specifications, identity metadata, artifact digests, causal event chains, Merkle proofs, and digital signatures."
   },
   "security": {
     "title": "Security Model",
@@ -398,7 +309,7 @@
       },
       {
         "title": "AEP TSA Trusted Timestamp",
-        "desc": "High-precision causal time sequencing (RFC 3161) eliminating backdating and replay risks"
+        "desc": "High-precision causal time sequencing (RFC 3161) providing time proofs for ordering validation and replay detection"
       }
     ],
     "threatTitle": "Threat Model & Mitigations",
@@ -443,7 +354,7 @@
       },
       {
         "stage": "Level Determination",
-        "desc": "Evaluate cryptographic assurance and external anchoring state to determine evidence level (L0–L7)"
+        "desc": "Evaluate cryptographic assurance and external anchoring state to determine evidence level (cumulative L0–L7; reference implementation currently covers L0–L2, with L3–L7 reserved)"
       },
       {
         "stage": "Objective Audit Report",
@@ -478,16 +389,17 @@
       }
     ],
     "toolsTitle": "Tool Matrix",
+    "toolsSubtitle": "The reference implementation registers the full toolset (see aep-refimpl); for agent workflows, the two core tools (aep_notarize and aep_verify) are the recommended starting point.",
     "tools": [
       {
         "name": "Evidence MCP Server",
         "status": "available",
-        "desc": "Native core integration gateway for AI agents, native Model Context Protocol support, out-of-the-box evidence capture and verification"
+        "desc": "The recommended starting point for agents: the two core tools (aep_notarize for notarization, aep_verify for verification); the full toolset is registered in the reference implementation aep-refimpl"
       },
       {
         "name": "AEP CLI",
         "status": "available",
-        "desc": "Command-line tool suite: automated pipeline notarization, offline independent verification, and evidence package export"
+        "desc": "Command-line suite (v2.1.7): automated pipeline notarization, offline independent verification, and export; binaries distributed via aep-refimpl Releases"
       },
       {
         "name": "Python SDK",
@@ -512,10 +424,10 @@
   },
   "downloads": {
     "title": "Download Center",
-    "subtitle": "Get AEP developer tools and SDK releases",
+    "subtitle": "Get AEP developer tools, runtimes, and SDK releases",
     "cliTitle": "AEP CLI",
-    "cliDesc": "Full-featured CLI suite: automated notarization, offline verification, certificate management, and package export",
-    "cliVersion": "v2.0.3",
+    "cliDesc": "Full-featured CLI suite (v2.1.7): automated pipeline notarization, offline verification, certificate management, and package export. Distribution entry: https://github.com/DJBoy520/aep-refimpl/releases",
+    "cliVersion": "v2.1.7",
     "cliUpdated": "Updated: 2026-09-17",
     "cliPlatforms": [
       "Linux",
@@ -523,16 +435,24 @@
       "Windows"
     ],
     "cliInstallTitle": "Installation",
-    "binNote": "Pre-built binaries are available on GitHub Releases; download and run directly or install via package managers.",
+    "binNote": "CLI and MCP pre-built binaries are distributed via aep-refimpl Releases for direct download.",
     "mcpTitle": "Evidence MCP Server",
-    "mcpDesc": "Native core integration gateway for AI agents: native MCP protocol support, uniting notarization, signing, timestamping, and verification",
+    "mcpDesc": "Native core integration gateway for AI agents: native MCP protocol support, registering the full toolset and featuring streamlined dual tools (aep_notarize/aep_verify), hosted in aep-refimpl",
     "mcpInstallTitle": "Installation & Configuration",
-    "skillTitle": "AEP Agent Skill",
-    "skillDesc": "Agent skill package: one-click loading into mainstream agent frameworks to empower verifiable action chains",
-    "skillNote": "Coming Soon",
+    "skillTitle": "AEP Agent Skill & Runtime",
+    "skillDesc": "Single-file zero-dependency native runtimes and agent skill packages, distributed at: https://github.com/DJBoy520/aep-releases",
+    "skillNote": "Releases",
     "historyTitle": "Version History",
-    "historyDesc": "Download entries for archived versions and release notes",
-    "download": "Download",
+    "historyDesc": "Archived versions and release notes in official aep-refimpl Releases",
+    "download": "View aep-releases",
     "releasesLink": "GitHub Releases"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The requested resource does not exist or has been removed",
+    "heading": "404",
+    "subheading": "The page you are looking for does not exist or has been removed",
+    "backHome": "Back to Home",
+    "viewProtocol": "View Technical Specs"
   }
 }

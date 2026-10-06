@@ -2,15 +2,15 @@
 # AEP Website - Production Dockerfile (multi-stage build)
 # ============================================================
 # Stage 1: builder — 构建静态站点产物 dist/
-#   使用 Node 22（满足 engines node>=22.12.0）+ pnpm 9（与 lockfile v9 一致），
+#   使用 Node 22（满足 engines node>=22.12.0）+ pnpm 10（与 lockfile v9.0 一致），
 #   在隔离环境安装依赖并执行 pnpm build，产出 /app/dist。
 # ============================================================
 FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-# 安装 pnpm 9（锁定大版本，与本地 lockfile 版本一致）
-RUN npm install -g pnpm@9
+# 安装 pnpm 10（锁定大版本，与本地 lockfileVersion 9.0 保持兼容与一致）
+RUN npm install -g pnpm@10
 
 # 先拷贝依赖清单，利用 Docker 层缓存：package.json / lockfile 未变化时跳过 install
 COPY package.json pnpm-lock.yaml ./

@@ -5,14 +5,18 @@
     "architecture": "架构",
     "security": "安全",
     "developer": "开发者",
-    "downloads": "下载"
+    "downloads": "下载",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "mainNav": "主导航",
+    "mobileNav": "移动端主导航"
   },
   "hero": {
-    "mcpBadge": "⚡ Evidence MCP 核心集成入口现已就绪",
+    "mcpBadge": "Evidence MCP 核心集成入口",
     "title": "AEP ｜",
-    "subtitle": "AI 创作与智能体证据基础设施",
-    "slogan": "让每一次创作过程与 AI 行为，都有不可篡改的“出生证明”。",
-    "description": "为 AI 创作过程与关键智能体行为建立不可篡改、密码学可自证的全程证据链，弥合智能时代的信任断层。"
+    "subtitle": "Attestation & Evidence Exchange Protocol",
+    "slogan": "为 AI 智能体与 AI 创作提供不可篡改的密码学存证与可验证证据基础设施。",
+    "description": "Attestation & Evidence Exchange Protocol（AEP，证明与证据交换协议）协议版本 1.0.0 已定稿，为 AI 行为与创作过程建立可独立核验的完整证据链。"
   },
   "common": {
     "getStarted": "快速上手",
@@ -20,163 +24,55 @@
     "downloadTools": "开源与工具",
     "learnMore": "了解更多",
     "available": "可用",
-    "comingSoon": "即将推出"
+    "comingSoon": "即将推出",
+    "toggleTheme": "切换主题"
   },
   "footer": {
     "copyright": "© 2026 AEP Protocol. All rights reserved.",
     "docsTitle": "文档",
-    "communityTitle": "社区"
+    "communityTitle": "社区",
+    "navLabel": "页脚导航"
   },
   "home": {
-    "placeholderTitle": "AEP ｜ AI 创作与智能体证据基础设施",
-    "placeholderDesc": "让每一次创作过程与 AI 行为，都有不可篡改的“出生证明”。"
+    "placeholderTitle": "AEP ｜ AI 创作与智能体证据基础设施"
   },
   "problems": {
     "title": "我们解决什么根本问题",
-    "subtitle": "从“事后单点快照”到“全程可信证据”，弥合 AI 时代的信任断层",
+    "subtitle": "从“事后单点快照”到“全程可信证据”，让 AI 行为与创作过程可独立核验",
     "cards": [
       {
-        "title": "重结果轻过程，原创无法自证",
+        "title": "执行过程黑盒不可信",
         "painPointLabel": "传统痛点",
-        "painPoint": "仅存最终文件哈希，丢失提示词推演与人工迭代，版权与原创纠纷无法举证。",
+        "painPoint": "关键 AI 行为与创作过程缺乏可核验留痕，事后单点快照丢失推演与上下文，无法独立验证。",
         "solutionLabel": "AEP 解决",
-        "solution": "DAG 证据图记录 Prompt、参数推演、人工修改与模型版本的完整因果链条。"
+        "solution": "以完整因果证据链记录行为与制品，执行主体、时序与内容完整性均可独立核验。"
       },
       {
-        "title": "文本日志易篡改，出事推诿扯皮",
+        "title": "证据格式不统一",
         "painPointLabel": "传统痛点",
-        "painPoint": "应用日志与数据库记录可被管理员或黑客随意修改删除，缺乏客观中立自证力。",
+        "painPoint": "日志与平台记录格式各异且可被修改，缺乏统一的自包含封装，跨机构核验成本高。",
         "solutionLabel": "AEP 解决",
-        "solution": "自包含 .aep 密码学证据包，权威时序与数字签名绑定，轻微改动立刻失效。"
+        "solution": "标准化 .aep 证据包，统一容器结构与校验路径，支持任何一方离线独立验证。"
       },
       {
-        "title": "维权事实查明难，司法采信门槛高",
+        "title": "责任主体不可分",
         "painPointLabel": "传统痛点",
-        "painPoint": "电子证据碎片化、截图文本易被伪造，法官和仲裁机构事实查明难度极高。",
+        "painPoint": "人机协作与多 Agent 交接中执行主体与权责界限模糊，纠纷发生时难以举证。",
         "solutionLabel": "AEP 解决",
-        "solution": "结构化存证直通电子诉讼存证基线，权威时间戳与完整证据链直达法庭与仲裁。"
+        "solution": "机器身份绑定与不可否认数字签名，明确执行主体与行为的先后时序。"
       }
     ]
-  },
-  "about": {
-    "title": "项目介绍",
-    "subtitle": "AI 智能体可信证据基础设施",
-    "problemTitle": "要解决的问题",
-    "problemDesc": "自主 AI Agent（如 Coding Agent、DevOps Agent 等）正在接管代码编写、系统运维、交易决策与数据流转等关键任务，面临三大核心痛点：① 责任黑盒：Agent 执行关键变更（删库、改配置、发布代码、操作财务转账）无防篡改留痕，出事无法追溯究竟是人还是 AI 干的、依据什么上下文干的；② 传统日志易被篡改：普通文本日志和数据库记录可被管理员或攻击者轻易修改抹除，缺乏密码学客观自证力；③ 多 Agent 协同协作无凭据：上下游 Agent 之间传递数据与决策缺乏不可伪造的防抵赖签章。",
-    "valueTitle": "核心价值",
-    "valueDesc": "AEP 将 Agent 的行为与制品封装为密码学可验证的结构化证据包（.aep）。任何人拿到证据包，均可脱离中心化依赖，独立验证执行主体、发生时序与不可篡改完整性，为 AI 关键行为提供坚固的客观证据链（Proof of AI Action），让人类与自主智能体在零信任世界中达成确定性协作。",
-    "visionTitle": "可信基础设施服务矩阵",
-    "visionDesc": "AEP 为自主 AI 构建全方位的可信基础设施服务矩阵：AEP PKI 确立机器身份凭证（Who），AEP TSA 锁定可信因果时序（When），AEP Chain 锚定全局防篡改终态（Immutability）。以 Evidence MCP 为核心原生入口，覆盖从行为捕获、存证到独立验证、客观审计的全生命周期。",
-    "matrixBadge": "云端可信服务矩阵 · TRUST SERVICES",
-    "pkiTitle": "AEP PKI（机器身份与数字证书服务）",
-    "pkiDimension": "WHO · 不可伪造主体",
-    "pkiDesc": "机器身份网络与数字证书体系，基于非对称密码学为每个 AI Agent 分配独立身份凭证与证书链，精准解决 Who 问题，确立不可否认的执行主体。",
-    "tsaTitle": "AEP TSA（可信时间戳服务）",
-    "tsaDimension": "WHEN · 因果时序锁定",
-    "tsaDesc": "高精度因果时间定序与可信时间戳存证回执（RFC 3161），解决 When 问题，证明行为在特定物理与逻辑时间点前已真实存在且不可前溯。",
-    "chainTitle": "AEP Chain（区块链存证锚定服务）",
-    "chainDimension": "IMMUTABILITY · 链上防篡改终态",
-    "chainDesc": "分布式区块链全局账本与零隐私泄露的公开存在性锚定，解决 Immutability 问题，将证据根指纹公开锚定至区块链，锁定防篡改终态。"
-  },
-  "evidenceFlow": {
-    "title": "完整的证据链路",
-    "subtitle": "从生成到验证，每一步都有密码学证据",
-    "steps": [
-      {
-        "title": "AI Content",
-        "desc": "AI 生成的内容"
-      },
-      {
-        "title": "Artifact",
-        "desc": "制品提取与标准化"
-      },
-      {
-        "title": "SM3 Hash",
-        "desc": "内容哈希，完整性保证"
-      },
-      {
-        "title": "SM2 Sign",
-        "desc": "数字签名，来源认证"
-      },
-      {
-        "title": "Merkle Tree",
-        "desc": "默克尔树，集合完整性"
-      },
-      {
-        "title": "Timestamp",
-        "desc": "时间戳，时间证明"
-      },
-      {
-        "title": "Blockchain Anchor",
-        "desc": "分布式账本锚定，公开可核验防篡改终态"
-      },
-      {
-        "title": ".aep Package",
-        "desc": "证据包封装"
-      },
-      {
-        "title": "Independent Verification",
-        "desc": "独立验证，任何人可验证"
-      }
-    ]
-  },
-  "crypto": {
-    "title": "基于成熟密码学构建",
-    "subtitle": "采用标准密码学算法与可验证数据结构，安全可信",
-    "items": [
-      {
-        "title": "SM3 哈希算法",
-        "desc": "内容完整性保证，256 位摘要",
-        "icon": "🔐"
-      },
-      {
-        "title": "SM2 数字签名",
-        "desc": "来源真实性与不可否认性",
-        "icon": "✍️"
-      },
-      {
-        "title": "Merkle 树",
-        "desc": "大规模数据高效验证，集合完整性",
-        "icon": "🌳"
-      },
-      {
-        "title": "证据图谱",
-        "desc": "事件与制品因果关系图，完整记录行为链路",
-        "icon": "🕸️"
-      }
-    ]
-  },
-  "packagePreview": {
-    "title": "统一的证据包格式",
-    "subtitle": ".aep 格式，开箱即用"
-  },
-  "verification": {
-    "title": "七阶段验证流程",
-    "subtitle": "每一步都可独立验证",
-    "steps": [
-      "容器解析",
-      "图谱构建",
-      "对象校验",
-      "Merkle 验证",
-      "签名与身份验证",
-      "等级计算",
-      "报告生成"
-    ],
-    "resultTitle": "验证通过",
-    "resultLevel": "证据等级",
-    "levelValue": "L4",
-    "resultNote": "示例：含数字签名、TSA 时间戳与区块链锚定的完整证据包"
   },
   "developerEntry": {
-    "title": "开发者友好",
-    "subtitle": "以 Evidence MCP 为核心入口，快速接入 AI 智能体生态",
-    "firstClass": "Core Integration 核心原生集成",
+    "title": "开发者入口",
+    "subtitle": "以 Evidence MCP 与 AEP CLI 为入口，将 AEP 证据基础设施接入智能体与自动化流水线",
+    "coreBadge": "核心原生集成",
     "mcpTitle": "Evidence MCP（首选推荐）",
-    "mcpDesc": "AI Agent 核心原生入口，原生 Model Context Protocol 支持，存证验证开箱即用",
-    "cliTitle": "CLI 命令行工具",
-    "cliDesc": "自动化流水线与批量存证、离线独立验证及证据包导出",
-    "skillsTitle": "Agent Skills",
-    "skillsDesc": "主流智能体框架技能扩展包，一键无缝集成"
+    "mcpDesc": "面向智能体的原生集成入口，支持 Model Context Protocol，存证与核验由智能体直接调用。",
+    "cliTitle": "AEP CLI（v2.1.7）",
+    "cliDesc": "命令行套件：自动化流水线存证、离线独立核验与证据包导出，发行版见 aep-refimpl Releases。",
+    "skillsTitle": "Agent Skill 与运行时",
+    "skillsDesc": "单文件零依赖原生运行时与智能体技能包，发行版见 aep-releases 仓库。"
   },
   "useCases": {
     "title": "五大核心落地应用场景",
@@ -184,52 +80,61 @@
     "items": [
       {
         "label": "论文、专利与软件著作权保护",
-        "icon": "📄",
-        "desc": "科研推演记录、实验数据流、Prompt 演进、代码版本迭代全过程存证，确立无可争议的发明优先权与原创贡献依据。"
+        "desc": "科研推演记录、实验数据流、Prompt 演进、代码版本迭代全过程存证，为发明优先权与原创贡献提供可核验的证据依据。"
       },
       {
         "label": "多媒体数据应用（音频 / 视频 / 图像）",
-        "icon": "🎨",
         "desc": "数字艺术生成、声音合成、音视频剪辑二创全链路留痕，防洗稿、防侵权二改，明晰创作者版权生成链条。"
       },
       {
         "label": "AI Coding 与代码供应链防投毒",
-        "icon": "💻",
-        "desc": "记录 Cursor、OpenClaw 等智能体的代码修改、依赖安装与环境探针，杜绝恶意后门注入，出事清晰定责。"
+        "desc": "记录 Cursor、OpenClaw 等智能体的代码修改、依赖安装与环境探针，为事后追溯、定责与审计提供证据。"
       },
       {
         "label": "司法出证与纠纷仲裁",
-        "icon": "⚖️",
-        "desc": "一键导出符合司法审查基线的结构化 .aep 证据包，直达互联网法院、公证处与仲裁机构，解决事实查明难。"
+        "desc": "导出结构化 .aep 证据包，为向互联网法院、公证处与仲裁机构提交证据材料提供支持，缓解事实查明难度。"
       },
       {
         "label": "关键 Agent 行为与自动审批留痕",
-        "icon": "🤖",
         "desc": "大模型执行自动化运维、采购、财务支付或审批决策时，固化不可抵赖的执行凭据、Prompt 与完整上下文。"
       }
     ]
   },
-  "comingSoon": {
-    "title": "持续迭代中",
-    "subtitle": "更多功能和工具即将推出",
+  "infraNetwork": {
+    "title": "基础设施网络",
+    "subtitle": "AEP-PKI、AEP-TSA、AEP-Chain 与 Developer IAM 四项子基础设施协同，构成 AI 行为与创作过程的可验证证据底座",
+    "roleLabel": "职责",
     "items": [
-      "Python SDK",
-      "Rust SDK",
-      "Go SDK",
-      "Java SDK",
-      "在线验证服务",
-      "企业平台",
-      "更多集成"
+      {
+        "name": "AEP-PKI",
+        "domain": "ca.aep.org.cn",
+        "desc": "证书与身份服务：为智能体与开发主体签发机器身份证书，确立密码学身份主体。"
+      },
+      {
+        "name": "AEP-TSA",
+        "domain": "tsa.aep.org.cn",
+        "desc": "可信时间戳服务：为证据签发时间戳凭证，锁定不可逆的因果时序。"
+      },
+      {
+        "name": "AEP-Chain",
+        "domain": "chain.aep.org.cn",
+        "desc": "链上锚定存证：将证据根指纹公开锚定，提供独立可核验的存在性证明。"
+      },
+      {
+        "name": "Developer IAM",
+        "domain": "iam.aep.org.cn",
+        "desc": "开发者身份与访问管理：统一开发者接入、身份认证与权限治理。"
+      }
     ]
   },
   "protocol": {
-    "title": "协议规范",
-    "subtitle": "开放、密码学可验证、可扩展的 AI 证据交换协议",
+    "title": "证明与证据交换协议规范",
+    "subtitle": "Attestation & Evidence Exchange Protocol (AEP) · AI 原生证据基础设施标准",
     "overviewTitle": "协议概述",
     "overview": [
-      "AEP（Attestation & Evidence Exchange Protocol）是专为 AI 智能体打造的开放证据基础设施协议。",
-      "它解决的核心问题是：在自主 Agent 时代，如何证明关键行为由哪个智能体执行、发生于何时、上下文与执行过程是否完整且未被篡改。",
-      "AEP 融合数字证书体系、因果时间证明与全局账本锚定，构建透明、客观审计追溯的证据链，支持全网独立核验。"
+      "Attestation & Evidence Exchange Protocol（AEP，证明与证据交换协议，协议版本 1.0.0 已定稿）是专为自主 AI 智能体与自动化内容生成打造的开放证据基础设施协议。",
+      "在自主 Agent 与高频 AI 创作时代，核心痛点在于：事后仅存单一文件哈希，丢失 Prompt 推演与交互上下文；文本日志易篡改且缺乏中立自证力；司法与仲裁维权事实查明难度高。AEP 为此建立机器身份绑定、因果时序留痕与密码学可验证的完整证据链，为 AI 行为与创作过程提供可独立核验的证据记录。",
+      "AEP 依托四项核心基础设施协同运作：AEP-PKI（ca.aep.org.cn）确立机器身份凭证（Who），AEP-TSA（tsa.aep.org.cn）锁定不可篡改的因果时序（When），AEP-Chain（chain.aep.org.cn）锚定全局防篡改终态，Developer IAM（iam.aep.org.cn）统一接入鉴权。全链路支持中立离线核验。"
     ],
     "principlesTitle": "设计原则",
     "principles": [
@@ -282,40 +187,40 @@
     "levels": [
       {
         "level": "L0",
-        "desc": "PlainHash：任意有效证据包（无签名哈希载荷）"
+        "desc": "PlainHash：任意有效证据包，纯哈希载荷，保证单点内容完整性"
       },
       {
         "level": "L1",
-        "desc": "Signed：至少一个有效非对称签名"
+        "desc": "Signed：至少一个有效非对称签名，提供防篡改与签名者认证"
       },
       {
         "level": "L2",
-        "desc": "Identity-verified：身份经 CA/IdP 证书链验证"
+        "desc": "IdentityBound：身份经 AEP-PKI 证书链或 IdP 强绑定验证，确立机器主体"
       },
       {
         "level": "L3",
-        "desc": "Timestamped：高精度可信时间戳证明（RFC 3161）"
+        "desc": "Timestamped：AEP-TSA 高精度可信时间戳证明（RFC 3161），锁定不可逆因果时序"
       },
       {
         "level": "L4",
-        "desc": "Anchored：分布式全局账本存在性锚定"
+        "desc": "Anchored：AEP-Chain 分布式账本全局存在性锚定，锁定防篡改终态"
       },
       {
         "level": "L5",
-        "desc": "Notarized：中立审计存证机构背书"
+        "desc": "Notarized：中立第三方审计机构或公证存证背书"
       },
       {
         "level": "L6",
-        "desc": "Continuously-witnessed：连续全流程执行记录与多方共识见证"
+        "desc": "Continuously-witnessed：连续全生命周期执行记录与多方共识见证网络留痕"
       },
       {
         "level": "L7",
-        "desc": "Hardware-rooted：TEE / 安全芯片硬件级信任根绑定"
+        "desc": "Hardware-rooted：TEE 安全芯片与硬件级信任根的绑定证明"
       }
     ],
-    "levelsStatus": "当前工程落地状态：L0–L4（哈希校验、数字签名、身份凭证、可信时间戳 TSA、区块链锚定 Chain）已全链路打通并提供生产级技术能力；L5–L7 为高阶拓展演进等级。",
-    "levelImplemented": "已就绪",
-    "levelReserved": "预留中",
+    "levelsStatus": "当前参考实现（aep-refimpl v2.1.7）已完整工程落地 L0–L2 生产级能力；L3–L7 为协议预留等级，CLI 与套件已包含可信时间戳和链上锚定交互原型。",
+    "levelImplemented": "已落地",
+    "levelReserved": "协议预留",
     "standardsTitle": "与其他标准的关系",
     "standards": [
       {
@@ -333,8 +238,14 @@
     ]
   },
   "architecture": {
-    "title": "技术架构",
-    "subtitle": "分层解耦与可信基础设施服务矩阵设计",
+    "title": "系统架构",
+    "subtitle": "Attestation & Evidence Exchange Protocol (AEP) · 五层技术栈与基础设施矩阵",
+    "overviewTitle": "架构概述",
+    "overview": [
+      "AEP（证明与证据交换协议）构建在统一的分层解耦模型之上，旨在为 AI Agent 行为与自动生成资产提供标准化、可验证的完整证据链。",
+      "面对传统文本日志易篡改、事后单点快照缺失因果上下文等核心痛点，AEP 自顶向下划分五层技术栈，通过 Evidence MCP 采集行为与事件，结合 Merkle 证明、非对称签名与时间戳，最终封装为标准 .aep 证据包。",
+      "在基础设施协同层面，AEP 整合 AEP-PKI、AEP-TSA、AEP-Chain 与 Developer IAM 四项基础设施，实现从身份发放、事件时序定序到防篡改终态锚定的完整闭环。"
+    ],
     "layersTitle": "五层架构体系",
     "layers": [
       {
@@ -398,7 +309,7 @@
       },
       {
         "title": "AEP TSA 可信时间戳",
-        "desc": "高精度因果时间定序（RFC 3161），杜绝时序伪造与重放风险"
+        "desc": "高精度因果时间定序（RFC 3161），为时序校验与重放识别提供时间证明"
       }
     ],
     "threatTitle": "威胁模型与缓解策略",
@@ -443,7 +354,7 @@
       },
       {
         "stage": "证据等级判定",
-        "desc": "根据密码学强度与外部锚定状态精确判定证据等级（L0–L7）"
+        "desc": "根据密码学强度与外部锚定状态精确判定证据等级（L0–L7 累计制，当前参考实现完整落地 L0–L2，L3–L7 为协议预留）"
       },
       {
         "stage": "客观审计报告",
@@ -478,16 +389,17 @@
       }
     ],
     "toolsTitle": "工具矩阵",
+    "toolsSubtitle": "参考实现 MCP 服务器注册全量工具集（详见 aep-refimpl）；面向智能体生态，推荐以精简双工具（aep_notarize 与 aep_verify）作为快速接入入口。",
     "tools": [
       {
         "name": "Evidence MCP Server",
         "status": "available",
-        "desc": "AI Agent 核心原生入口，原生 Model Context Protocol 支持，存证验证开箱即用"
+        "desc": "智能体推荐入口主推精简双工具（aep_notarize 存证、aep_verify 核验）；完整全量工具集注册于参考实现 aep-refimpl"
       },
       {
         "name": "AEP CLI",
         "status": "available",
-        "desc": "命令行工具，自动化流水线存证、独立验证及批量导出"
+        "desc": "命令行套件（v2.1.7）：自动化流水线存证、独立验证与批量导出，二进制通过 aep-refimpl Releases 分发"
       },
       {
         "name": "Python SDK",
@@ -512,10 +424,10 @@
   },
   "downloads": {
     "title": "下载中心",
-    "subtitle": "获取 AEP 开发者工具与 SDK 发行版",
+    "subtitle": "获取 AEP 开发者工具、运行时与 SDK 发行版",
     "cliTitle": "AEP CLI",
-    "cliDesc": "全功能命令行套件：支持自动化存证、离线核验、证书管理与证据包打包导出",
-    "cliVersion": "v2.0.3",
+    "cliDesc": "全功能命令行套件（v2.1.7）：支持自动化流水线存证、离线核验、证书管理与证据包打包导出。获取入口：https://github.com/DJBoy520/aep-refimpl/releases",
+    "cliVersion": "v2.1.7",
     "cliUpdated": "更新日期：2026-09-17",
     "cliPlatforms": [
       "Linux",
@@ -523,16 +435,24 @@
       "Windows"
     ],
     "cliInstallTitle": "安装方式",
-    "binNote": "预编译二进制已发布至 GitHub Releases，可直接下载运行或通过包管理器安装。",
+    "binNote": "CLI 与 MCP 服务预编译二进制发布于 aep-refimpl Releases，可直接下载运行。",
     "mcpTitle": "Evidence MCP Server",
-    "mcpDesc": "AI Agent 核心原生入口：原生 MCP 协议支持，存证、签名、定序与核验一体化",
+    "mcpDesc": "AI Agent 核心原生入口：原生 MCP 协议支持，注册完整工具集并主推精简双工具（aep_notarize/aep_verify），源码与构建见 aep-refimpl 仓库",
     "mcpInstallTitle": "安装与配置",
-    "skillTitle": "AEP Agent Skill",
-    "skillDesc": "智能体技能包：主流 Agent 框架一键加载，赋予行动证据链自证能力",
-    "skillNote": "即将推出",
+    "skillTitle": "AEP Agent Skill 与运行时",
+    "skillDesc": "单文件零依赖原生运行时与智能体技能包，获取入口：https://github.com/DJBoy520/aep-releases",
+    "skillNote": "发行版",
     "historyTitle": "历史版本",
-    "historyDesc": "归档版本与 Release Notes 下载入口",
-    "download": "下载",
+    "historyDesc": "归档版本与 Release Notes 详见 aep-refimpl 官方 Releases 列表",
+    "download": "前往 aep-releases",
     "releasesLink": "GitHub Releases"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "description": "请求的资源不存在或已被移除",
+    "heading": "404",
+    "subheading": "抱歉，您访问的页面不存在或已被移除",
+    "backHome": "返回首页",
+    "viewProtocol": "查阅技术规范"
   }
 }

@@ -1,0 +1,36 @@
+---
+import Card from '../common/Card.astro';
+import SectionTitle from '../common/SectionTitle.astro';
+import { getTranslation } from '@/i18n/utils';
+
+const t = getTranslation(Astro.url.pathname);
+const infra = t.infraNetwork;
+---
+
+<!-- 基础设施网络：AEP-PKI / AEP-TSA / AEP-Chain / Developer IAM 四项子基础设施及域名 -->
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+  <SectionTitle title={infra.title} subtitle={infra.subtitle} align="center" />
+
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {infra.items.map((item) => (
+      <Card hover class="flex flex-col">
+        <h3 class="text-base font-bold tracking-tight text-[var(--text-primary)]">{item.name}</h3>
+
+        <p class="mt-2 flex items-center gap-2 font-mono text-xs text-aep-primary-ink">
+          <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="10" cy="10" r="7.5"></circle>
+            <path d="M2.5 10h15M10 2.5c2 2.2 3 4.7 3 7.5s-1 5.3-3 7.5c-2-2.2-3-4.7-3-7.5s1-5.3 3-7.5z"></path>
+          </svg>
+          <span>{item.domain}</span>
+        </p>
+
+        <div class="mt-5 border-t border-[var(--border-color)] pt-4">
+          <span class="text-xs font-bold uppercase tracking-wide text-[var(--text-secondary)]">
+            {infra.roleLabel}
+          </span>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">{item.desc}</p>
+        </div>
+      </Card>
+    ))}
+  </div>
+</section>

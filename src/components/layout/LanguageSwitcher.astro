@@ -5,15 +5,15 @@ import { localeLabels, locales } from '@/i18n/config';
 const currentLang = getLangFromPath(Astro.url.pathname);
 ---
 
-<div class="flex items-center gap-1 rounded-full border border-[var(--border-color)] p-0.5 text-sm">
+<div class="flex h-9 items-center gap-0.5 rounded-lg border border-[var(--border-color)] p-0.5 text-sm">
   {locales.map((locale) => (
     <a
       href={getAlternatePath(Astro.url.pathname, locale)}
       aria-label={localeLabels[locale]}
       class:list={[
-        'cursor-pointer rounded-full px-2.5 py-1 transition-colors hover:text-aep-primary',
+        'inline-flex h-7 cursor-pointer items-center rounded-md px-2.5 transition-colors duration-200 hover:text-aep-primary-ink',
         locale === currentLang
-          ? 'bg-[var(--bg-secondary)] font-semibold text-[var(--text-primary)]'
+          ? 'bg-aep-primary/10 font-semibold text-aep-primary-ink'
           : 'text-[var(--text-secondary)]',
       ]}
     >

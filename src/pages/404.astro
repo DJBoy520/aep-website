@@ -1,0 +1,36 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Button from '../components/common/Button.astro';
+import { getLangFromPath, getLocalizedPath, getTranslation } from '@/i18n/utils';
+
+// 404 页面：语言按当前路由前缀判定（/en/404 → 英文），站内链接随之本地化。
+// 英文站对应页面见 src/pages/en/404.astro，部署侧按 /en 前缀回落到该文件。
+const lang = getLangFromPath(Astro.url.pathname);
+const nf = getTranslation(Astro.url.pathname).notFound;
+const homePath = getLocalizedPath('/', lang);
+const protocolPath = getLocalizedPath('/protocol', lang);
+---
+
+<MainLayout title={nf.title} description={nf.description}>
+  <section class="mx-auto flex min-h-[60vh] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 sm:py-20 lg:py-24">
+    <div class="w-full max-w-xl rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-8 shadow-card sm:p-12">
+      <p class="text-6xl font-extrabold tracking-tight text-aep-primary-ink sm:text-7xl">
+        {nf.heading}
+      </p>
+      <h1 class="mt-4 text-2xl font-bold tracking-tight text-[var(--text-primary)] sm:text-3xl">
+        {nf.title}
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-[var(--text-secondary)]">
+        {nf.subheading}
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <Button variant="primary" href={homePath}>
+          {nf.backHome}
+        </Button>
+        <Button variant="secondary" href={protocolPath}>
+          {nf.viewProtocol}
+        </Button>
+      </div>
+    </div>
+  </section>
+</MainLayout>
