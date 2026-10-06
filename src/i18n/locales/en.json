@@ -69,7 +69,7 @@
     "coreBadge": "Core Native Integration",
     "mcpTitle": "Evidence MCP (Recommended)",
     "mcpDesc": "A native integration entry for agents, supporting the Model Context Protocol so attestation and verification are invoked directly by agents.",
-    "cliTitle": "AEP CLI (v2.1.7)",
+    "cliTitle": "AEP CLI (v2.2.0)",
     "cliDesc": "Command-line suite for automated pipeline attestation, offline independent verification, and evidence package export; releases are published in aep-refimpl Releases.",
     "skillsTitle": "Agent Skill & Runtime",
     "skillsDesc": "Single-file zero-dependency native runtimes and agent skill packages, published in the aep-releases repository."
@@ -218,7 +218,7 @@
         "desc": "Hardware-rooted: TEE secure enclave and hardware root of trust binding"
       }
     ],
-    "levelsStatus": "Current Reference Implementation Status (aep-refimpl v2.1.7): L0–L2 are fully implemented and production-ready; L3–L7 are reserved protocol tiers, with CLI timestamp and blockchain anchoring interactive prototypes available.",
+    "levelsStatus": "Current Reference Implementation Status (aep-refimpl v2.2.0): L0–L2 are fully implemented and production-ready; L3 trusted timestamping and L4 blockchain anchoring are verified end-to-end (FISCO on-chain CONFIRMED); L5–L7 remain reserved protocol tiers.",
     "levelImplemented": "Implemented",
     "levelReserved": "Reserved",
     "standardsTitle": "Relationship with Other Standards",
@@ -399,7 +399,7 @@
       {
         "name": "AEP CLI",
         "status": "available",
-        "desc": "Command-line suite (v2.1.7): automated pipeline notarization, offline independent verification, and export; binaries distributed via aep-refimpl Releases"
+        "desc": "Command-line suite (v2.2.0): automated pipeline notarization, offline independent verification, and export; binaries distributed via aep-refimpl Releases"
       },
       {
         "name": "Python SDK",
@@ -426,8 +426,8 @@
     "title": "Download Center",
     "subtitle": "Get AEP developer tools, runtimes, and SDK releases",
     "cliTitle": "AEP CLI",
-    "cliDesc": "Full-featured CLI suite (v2.1.7): automated pipeline notarization, offline verification, certificate management, and package export. Distribution entry: https://github.com/DJBoy520/aep-refimpl/releases",
-    "cliVersion": "v2.1.7",
+    "cliDesc": "Full-featured CLI suite (v2.2.0): automated pipeline notarization, offline verification, certificate management, and package export. Distribution entry: https://github.com/DJBoy520/aep-refimpl/releases",
+    "cliVersion": "v2.2.0",
     "cliUpdated": "Updated: 2026-09-17",
     "cliPlatforms": [
       "Linux",

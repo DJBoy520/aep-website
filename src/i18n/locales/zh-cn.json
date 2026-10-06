@@ -69,7 +69,7 @@
     "coreBadge": "核心原生集成",
     "mcpTitle": "Evidence MCP（首选推荐）",
     "mcpDesc": "面向智能体的原生集成入口，支持 Model Context Protocol，存证与核验由智能体直接调用。",
-    "cliTitle": "AEP CLI（v2.1.7）",
+    "cliTitle": "AEP CLI（v2.2.0）",
     "cliDesc": "命令行套件：自动化流水线存证、离线独立核验与证据包导出，发行版见 aep-refimpl Releases。",
     "skillsTitle": "Agent Skill 与运行时",
     "skillsDesc": "单文件零依赖原生运行时与智能体技能包，发行版见 aep-releases 仓库。"
@@ -218,7 +218,7 @@
         "desc": "Hardware-rooted：TEE 安全芯片与硬件级信任根的绑定证明"
       }
     ],
-    "levelsStatus": "当前参考实现（aep-refimpl v2.1.7）已完整工程落地 L0–L2 生产级能力；L3–L7 为协议预留等级，CLI 与套件已包含可信时间戳和链上锚定交互原型。",
+    "levelsStatus": "当前参考实现（aep-refimpl v2.2.0）已工程落地 L0–L2 生产级能力，L3 可信时间戳与 L4 区块链锚定已实测打通（FISCO 上链 CONFIRMED）；L5–L7 为协议预留等级。",
     "levelImplemented": "已落地",
     "levelReserved": "协议预留",
     "standardsTitle": "与其他标准的关系",
@@ -399,7 +399,7 @@
       {
         "name": "AEP CLI",
         "status": "available",
-        "desc": "命令行套件（v2.1.7）：自动化流水线存证、独立验证与批量导出，二进制通过 aep-refimpl Releases 分发"
+        "desc": "命令行套件（v2.2.0）：自动化流水线存证、独立验证与批量导出，二进制通过 aep-refimpl Releases 分发"
       },
       {
         "name": "Python SDK",
@@ -426,8 +426,8 @@
     "title": "下载中心",
     "subtitle": "获取 AEP 开发者工具、运行时与 SDK 发行版",
     "cliTitle": "AEP CLI",
-    "cliDesc": "全功能命令行套件（v2.1.7）：支持自动化流水线存证、离线核验、证书管理与证据包打包导出。获取入口：https://github.com/DJBoy520/aep-refimpl/releases",
-    "cliVersion": "v2.1.7",
+    "cliDesc": "全功能命令行套件（v2.2.0）：支持自动化流水线存证、离线核验、证书管理与证据包打包导出。获取入口：https://github.com/DJBoy520/aep-refimpl/releases",
+    "cliVersion": "v2.2.0",
     "cliUpdated": "更新日期：2026-09-17",
     "cliPlatforms": [
       "Linux",
