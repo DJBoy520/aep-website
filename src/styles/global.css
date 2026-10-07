@@ -207,3 +207,52 @@ pre {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   品牌化层次工具类（brand-forward depth）
+   全部基于设计令牌 + color-mix，明暗主题自适应；仅做背景氛围，不承载信息。
+   ------------------------------------------------------------------------- */
+
+/* Hero / feature 段的多层柔光网格底，打破纯平白底 */
+.aep-mesh {
+  background-image:
+    radial-gradient(
+      55rem 38rem at 8% -12%,
+      color-mix(in srgb, var(--aep-ink-primary) 14%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      44rem 34rem at 108% 4%,
+      color-mix(in srgb, var(--aep-ink-purple) 14%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      40rem 30rem at 88% 116%,
+      color-mix(in srgb, var(--aep-ink-green) 10%, transparent),
+      transparent 60%
+    );
+}
+
+/* 极淡技术网格线，顶部渐隐遮罩，暗示"结构 / 证据链" */
+.aep-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--text-primary) 6%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--text-primary) 6%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 80%);
+}
+
+/* 深色 feature 段内的玻璃卡片（自成一套对比度，不随主题翻转） */
+.aep-glass {
+  background-color: rgb(255 255 255 / 0.05);
+  border: 1px solid rgb(255 255 255 / 0.1);
+}

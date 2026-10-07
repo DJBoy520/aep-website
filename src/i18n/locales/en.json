@@ -75,7 +75,7 @@
     "skillsDesc": "Single-file zero-dependency native runtimes and agent skill packages, published in the aep-releases repository."
   },
   "useCases": {
-    "title": "Five Core Use Cases",
+    "title": "Six Core Use Cases",
     "subtitle": "Providing tamper-proof objective evidence for creative iterations, generative assets, and mission-critical agent actions",
     "items": [
       {
@@ -97,8 +97,59 @@
       {
         "label": "Mission-Critical Agent Actions & Automated Approvals",
         "desc": "Solidify non-repudiable execution receipts, prompts, and complete contexts when LLMs execute autonomous operations, procurement, payment transfers, or policy approvals."
+      },
+      {
+        "label": "AIGC Copyright & Originality Proof",
+        "desc": "Fully capture prompts, parameters, multi-round curation, and human post-processing to provide verifiable evidence of human intellectual contribution when asserting copyright over AI-generated content."
       }
     ]
+  },
+  "aigc": {
+    "badge": "AIGC Copyright",
+    "title": "Who owns the copyright to AI-generated content?",
+    "subtitle": "Purely AI-generated work with no human involvement is not protected by copyright; AEP turns \"human intellectual contribution\" into verifiable process evidence.",
+    "lead": "Copyright law and judicial practice establish that a work must reflect a natural person's original intellectual input. Issuing a single command to an AI is merely advisory assistance, not authorship.",
+    "negativeRule": "Content generated solely from simple, generic instructions, without any personalized intervention or selection and wholly produced by AI at random, lacks originality, does not constitute a work, and is not protected by copyright law.",
+    "factorsTitle": "The four yardsticks courts use to assess originality",
+    "factors": [
+      {
+        "name": "Prompt design",
+        "desc": "Personalized, specific choices about theme, style, composition, wording, and scene detail, rather than a simple generic instruction.",
+        "aepLabel": "Recorded by AEP",
+        "aep": "ai.input · full prompt & evolution"
+      },
+      {
+        "name": "Parameter & model control",
+        "desc": "Tuning core parameters such as composition ratio, clarity, style weight, iteration steps, and random seed, showing control over the result.",
+        "aepLabel": "Recorded by AEP",
+        "aep": "ai.generation · params / modelHash"
+      },
+      {
+        "name": "Multi-round curation",
+        "desc": "Comparing, rejecting, and retaining multiple candidate outputs based on creative intent and personal aesthetic judgment.",
+        "aepLabel": "Recorded by AEP",
+        "aep": "outputs[] · selected: true"
+      },
+      {
+        "name": "Post-generation human editing",
+        "desc": "Materially modifying, editing, polishing, or restructuring the AI output into the final expression.",
+        "aepLabel": "Recorded by AEP",
+        "aep": "ai.postprocess · event chain"
+      }
+    ],
+    "signalTitle": "An independently verifiable originality / copyright signal",
+    "signalDesc": "The four-factor process evidence is digitally signed, timestamped, and on-chain anchored, then sealed into a standard .aep package exportable to courts, notaries, or copyright registries.",
+    "citationsTitle": "Standards & legal sources",
+    "citations": [
+      "Copyright Law, Arts. 3 & 11",
+      "Implementing Regulations, Arts. 2 & 3",
+      "SPC Opinion on AI Disputes (2026)",
+      "Beijing Internet Court \"text-to-image\" case (2023)",
+      "Thaler v. Perlmutter (D.C. Cir. 2025)",
+      "U.S. Copyright Office AI Registration Guidance (2023)"
+    ],
+    "disclaimer": "AEP provides objective, neutral cryptographic process evidence and does not substitute for a court's final determination of originality in any given case.",
+    "cta": "View the AI Profile spec"
   },
   "infraNetwork": {
     "title": "Infrastructure Network",
