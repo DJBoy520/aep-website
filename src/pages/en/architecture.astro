@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import PageHero from '../../components/common/PageHero.astro';
 import SectionTitle from '../../components/common/SectionTitle.astro';
 import CodeBlock from '../../components/common/CodeBlock.astro';
 import LayerDiagram from '../../components/architecture/LayerDiagram.astro';
@@ -24,15 +25,9 @@ const treeCode = `evidence.aep/
 ---
 
 <MainLayout title={a.title} description={a.subtitle}>
+  <PageHero title={a.title} subtitle={a.subtitle} kicker="SYSTEM ARCHITECTURE" />
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
     <div class="space-y-16">
-      <!-- 页面标题区 -->
-      <div class="text-center">
-        <h1 class="text-balance text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl">
-          {a.title}
-        </h1>
-        <p class="mx-auto mt-4 max-w-2xl text-balance text-[var(--text-secondary)]">{a.subtitle}</p>
-      </div>
 
       <!-- Architecture Overview -->
       {a.overview && (
