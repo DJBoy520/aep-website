@@ -7,8 +7,8 @@ import { getTranslation } from '@/i18n/utils';
 const t = getTranslation(Astro.url.pathname);
 const p = t.protocol;
 
-// 当前参考实现仅完整落地 L0–L2，L3–L7 为协议预留等级
-const isLevelImplemented = (idx: number) => idx <= 2;
+// 参考实现（aep-refimpl v2.2.0）已落地 L0–L4（L3 时间戳 / L4 链锚定实测打通），L5–L7 为协议预留
+const isLevelImplemented = (idx: number) => idx <= 4;
 ---
 
 <MainLayout title={p.title} description={p.subtitle}>

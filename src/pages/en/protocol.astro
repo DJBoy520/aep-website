@@ -7,8 +7,8 @@ import { getTranslation } from '@/i18n/utils';
 const t = getTranslation(Astro.url.pathname);
 const p = t.protocol;
 
-// Reference implementation currently fully lands L0–L2; L3–L7 are reserved
-const isLevelImplemented = (idx: number) => idx <= 2;
+// Reference implementation (aep-refimpl v2.2.0) lands L0–L4 (L3 timestamping / L4 anchoring verified); L5–L7 are reserved
+const isLevelImplemented = (idx: number) => idx <= 4;
 ---
 
 <MainLayout title={p.title} description={p.subtitle}>

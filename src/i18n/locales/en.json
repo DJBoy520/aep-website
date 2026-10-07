@@ -405,7 +405,7 @@
       },
       {
         "stage": "Level Determination",
-        "desc": "Evaluate cryptographic assurance and external anchoring state to determine evidence level (cumulative L0–L7; reference implementation currently covers L0–L2, with L3–L7 reserved)"
+        "desc": "Evaluate cryptographic assurance and external anchoring state to determine evidence level (cumulative L0–L7; reference implementation currently covers L0–L4, with L5–L7 reserved)"
       },
       {
         "stage": "Objective Audit Report",
