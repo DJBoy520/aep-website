@@ -5,6 +5,7 @@ import SectionTitle from '../../components/common/SectionTitle.astro';
 import CodeBlock from '../../components/common/CodeBlock.astro';
 import LayerDiagram from '../../components/architecture/LayerDiagram.astro';
 import EvidenceGraph from '../../components/architecture/EvidenceGraph.astro';
+import InfraNetwork from '../../components/home/InfraNetwork.astro';
 import { getTranslation } from '@/i18n/utils';
 
 const t = getTranslation(Astro.url.pathname);
@@ -93,4 +94,6 @@ const treeCode = `evidence.aep/
       </section>
     </div>
   </section>
+
+  <InfraNetwork />
 </MainLayout>

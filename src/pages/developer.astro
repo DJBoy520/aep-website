@@ -5,8 +5,9 @@ import SectionTitle from '../components/common/SectionTitle.astro';
 import Button from '../components/common/Button.astro';
 import CodeBlock from '../components/common/CodeBlock.astro';
 import ToolCard from '../components/common/ToolCard.astro';
-import { getTranslation } from '@/i18n/utils';
+import { getLangFromPath, getLocalizedPath, getTranslation } from '@/i18n/utils';
 
+const lang = getLangFromPath(Astro.url.pathname);
 const t = getTranslation(Astro.url.pathname);
 const d = t.developer;
 
@@ -100,12 +101,24 @@ const mcpExample = `{
         </div>
       </section>
 
+      <section>
+        <SectionTitle title={d.cliTitle} subtitle={d.cliSubtitle} />
+        <div class="mt-12 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+          {d.commands.map((c) => (
+            <div class="flex flex-col gap-1 border-b border-[var(--border-color)] py-3">
+              <code class="font-mono text-sm font-medium text-aep-primary-ink">{c.cmd}</code>
+              <span class="text-sm leading-relaxed text-[var(--text-secondary)]">{c.desc}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <!-- 文档入口 -->
       <section>
         <SectionTitle title={d.docsTitle} />
         <p class="mt-6 max-w-2xl leading-relaxed text-[var(--text-secondary)]">{d.docsDesc}</p>
         <div class="mt-8">
-          <Button href="https://github.com/DJBoy520/aep-designs" variant="primary">
+          <Button href={getLocalizedPath('/protocol', lang)} variant="primary">
             {d.docsLink}
           </Button>
         </div>
