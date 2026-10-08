@@ -4,31 +4,15 @@ import Hero from '@/components/home/Hero.astro';
 import Problems from '@/components/home/Problems.astro';
 import UseCases from '@/components/home/UseCases.astro';
 import AigcCopyright from '@/components/home/AigcCopyright.astro';
-import DeveloperEntry from '@/components/home/DeveloperEntry.astro';
-import { getLangFromPath, getLocalizedPath, getTranslation } from '@/i18n/utils';
+import { getTranslation } from '@/i18n/utils';
 
-const lang = getLangFromPath(Astro.url.pathname);
 const t = getTranslation(Astro.url.pathname);
 ---
 
 <MainLayout title={t.home.placeholderTitle} description={t.hero.description}>
-  <!-- English homepage: Hero → Problems → UseCases → AIGC → infra one-liner → DeveloperEntry -->
+  <!-- English homepage: Hero → Problems → UseCases → AIGC -->
   <Hero />
   <Problems />
   <UseCases />
   <AigcCopyright />
-  <!-- Infra details moved to the Architecture page; homepage keeps one line + link -->
-  <section class="border-y border-[var(--border-color)]">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-10 text-center sm:flex-row sm:px-6 sm:text-left">
-      <p class="max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">{t.home.infraLine}</p>
-      <a
-        href={getLocalizedPath('/architecture', lang)}
-        class="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-aep-primary-ink transition-colors duration-200 hover:underline"
-      >
-        {t.common.learnMore}
-        <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-      </a>
-    </div>
-  </section>
-  <DeveloperEntry />
 </MainLayout>

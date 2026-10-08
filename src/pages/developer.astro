@@ -102,14 +102,17 @@ const mcpExample = `{
       </section>
 
       <section>
-        <SectionTitle title={d.cliTitle} subtitle={d.cliSubtitle} />
-        <div class="mt-12 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-          {d.commands.map((c) => (
-            <div class="flex flex-col gap-1 border-b border-[var(--border-color)] py-3">
-              <code class="font-mono text-sm font-medium text-aep-primary-ink">{c.cmd}</code>
-              <span class="text-sm leading-relaxed text-[var(--text-secondary)]">{c.desc}</span>
-            </div>
-          ))}
+        <div class="rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-card sm:p-8">
+          <h3 class="text-base font-bold tracking-tight text-[var(--text-primary)]">{d.cliTitle}</h3>
+          <p class="mt-1 text-sm text-[var(--text-secondary)]">{d.cliSubtitle}</p>
+          <div class="mt-5 grid grid-cols-1 gap-x-8 sm:grid-cols-2">
+            {d.commands.map((c) => (
+              <div class="flex flex-col gap-0.5 border-b border-[var(--border-color)] py-2">
+                <code class="font-mono text-[13px] text-aep-primary-ink">{c.cmd}</code>
+                <span class="text-xs text-[var(--text-secondary)]">{c.desc}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

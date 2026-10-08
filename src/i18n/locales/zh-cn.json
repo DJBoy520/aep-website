@@ -367,12 +367,12 @@
     "threatTitle": "威胁模型与缓解策略",
     "threats": [
       {
-        "threat": "证据生成期数据篡改",
+        "threat": "生成期数据篡改",
         "desc": "攻击者在数据被哈希与签名之前，通过内存注入、调试器或 Rootkit 篡改 Prompt、参数与输出，生成形式合法而内容虚假的证据。",
         "mitigation": "毫秒级增量即时签名 + Merkle 链雪崩校验 + 环境哈希定期刷新，压缩篡改窗口并使任何改动即时暴露。"
       },
       {
-        "threat": "签名私钥窃取与仿冒",
+        "threat": "私钥窃取与仿冒",
         "desc": "窃取签名私钥后伪造证据、重放旧签名或抵赖既有签名。",
         "mitigation": "私钥本地加密并支持 HSM/TEE 硬件保护；可信时间戳界定泄露时间分界，配合证书撤销（CRL/OCSP）核验。"
       },
@@ -479,14 +479,10 @@
     "commands": [
       { "cmd": "aep init", "desc": "初始化本地身份与配置" },
       { "cmd": "aep identity create", "desc": "创建机器身份密钥对" },
-      { "cmd": "aep cert request", "desc": "向 AEP-PKI 申请并绑定证书" },
-      { "cmd": "aep project create <name>", "desc": "创建存证项目" },
       { "cmd": "aep notarize <path>", "desc": "为文件或目录生成带签名的证据包" },
       { "cmd": "aep validate <file.aep>", "desc": "七阶段独立验证证据包" },
       { "cmd": "aep inspect <file.aep>", "desc": "查看证据包结构与证据等级" },
-      { "cmd": "aep attest timestamp | chain", "desc": "追加可信时间戳 / 链上锚定" },
-      { "cmd": "aep export <file.aep>", "desc": "导出证据包或转换为 C2PA" },
-      { "cmd": "aep report", "desc": "生成结构化审计报告" }
+      { "cmd": "aep attest timestamp | chain", "desc": "追加可信时间戳 / 链上锚定" }
     ],
     "examplesTitle": "示例代码",
     "docsTitle": "文档与规范",

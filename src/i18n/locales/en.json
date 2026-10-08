@@ -367,12 +367,12 @@
     "threatTitle": "Threat Model & Mitigations",
     "threats": [
       {
-        "threat": "Evidence Generation-Phase Data Tampering",
+        "threat": "Generation-Phase Data Tampering",
         "desc": "Before data is hashed and signed, an attacker injects into memory or uses a debugger/Rootkit to alter prompts, parameters, or outputs, producing formally valid but false evidence.",
         "mitigation": "Millisecond incremental signing + Merkle-chain avalanche checks + periodic environment-hash refresh, shrinking the tampering window and exposing any change instantly."
       },
       {
-        "threat": "Signing Key Theft & Impersonation",
+        "threat": "Key Theft & Forgery",
         "desc": "After stealing a signing key, an attacker forges evidence, replays old signatures, or repudiates existing ones.",
         "mitigation": "Keys are encrypted at rest with HSM/TEE hardware protection; trusted timestamps bound the leak time, verified against certificate revocation (CRL/OCSP)."
       },
@@ -479,14 +479,10 @@
     "commands": [
       { "cmd": "aep init", "desc": "Initialize local identity and configuration" },
       { "cmd": "aep identity create", "desc": "Create a machine-identity key pair" },
-      { "cmd": "aep cert request", "desc": "Request and bind a certificate from AEP-PKI" },
-      { "cmd": "aep project create <name>", "desc": "Create an evidence project" },
       { "cmd": "aep notarize <path>", "desc": "Generate a signed evidence package for a file or directory" },
       { "cmd": "aep validate <file.aep>", "desc": "Run the seven-stage independent verification" },
       { "cmd": "aep inspect <file.aep>", "desc": "Inspect package structure and evidence level" },
-      { "cmd": "aep attest timestamp | chain", "desc": "Append a trusted timestamp / on-chain anchor" },
-      { "cmd": "aep export <file.aep>", "desc": "Export the package or convert to C2PA" },
-      { "cmd": "aep report", "desc": "Generate a structured audit report" }
+      { "cmd": "aep attest timestamp | chain", "desc": "Append a trusted timestamp / on-chain anchor" }
     ],
     "examplesTitle": "Code Examples",
     "docsTitle": "Documentation & Specifications",
