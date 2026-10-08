@@ -29,8 +29,8 @@ const emptyIcon: string[] = [];
 const iconFor = (index: number): string[] => icons[index] ?? emptyIcon;
 ---
 
-<!-- 核心落地应用场景：卡片网格（icon + 标题 + 描述，悬停上浮），整段铺浅色带 -->
-<section class="bg-[var(--bg-secondary)]">
+<!-- 核心落地应用场景：卡片网格（icon + 标题 + 描述，悬停上浮） -->
+<section>
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
     <SectionTitle title={t.useCases.title} subtitle={t.useCases.subtitle} align="center" />
 
